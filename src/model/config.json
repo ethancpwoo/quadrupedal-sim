@@ -1,7 +1,5 @@
 {
-    "documentId": "4abebb57aca591f245ad1cd5",
+    "documentId": "19ae09c2b1bdbb7b22f3b0ce",
     "outputFormat": "urdf",
-    "ONSHAPE_API": "https://cad.onshape.com",
-    "ONSHAPE_ACCESS_KEY": "54rYdikLRyz90SOKOQ1fSKU8",
-    "ONSHAPE_SECRET_KEY": "3i82A4DpIm8AJ20Xhx6AR3aKg73W9aTiT0drR094xC4prwU6"
+    "assemblyName": "robot"
 }

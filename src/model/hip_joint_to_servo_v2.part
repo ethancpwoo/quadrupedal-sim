@@ -1,0 +1,13 @@
+{
+    "configuration": "default",
+    "documentId": "19ae09c2b1bdbb7b22f3b0ce",
+    "documentMicroversion": "8167c752d6d130683d073e15",
+    "elementId": "3eb69fc8f69a2a0b12d2c313",
+    "fullConfiguration": "default",
+    "id": "MMnSoZgCW2sug4g6a",
+    "isStandardContent": false,
+    "name": "Hip Joint to Servo v2 <1>",
+    "partId": "KFjC",
+    "suppressed": false,
+    "type": "Part"
+}
