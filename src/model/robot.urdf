@@ -803,7 +803,7 @@
 <parent link="leftthigh" />
 <child link="leftfoot" />
 <axis xyz="0 0 1"/>
-<limit effort="1" velocity="20" lower="0.785398163397448279" upper="1.8325957145940461324"/>
+<limit effort="300" velocity="300" lower="0.785398163397448279" upper="1.8325957145940461324"/>
 <joint_properties friction="0.0"/>
 </joint>
 
@@ -812,7 +812,7 @@
 <parent link="lefthip" />
 <child link="leftthigh" />
 <axis xyz="0 0 1"/>
-<limit effort="1" velocity="20" lower="0.52359877559829881566" upper="1.3089969389957472057"/>
+<limit effort="300" velocity="300" lower="0.52359877559829881566" upper="1.3089969389957472057"/>
 <joint_properties friction="0.0"/>
 </joint>
 
@@ -821,7 +821,7 @@
 <parent link="chassis" />
 <child link="lefthip" />
 <axis xyz="0 0 1"/>
-<limit effort="1" velocity="20" lower="0" upper="0"/>
+<limit effort="300" velocity="300" lower="-1.0472" upper="1.0472"/>
 <joint_properties friction="0.0"/>
 </joint>
 
@@ -1199,7 +1199,7 @@
 <parent link="leftthigh_2" />
 <child link="leftfoot_2" />
 <axis xyz="0 0 1"/>
-<limit effort="1" velocity="20" lower="0.785398163397448279" upper="1.8325957145940461324"/>
+<limit effort="300" velocity="300" lower="0.785398163397448279" upper="1.8325957145940461324"/>
 <joint_properties friction="0.0"/>
 </joint>
 
@@ -1208,7 +1208,7 @@
 <parent link="lefthip_2" />
 <child link="leftthigh_2" />
 <axis xyz="0 0 1"/>
-<limit effort="1" velocity="20" lower="0.52359877559829881566" upper="1.3089969389957472057"/>
+<limit effort="300" velocity="300" lower="0.52359877559829881566" upper="1.3089969389957472057"/>
 <joint_properties friction="0.0"/>
 </joint>
 
@@ -1270,7 +1270,7 @@
 <parent link="lefthip_2" />
 <child link="leftfemur_2" />
 <axis xyz="0 0 1"/>
-<limit effort="1" velocity="20" />
+<limit effort="300" velocity="300" />
 <joint_properties friction="0.0"/>
 </joint>
 
@@ -1279,7 +1279,7 @@
 <parent link="chassis" />
 <child link="lefthip_2" />
 <axis xyz="0 0 1"/>
-<limit effort="1" velocity="20" lower="0" upper="0"/>
+<limit effort="300" velocity="300" lower="-1.0472" upper="1.0472"/>
 <joint_properties friction="0.0"/>
 </joint>
 
@@ -1642,7 +1642,7 @@
 <parent link="rightthigh" />
 <child link="rightfoot" />
 <axis xyz="0 0 1"/>
-<limit effort="1" velocity="20" lower="2.8797932657906435416" upper="3.926990816987241395"/>
+<limit effort="300" velocity="300" lower="2.8797932657906435416" upper="3.926990816987241395"/>
 <joint_properties friction="0.0"/>
 </joint>
 
@@ -1651,7 +1651,7 @@
 <parent link="righthip" />
 <child link="rightthigh" />
 <axis xyz="0 0 1"/>
-<limit effort="1" velocity="20" lower="1.8325957145940461324" upper="2.6179938779914944114"/>
+<limit effort="300" velocity="300" lower="1.8325957145940461324" upper="2.6179938779914944114"/>
 <joint_properties friction="0.0"/>
 </joint>
 
@@ -1713,7 +1713,7 @@
 <parent link="righthip" />
 <child link="leftfemur_3" />
 <axis xyz="0 0 1"/>
-<limit effort="1" velocity="20" />
+<limit effort="300" velocity="300" />
 <joint_properties friction="0.0"/>
 </joint>
 
@@ -1722,7 +1722,7 @@
 <parent link="chassis" />
 <child link="righthip" />
 <axis xyz="0 0 1"/>
-<limit effort="100" velocity="100" lower="-1.0472" upper="1.0472"/>
+<limit effort="300" velocity="300" lower="-1.0472" upper="1.0472"/>
 <joint_properties friction="0.0"/>
 </joint>
 
@@ -2085,7 +2085,7 @@
 <parent link="rightthigh_2" />
 <child link="rightfoot_2" />
 <axis xyz="0 0 1"/>
-<limit effort="1" velocity="20" lower="2.8797932657906435416" upper="3.926990816987241395"/>
+<limit effort="300" velocity="300" lower="2.8797932657906435416" upper="3.926990816987241395"/>
 <joint_properties friction="0.0"/>
 </joint>
 
@@ -2094,7 +2094,7 @@
 <parent link="righthip_2" />
 <child link="rightthigh_2" />
 <axis xyz="0 0 1"/>
-<limit effort="1" velocity="20" lower="0.52359877559829881566" upper="1.3089969389957472057"/>
+<limit effort="300" velocity="300" lower="0.52359877559829881566" upper="1.3089969389957472057"/>
 <joint_properties friction="0.0"/>
 </joint>
 
@@ -2156,7 +2156,7 @@
 <parent link="righthip_2" />
 <child link="leftfemur_4" />
 <axis xyz="0 0 1"/>
-<limit effort="1" velocity="20" />
+<limit effort="300" velocity="300" />
 <joint_properties friction="0.0"/>
 </joint>
 
@@ -2165,7 +2165,7 @@
 <parent link="chassis" />
 <child link="righthip_2" />
 <axis xyz="0 0 1"/>
-<limit effort="1" velocity="20" lower="0" upper="0"/>
+<limit effort="300" velocity="300" lower="-1.0472" upper="1.0472"/>
 <joint_properties friction="0.0"/>
 </joint>
 
