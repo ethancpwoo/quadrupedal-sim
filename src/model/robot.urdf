@@ -1722,7 +1722,7 @@
 <parent link="chassis" />
 <child link="righthip" />
 <axis xyz="0 0 1"/>
-<limit effort="1" velocity="20" lower="0" upper="0"/>
+<limit effort="100" velocity="100" lower="-1.0472" upper="1.0472"/>
 <joint_properties friction="0.0"/>
 </joint>
 
