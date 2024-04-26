@@ -28,33 +28,17 @@ p.resetDebugVisualizerCamera(cameraDistance=0.2, cameraYaw=-60, cameraPitch=-35,
 
 mode = p.POSITION_CONTROL
 pos_array = [0, 2, 3, 4, 5, 6, 8, 9 ,10, 12, 13, 14]
-lower_lims = [p.getJointInfo(robot, x)[8] for x in range(len(pos_array))]
-upper_lims = [p.getJointInfo(robot, x)[9] for x in range(len(pos_array))]
-
-print(len(pos_array))
-print(len(lower_lims))
-print(len(upper_lims))
-
-# front_left_hip_joint = p.getJointInfo(robot, 0)
-# front_left_foot_joint = p.getJointInfo(robot, 3)
-# front_left_thigh_joint = p.getJointInfo(robot, 2)
-# back_left_hip_joint = p.getJointInfo(robot, 4)
-# back_left_thigh_joint = p.getJointInfo(robot, 5)
-# back_left_foot_joint = p.getJointInfo(robot, 6)
-# front_right_hip_joint = p.getJointInfo(robot, 8)
-# front_right_thigh_joint = p.getJointInfo(robot, 9)
-# front_right_foot_joint = p.getJointInfo(robot, 10)
-# back_right_hip_joint = p.getJointInfo(robot, 12)
-# back_right_thigh_joint = p.getJointInfo(robot, 13)
-# back_right_foot_joint = p.getJointInfo(robot, 14)
+lower_lims = [p.getJointInfo(robot, x)[8] for x in pos_array]
+upper_lims = [p.getJointInfo(robot, x)[9] for x in pos_array]
+flexed = [1.0472 for x in range(len(pos_array))]
 
 #set the center of mass frame (loadURDF sets base link frame) startPos/Ornp.resetBasePositionAndOrientation(boxId, startPos, startOrientation)
-for i in range (1000):
-    positions = []
-    for i in range(len(pos_array)):
-        positions.append(np.random.uniform(lower_lims[i], upper_lims[i]))
+while True:
+    # positions = []
+    # for i in range(len(pos_array)):
+    #     positions.append(np.random.uniform(lower_lims[i], upper_lims[i]))
 
-    p.setJointMotorControlArray(robot, pos_array, controlMode=mode, targetPositions=positions)
+    p.setJointMotorControlArray(robot, pos_array, controlMode=mode, targetPositions=flexed)
     p.stepSimulation()
     time.sleep(1./240.)
 
