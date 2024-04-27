@@ -31,14 +31,15 @@ pos_array = [0, 2, 3, 4, 5, 6, 8, 9 ,10, 12, 13, 14]
 lower_lims = [p.getJointInfo(robot, x)[8] for x in pos_array]
 upper_lims = [p.getJointInfo(robot, x)[9] for x in pos_array]
 flexed = [1.0472 for x in range(len(pos_array))]
+relaxed = [-1.0472 for x in range(len(pos_array))]
 
 #set the center of mass frame (loadURDF sets base link frame) startPos/Ornp.resetBasePositionAndOrientation(boxId, startPos, startOrientation)
 while True:
-    # positions = []
-    # for i in range(len(pos_array)):
-    #     positions.append(np.random.uniform(lower_lims[i], upper_lims[i]))
+    tweaking = []
+    for i in range(len(pos_array)):
+        tweaking.append(np.random.uniform(lower_lims[i], upper_lims[i]))
 
-    p.setJointMotorControlArray(robot, pos_array, controlMode=mode, targetPositions=flexed)
+    p.setJointMotorControlArray(robot, pos_array, controlMode=mode, targetPositions=tweaking)
     p.stepSimulation()
     time.sleep(1./240.)
 

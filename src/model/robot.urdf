@@ -713,15 +713,6 @@
 </inertial>
 </link>
 
-<joint name="femur_leftfront" type="revolute">
-<origin xyz="-0.024650000000001406897 0.019549368670763487416 -0.011775631329240969503" rpy="1.570796326795334874 -0.66646697390099118863 -1.5707963267951601249" />
-<parent link="lefthip" />
-<child link="leftfemur" />
-<axis xyz="0 0 1"/>
-<limit effort="1" velocity="20" />
-<joint_properties friction="0.0"/>
-</joint>
-
 <link name="leftthigh">
 <visual>
 <origin xyz="0 -3.4694469519536141888e-18 -0.0069999999999999992784" rpy="-6.6055504878560520827e-30 6.2425541518460372563e-30 -2.5408264050719269255e-17" />
@@ -1265,15 +1256,6 @@
 </inertial>
 </link>
 
-<joint name="femur_leftback" type="revolute">
-<origin xyz="-0.024650000000000477085 0.019549368670763501293 -0.011775631329240782152" rpy="1.5707963267953368725 -0.67051192598255138222 -1.5707963267951625674" />
-<parent link="lefthip_2" />
-<child link="leftfemur_2" />
-<axis xyz="0 0 1"/>
-<limit effort="300" velocity="300" />
-<joint_properties friction="0.0"/>
-</joint>
-
 <joint name="backlefthip" type="revolute">
 <origin xyz="0.036800000000000568368 0.15150000000000005129 -0.00047047612756297499392" rpy="1.570796326794896558 -1.0648674274956604569e-16 3.141592653589793116" />
 <parent link="chassis" />
@@ -1707,15 +1689,6 @@
 <inertia ixx="2.3153914212895976553e-08" ixy="-7.3509510903750770154e-09"  ixz="5.2939533879365728792e-21" iyy="2.7100368005617489404e-07" iyz="-2.7298176281766856058e-21" izz="2.9302349553648826055e-07" />
 </inertial>
 </link>
-
-<joint name="femur_frontright" type="revolute">
-<origin xyz="-0.024642932224072704173 -0.019813232385325556251 -0.013275631329226038335" rpy="-1.5707963267948990005 -0.68346821395421664125 1.5707963267948936714" />
-<parent link="righthip" />
-<child link="leftfemur_3" />
-<axis xyz="0 0 1"/>
-<limit effort="300" velocity="300" />
-<joint_properties friction="0.0"/>
-</joint>
 
 <joint name="frontrighthip" type="revolute">
 <origin xyz="-0.036799999999999541411 0.056500000000000057121 -7.047612756298749729e-05" rpy="-1.570796326794896336 -1.732338231197280609e-15 -4.9961410333088865119e-16" />
@@ -2151,21 +2124,44 @@
 </inertial>
 </link>
 
-<joint name="femur_backright" type="revolute">
-<origin xyz="-0.024642932224073363368 -0.019813232385326031565 -0.013275631329225989763" rpy="-1.5707963267948987784 -0.69825389664490622454 1.5707963267948938935" />
-<parent link="righthip_2" />
-<child link="leftfemur_4" />
-<axis xyz="0 0 1"/>
-<limit effort="300" velocity="300" />
-<joint_properties friction="0.0"/>
-</joint>
-
 <joint name="backrighthip" type="revolute">
 <origin xyz="-0.036799999999999492839 0.15150000000000002354 -7.0476127562964105628e-05" rpy="-1.570796326794896336 -4.1633363423443277821e-17 -1.2972374029647262691e-15" />
 <parent link="chassis" />
 <child link="righthip_2" />
 <axis xyz="0 0 1"/>
 <limit effort="300" velocity="300" lower="-1.0472" upper="1.0472"/>
+<joint_properties friction="0.0"/>
+</joint>
+
+<joint name="femur_backright" type="fixed">
+<origin xyz="-0.024642932224073363368 -0.019813232385326031565 -0.013275631329225989763" rpy="-1.5707963267948987784 -0.69825389664490622454 1.5707963267948938935" />
+<parent link="righthip_2" />
+<child link="leftfemur_4" />
+<axis xyz="0 0 1"/>
+<joint_properties friction="0.0"/>
+</joint>
+
+<joint name="femur_leftfront" type="fixed">
+<origin xyz="-0.024650000000001406897 0.019549368670763487416 -0.011775631329240969503" rpy="1.570796326795334874 -0.66646697390099118863 -1.5707963267951601249" />
+<parent link="lefthip" />
+<child link="leftfemur" />
+<axis xyz="0 0 1"/>
+<joint_properties friction="0.0"/>
+</joint>
+
+<joint name="femur_leftback" type="fixed">
+<origin xyz="-0.024650000000000477085 0.019549368670763501293 -0.011775631329240782152" rpy="1.5707963267953368725 -0.67051192598255138222 -1.5707963267951625674" />
+<parent link="lefthip_2" />
+<child link="leftfemur_2" />
+<axis xyz="0 0 1"/>
+<joint_properties friction="0.0"/>
+</joint>
+
+<joint name="femur_frontright" type="fixed">
+<origin xyz="-0.024642932224072704173 -0.019813232385325556251 -0.013275631329226038335" rpy="-1.5707963267948990005 -0.68346821395421664125 1.5707963267948936714" />
+<parent link="righthip" />
+<child link="leftfemur_3" />
+<axis xyz="0 0 1"/>
 <joint_properties friction="0.0"/>
 </joint>
 
