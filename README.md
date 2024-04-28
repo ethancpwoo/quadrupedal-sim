@@ -30,11 +30,11 @@ $`\ Pitch\:Reward = -0.01 * |Pitch| `$
 
 $`\ Velocity\:Reward = 0.05 * V_x `$
 
-$`\ X_pos\:Reward = 0.05 * (x - x_{last}) `$
+$`\ X_{pos}\:Reward = 0.05 * (x - x_{last}) `$
 
-$`\ Y_pos\:Reward = -0.01 * |y - y_{last}| `$
+$`\ Y_{pos}\:Reward = -0.01 * |y - y_{last}| `$
 
-$`\ Z_pos\:Reward = -0.01 * |z - z_{last}| `$
+$`\ Z_{pos}\:Reward = -0.01 * |z - z_{last}| `$
 
 ## Running
 
