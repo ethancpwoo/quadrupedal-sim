@@ -22,19 +22,19 @@ Agent will be provided chassis velocity, position and RPY. Agent will generate a
 
 # Reward Values
 
-$`\ Yaw-Reward = -0.01 * |Yaw| `$
+$`\ Yaw\:Reward = -0.01 * |Yaw| `$
 
-$`\ Roll-Reward = -0.01 * |Roll| `$
+$`\ Roll\:Reward = -0.01 * |Roll| `$
 
-$`\ Pitch-Reward = -0.01 * |Pitch| `$
+$`\ Pitch\:Reward = -0.01 * |Pitch| `$
 
-$`\ Velocity-Reward = 0.05 * V_x `$
+$`\ Velocity\:Reward = 0.05 * V_x `$
 
-$`\ X_pos-Reward = 0.05 * (x - x_(last)) `$
+$`\ X_pos\:Reward = 0.05 * (x - x_{last}) `$
 
-$`\ Y_pos-Reward = -0.01 * |y - y_(last)| `$
+$`\ Y_pos\:Reward = -0.01 * |y - y_{last}| `$
 
-$`\ Z_pos-Reward = -0.01 * |z - z_(last)| `$
+$`\ Z_pos\:Reward = -0.01 * |z - z_{last}| `$
 
 ## Running
 
