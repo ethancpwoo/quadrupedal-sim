@@ -10,9 +10,9 @@ p.setAdditionalSearchPath(pybullet_data.getDataPath()) #optionally
 p.setGravity(0,0,-9.81)
 
 planeId = p.loadURDF("plane.urdf")
-startPos = [0,0,0]
+startPos = [0.0, 0, 0.0585]
 startOrientation = p.getQuaternionFromEuler([0,0,0])
-robot = p.loadURDF("/model/robot.urdf",startPos, startOrientation)
+robot = p.loadURDF("/model/robot.urdf", startPos, startOrientation)
 
 # numJoints = p.getNumJoints(robot)
 # print(numJoints) 
@@ -33,14 +33,20 @@ upper_lims = [p.getJointInfo(robot, x)[9] for x in pos_array]
 flexed = [1.0472 for x in range(len(pos_array))]
 relaxed = [-1.0472 for x in range(len(pos_array))]
 
-#set the center of mass frame (loadURDF sets base link frame) startPos/Ornp.resetBasePositionAndOrientation(boxId, startPos, startOrientation)
-while True:
-    tweaking = []
-    for i in range(len(pos_array)):
-        tweaking.append(np.random.uniform(lower_lims[i], upper_lims[i]))
+tweaking = []
+for i in range(len(pos_array)):
+    tweaking.append(np.random.uniform(lower_lims[i], upper_lims[i]))
 
-    p.setJointMotorControlArray(robot, pos_array, controlMode=mode, targetPositions=tweaking)
+#set the center of mass frame (loadURDF sets base link frame) startPos/Ornp.resetBasePositionAndOrientation(boxId, startPos, startOrientation)
+p.setJointMotorControlArray(robot, pos_array, controlMode=mode, targetPositions=tweaking)
+for i in range(100):
+    # tweaking = []
+    # for i in range(len(pos_array)):
+    #     tweaking.append(np.random.uniform(lower_lims[i], upper_lims[i]))
+    
     p.stepSimulation()
+    print(p.getEulerFromQuaternion(p.getBasePositionAndOrientation(robot)[1]))
+    #print(p.getBaseVelocity(robot)[0][0])
     time.sleep(1./240.)
 
 chassisPos, chassisOrn = p.getBasePositionAndOrientation(robot)
