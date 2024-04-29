@@ -9,8 +9,9 @@ class QuadrupedEnv(gym.Env):
 
     def __init__(self, render_mode=None):
         self.init_pybullet()
+        self.observations = []
         self.step_count = 0 #initialize for stepping the training
-        
+        self.done = False
         self.observation_space = spaces.Dict(
             {
                 "velocity": spaces.Box(dtype=np.float32),
@@ -30,7 +31,7 @@ class QuadrupedEnv(gym.Env):
 
         startPos = [0, 0, 0.0585]
         startOrientation = p.getQuaternionFromEuler([0,0,0])
-        self.robot = p.loadURDF("/model/robot.urdf", startPos, startOrientation)
+        self.robot = p.loadURDF("/robot/robot.urdf", startPos, startOrientation)
 
         self.mode = p.POSITION_CONTROL
         self.pos_array = [0, 2, 3, 4, 5, 6, 8, 9 ,10, 12, 13, 14]
@@ -40,6 +41,11 @@ class QuadrupedEnv(gym.Env):
     def reset(self):
         p.disconnect()
         self.step_count = 0
+        self.done = False
+        
+        for i in self.pos_array:
+            self.observations.append(np.array(p.getLinkStates()[i][2]).flatten)
+
     
     def step(self, action):
         initPos = p.getBasePositionAndOrientation(self.robot)
@@ -47,7 +53,7 @@ class QuadrupedEnv(gym.Env):
 
         p.setJointMotorControlArray(self.robot, self.pos_array, self.mode, action)
 
-        for i in range(50):
+        for i in range(60):
             p.stepSimulation()
             time.sleep(1./240.)
 
@@ -55,7 +61,7 @@ class QuadrupedEnv(gym.Env):
         deltaPos = p.getBasePositionAndOrientation(self.robot)
 
         delta_ypos = deltaPos[0][1]
-        diff = abs(deltaPos - initPos)
+        diff = abs(delta_ypos - init_ypos)
 
         rotations = np.array(abs(deltaPos[1]))
         
@@ -65,5 +71,8 @@ class QuadrupedEnv(gym.Env):
 
         self.step_count += 1
 
-        return reward
+        if self.step_count == 40:
+            self.done = True
+
+        return reward, self.done
 

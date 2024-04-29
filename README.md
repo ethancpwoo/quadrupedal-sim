@@ -18,7 +18,7 @@ Based off articles from [OpenAI](https://spinningup.openai.com/en/latest/spinnin
 
 ## Training Process
 
-Agent will be provided chassis velocity, position and RPY. Agent will generate action consisting of position control values for each DOF every 60 timesteps or every .25 seconds. Simulation will reset every 10 seconds and gradient will be updated after 100 trials. 
+Agent will be provided chassis velocity, position and RPY. Agent will generate action consisting of position control values for each DOF every 60 timesteps or every .25 seconds. Simulation will reset every 10 seconds (each episode is 10 seconds) and gradient will be updated after 100 episodes.
 
 # Reward Values
 
