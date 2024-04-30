@@ -9,7 +9,6 @@ class QuadrupedEnv(gym.Env):
 
     def __init__(self, render_mode=None):
         self.init_pybullet()
-        self.observations = []
         self.step_count = 0 #initialize for stepping the training
         self.done = False
         self.observation_space = spaces.Dict(
@@ -38,14 +37,25 @@ class QuadrupedEnv(gym.Env):
         self.lower_lims = [p.getJointInfo(self.robot, x)[8] for x in self.pos_array]
         self.upper_lims = [p.getJointInfo(self.robot, x)[9] for x in self.pos_array]
     
+    def _get_obs(self):
+        obs = []
+
+        state = p.getLinkStates(self.robot, self.pos_array)
+        for i in self.pos_array:
+            obs.append(state[i][2])
+            obs.append(state[i][3])
+        obs = np.array(obs, dtype=np.float32).flatten()
+
+        obs = np.append(obs, p.getEulerFromQuaternion(p.getBasePositionAndOrientation(self.robot)[1]))
+
+        return obs
+
     def reset(self):
         p.disconnect()
         self.step_count = 0
         self.done = False
-        
-        for i in self.pos_array:
-            self.observations.append(np.array(p.getLinkStates()[i][2]).flatten)
-
+        observation = self._get_obs()
+        return observation
     
     def step(self, action):
         initPos = p.getBasePositionAndOrientation(self.robot)
@@ -74,5 +84,7 @@ class QuadrupedEnv(gym.Env):
         if self.step_count == 40:
             self.done = True
 
-        return reward, self.done
+        observation = self._get_obs()
+
+        return observation, reward, self.done
 
