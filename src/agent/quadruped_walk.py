@@ -35,6 +35,15 @@ class Agent(nn.Module):
         x = self.probs(x)
 
         return F.softmax(x, dim=1)
+    
+    def get_action(self, state):
+        state = torch.from_numpy(state).float()
+        probs = self.forward(state)
+
+        highest_probability_action = np.random.choice()
+        log_prob = torch.log(probs.squeeze(0))
+
+        return highest_probability_action, log_prob
 
 def update_agent(agent, rewards, log_probs):
     drs = []
@@ -60,8 +69,17 @@ def update_agent(agent, rewards, log_probs):
     agent.optimizer.step()
 
 env = QuadrupedEnv()
-obs = env.reset()
-training = True
 agent = Agent()
 
-while training:
+max_episodes = 10
+
+obs = env.reset()
+training = True
+
+for episode in range(max_episodes):
+    obs = env.reset()
+    log_probs = []
+    rewards = []
+
+    while True: 
+        action, log_probs = 
