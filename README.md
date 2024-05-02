@@ -23,6 +23,8 @@ or
 [stack](https://stackoverflow.com/questions/43881897/what-is-the-policy-gradient-when-multiple-actions-are-possible)
 [hk_ddpg](https://yanpanlau.github.io/2016/10/11/Torcs-Keras.html)
 
+[PPO](https://www.reddit.com/r/reinforcementlearning/comments/o5o0b7/agent_taking_multiple_actions/), [otherPPO](https://www.oaepublish.com/articles/ir.2022.20) 
+
 Based off articles from [OpenAI](https://spinningup.openai.com/en/latest/spinningup/rl_intro3.html) and [Andrei Karpathy](https://karpathy.github.io/2016/05/31/rl/). Research from [Baeldung](https://www.baeldung.com/cs/rl-deterministic-vs-stochastic-policies#:~:text=The%20primary%20difference%20between%20a,over%20actions%20for%20each%20state.)
 
 ## Training Process
