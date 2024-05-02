@@ -21,6 +21,7 @@ Problem encountered was the fact that most PGs are essentially Markov Chains whi
 or 
 [git](https://pemami4911.github.io/blog/2016/08/21/ddpg-rl.html#References)
 [stack](https://stackoverflow.com/questions/43881897/what-is-the-policy-gradient-when-multiple-actions-are-possible)
+[hk_ddpg](https://yanpanlau.github.io/2016/10/11/Torcs-Keras.html)
 
 Based off articles from [OpenAI](https://spinningup.openai.com/en/latest/spinningup/rl_intro3.html) and [Andrei Karpathy](https://karpathy.github.io/2016/05/31/rl/). Research from [Baeldung](https://www.baeldung.com/cs/rl-deterministic-vs-stochastic-policies#:~:text=The%20primary%20difference%20between%20a,over%20actions%20for%20each%20state.)
 
