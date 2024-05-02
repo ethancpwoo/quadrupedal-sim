@@ -1,6 +1,7 @@
 import gymnasium as gym
 import numpy as np
 import pybullet as p
+import pybullet_data
 import time
 
 from gymnasium import spaces
@@ -13,45 +14,48 @@ class QuadrupedEnv(gym.Env):
         self.done = False
         self.observation_space = spaces.Dict(
             {
-                "velocity": spaces.Box(dtype=np.float32),
-                "position": spaces.Box(dtype=np.float32),
-                "RPY": spaces.Box(shape=(3,), dtype=np.float32)
+                "velocity": spaces.Box(dtype=np.float32, low=-100, high=100),
+                "position": spaces.Box(dtype=np.float32, low=-100, high=100),
+                "RPY": spaces.Box(shape=(3,), dtype=np.float32, low=-100, high=100)
             }
         )
 
-        self.action_space = spaces.Box(shape=(12,), dtype=np.float32)
+        self.action_space = spaces.Box(shape=(12,), dtype=np.float32, low=-100, high=100)
 
     def init_pybullet(self):
         p.connect(p.DIRECT)
         p.resetSimulation()
+        p.setAdditionalSearchPath(pybullet_data.getDataPath())
         p.setGravity(0, 0, -9.81)
         p.loadURDF("plane.urdf")
         p.resetDebugVisualizerCamera(cameraDistance=0.2, cameraYaw=-60, cameraPitch=-35, cameraTargetPosition=[-0.1,0,0])
 
         startPos = [0, 0, 0.0585]
         startOrientation = p.getQuaternionFromEuler([0,0,0])
-        self.robot = p.loadURDF("/robot/robot.urdf", startPos, startOrientation)
+        self.robot = p.loadURDF("../robot/robot.urdf", startPos, startOrientation)
 
         self.mode = p.POSITION_CONTROL
         self.pos_array = [0, 2, 3, 4, 5, 6, 8, 9 ,10, 12, 13, 14]
         self.lower_lims = [p.getJointInfo(self.robot, x)[8] for x in self.pos_array]
         self.upper_lims = [p.getJointInfo(self.robot, x)[9] for x in self.pos_array]
+
+        self.start_state = p.saveState()
     
     def _get_obs(self):
-        obs = []
 
+        obs = np.array([])
         state = p.getLinkStates(self.robot, self.pos_array)
-        for i in self.pos_array:
-            obs.append(state[i][2])
-            obs.append(state[i][3])
-        obs = np.array(obs, dtype=np.float32).flatten()
+        for i in range(len(self.pos_array)):
+            obs = np.append(obs, np.array(state[i][2]).flatten())
+            obs = np.append(obs, np.array(p.getEulerFromQuaternion(state[i][3])).flatten())
 
         obs = np.append(obs, p.getEulerFromQuaternion(p.getBasePositionAndOrientation(self.robot)[1]))
+        obs = obs.flatten()
 
         return obs
 
     def reset(self):
-        p.disconnect()
+        p.restoreState(stateId=self.start_state)
         self.step_count = 0
         self.done = False
         observation = self._get_obs()
@@ -60,6 +64,9 @@ class QuadrupedEnv(gym.Env):
     def step(self, action):
         initPos = p.getBasePositionAndOrientation(self.robot)
         init_ypos = initPos[0][1]
+
+        print(action)
+        print(self.pos_array)
 
         p.setJointMotorControlArray(self.robot, self.pos_array, self.mode, action)
 
