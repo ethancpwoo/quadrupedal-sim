@@ -14,7 +14,15 @@ Reward function will be based on the position of the chassis. Unlike the Solo12 
 
 Model-Free learning, using Policy Gradient for direct optimazation of walking the quadruped. Stochastic Policy to capture uncertainty of realistic walking.
 
-Problem encountered was the fact that most PGs are essentially Markov Chains which will end up having only 1 probabilistic action. This is the curse of dimensionality problem and one of the first problems I am running into. Multiple approaches can be taken to get a 12-continous action space from the internet. DDPG and Hierachal Policy Gradients are popular approaches to solve this problem. [Starcraft 2]{https://arxiv.org/abs/1708.04782} agent uses A3C, which can also handle large action spaces and has an incredibly complex agent structure. Definietly going with DDPG structure, try to implement by may 4th to 5th. 
+## Encountered Problem Log
+
+1) Problem encountered was the fact that most PGs are essentially Markov Chains which will end up having only 1 probabilistic action. Vanilla Policy Gradients and the REINFORCE algorithm are simple on-policy algorithms. Probabilities for each action is generated from the agent and the action with the highest probability is selected. This is insufficient for the robot as position values are required + deterministic action.
+
+Multiple approaches can be taken to get a 12-continous action space from the internet. DDPG and Hierachal Policy Gradients are popular approaches to solve this problem. (Starcraft 2){https://arxiv.org/abs/1708.04782} agent uses A3C, which can also handle large action spaces and has an incredibly complex agent structure. 
+
+2) Curse of dimensionality for this problem as well. Is a 12-continuous action space sufficient? 
+
+# Resources:
 
 [reddit](https://www.reddit.com/r/MachineLearning/comments/9z8tok/d_reinforcement_learning_with_multiple/)
 
