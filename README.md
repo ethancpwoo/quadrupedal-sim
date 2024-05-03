@@ -14,7 +14,7 @@ Reward function will be based on the position of the chassis. Unlike the Solo12 
 
 Model-Free learning, using Policy Gradient for direct optimazation of walking the quadruped. Stochastic Policy to capture uncertainty of realistic walking.
 
-Problem encountered was the fact that most PGs are essentially Markov Chains which will end up having only 1 probabilistic action. This is the curse of dimensionality problem and one of the first problems I am running into. Multiple approaches can be taken to get a 12-continous action space from the internet. DDPG and Hierachal Policy Gradients are popular approaches to solve this problem. [Starcraft 2]{https://arxiv.org/abs/1708.04782} agent uses A3C, which can also handle large action spaces and has an incredibly complex agent structure. 
+Problem encountered was the fact that most PGs are essentially Markov Chains which will end up having only 1 probabilistic action. This is the curse of dimensionality problem and one of the first problems I am running into. Multiple approaches can be taken to get a 12-continous action space from the internet. DDPG and Hierachal Policy Gradients are popular approaches to solve this problem. [Starcraft 2]{https://arxiv.org/abs/1708.04782} agent uses A3C, which can also handle large action spaces and has an incredibly complex agent structure. Definietly going with DDPG structure, try to implement by may 4th to 5th. 
 
 [reddit](https://www.reddit.com/r/MachineLearning/comments/9z8tok/d_reinforcement_learning_with_multiple/)
 
@@ -22,8 +22,7 @@ or
 [git](https://pemami4911.github.io/blog/2016/08/21/ddpg-rl.html#References)
 [stack](https://stackoverflow.com/questions/43881897/what-is-the-policy-gradient-when-multiple-actions-are-possible)
 [hk_ddpg](https://yanpanlau.github.io/2016/10/11/Torcs-Keras.html)
-
-[PPO](https://www.reddit.com/r/reinforcementlearning/comments/o5o0b7/agent_taking_multiple_actions/), [otherPPO](https://www.oaepublish.com/articles/ir.2022.20) 
+[ddg_blog](https://pemami4911.github.io/blog/2016/08/21/ddpg-rl.html#References)
 
 Based off articles from [OpenAI](https://spinningup.openai.com/en/latest/spinningup/rl_intro3.html) and [Andrei Karpathy](https://karpathy.github.io/2016/05/31/rl/). Research from [Baeldung](https://www.baeldung.com/cs/rl-deterministic-vs-stochastic-policies#:~:text=The%20primary%20difference%20between%20a,over%20actions%20for%20each%20state.)
 
