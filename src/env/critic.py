@@ -34,9 +34,13 @@ class Critic(nn.Module):
 
         return x
     
-    def train(self, q_values, reward):
+    def train(self, state_batch, action_batch, q_values):
+        state_batch = torch.Tensor(state_batch)
+        action_batch = torch.Tensor(action_batch)
+        q_batch = torch.concat(state_batch, action_batch)
+
         self.zero_grad()
-        loss = self.loss(q_values, reward)
+        loss = self.loss(q_batch, q_values)
         loss.backward()
         self.optimizer.step()
 

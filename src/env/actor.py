@@ -23,11 +23,10 @@ class Actor(nn.Module):
         x = F.relu(x)
         x = self.actions(x)
 
-        return F.tanh(x, dim=0)
+        return F.tanh(x)
 
     def train(self, critic_out):
         self.zero_grad()
-
         critic_grad = critic_out.mean()
         critic_grad.backward()
         self.optimizer.step()

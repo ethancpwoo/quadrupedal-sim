@@ -80,11 +80,11 @@ class QuadrupedEnv(gym.Env):
         delta_ypos = deltaPos[0][1]
         diff = abs(delta_ypos - init_ypos)
 
-        rotations = np.array(abs(deltaPos[1]))
+        rotations = np.array(deltaPos[1])
         
         reward = 0.05 if velocity > 0.1 else 0
         reward += 0.05 if diff > 0.05 else 0
-        reward += -0.01 if np.any(rotations > 0.1) else 0
+        reward += -0.01 if np.any(rotations > 0.1) or np.any(rotations < 0.1) else 0
 
         self.step_count += 1
 
