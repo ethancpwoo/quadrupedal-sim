@@ -14,10 +14,10 @@ startPos = [0.0, 0, 0.0585]
 startOrientation = p.getQuaternionFromEuler([0,0,0])
 robot = p.loadURDF("../robot/robot.urdf", startPos, startOrientation)
 
-# numJoints = p.getNumJoints(robot)
-# print(numJoints) 
-# for i in range(numJoints):
-#     print(p.getJointInfo(robot, i))
+numJoints = p.getNumJoints(robot)
+print(numJoints) 
+for i in range(numJoints):
+    print(p.getJointInfo(robot, i))
 
 # cam = p.getDebugVisualizerCamera()
 # print(cam[8])
