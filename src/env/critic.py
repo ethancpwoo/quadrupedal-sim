@@ -18,7 +18,7 @@ class Critic(nn.Module):
         self.actions = nn.Linear(115, 12)
         self.learning_rate = 3e-4
         self.optimizer = torch.optim.AdamW(self.parameters(), lr=self.learning_rate)
-        self.loss = nn.CrossEntropyLoss()
+        self.loss = nn.MSELoss()
     
     def forward(self, states, actions):
         states = self.fc_states(states)
@@ -37,7 +37,10 @@ class Critic(nn.Module):
     def train(self, state_batch, action_batch, q_values):
         state_batch = torch.Tensor(state_batch)
         action_batch = torch.Tensor(action_batch)
-        q_batch = torch.concat(state_batch, action_batch)
+
+        print(state_batch)
+        print(action_batch)
+        q_batch = self(state_batch, action_batch)
 
         self.zero_grad()
         loss = self.loss(q_batch, q_values)
