@@ -23,7 +23,7 @@ class QuadrupedEnv(gym.Env):
         self.action_space = spaces.Box(shape=(12,), dtype=np.float32, low=-100, high=100)
 
     def init_pybullet(self):
-        p.connect(p.DIRECT)
+        p.connect(p.DIRECT) # p.GUI for graphical
         p.resetSimulation()
         p.setAdditionalSearchPath(pybullet_data.getDataPath())
         p.setGravity(0, 0, -9.81)
@@ -65,14 +65,11 @@ class QuadrupedEnv(gym.Env):
         initPos = p.getBasePositionAndOrientation(self.robot)
         init_ypos = initPos[0][1]
 
-        print(action)
-        print(self.pos_array)
-
         p.setJointMotorControlArray(self.robot, self.pos_array, self.mode, action)
 
         for i in range(60):
             p.stepSimulation()
-            time.sleep(1./240.)
+            #time.sleep(1/240)
 
         velocity = p.getBaseVelocity(self.robot)[0][1]
         deltaPos = p.getBasePositionAndOrientation(self.robot)

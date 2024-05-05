@@ -11,18 +11,21 @@ from utils.replayBuffer import ReplayBuffer
 from tqdm import tqdm
 
 
-device = 'cuda' if torch.cuda.is_available() else 'cpu'
+device = "cuda:0" if torch.cuda.is_available() else 'cpu'
 
 # ==============================================================
 
 MAX_EPISODES = 1
-BATCH_SIZE = 32
+BATCH_SIZE = 41
 GAMMA = 0.99
+BUFFER_SIZE = 100000
 
 env = QuadrupedEnv()
 actor = Actor()
 critic = Critic()
-buff = ReplayBuffer(MAX_EPISODES)
+actor = actor.to(device=device)
+critic = critic.to(device=device)
+buff = ReplayBuffer(BUFFER_SIZE)
 
 training = True
 
@@ -30,23 +33,27 @@ training = True
 
 for episode in range(MAX_EPISODES):
     obs = env.reset()
-    obs = torch.Tensor(obs)
     cur_state = obs
+    obs = torch.Tensor(obs).cuda()
 
     while True: 
         loss = 0
 
         action = actor(obs)
-        action = action.detach().numpy()
+        action = action.cpu().detach().numpy()
         # should add OU noise for each action for exploration
+        # print('action: \n')
+        # print(action)
         obs, reward, done = env.step(action=action)
         
         # should add replay buffer for random sampling of critic
         new_state = obs
-        obs = torch.Tensor(obs)
+        obs = torch.Tensor(obs).cuda()
+
         buff.add(cur_state, action, reward, new_state, done)
-        
+
         batch = buff.get_batch(BATCH_SIZE)
+        
         states = np.asarray([x[0] for x in batch])
         actions = np.asarray([x[1] for x in batch])
         rewards = np.asarray([x[2] for x in batch])
@@ -56,27 +63,34 @@ for episode in range(MAX_EPISODES):
 
         # pass new_states, and actor prediction from new_states, should be the target critic network
         new_states = torch.from_numpy(new_states)
-        new_states = new_states.to(torch.float32)
+        new_states = new_states.to(torch.float32).cuda()
         target_q_values = critic(new_states, actor(new_states))
-        target_q_values = target_q_values.detach().numpy()
+        target_q_values = target_q_values.cpu().detach().numpy().flatten()
+
+        # print(rewards)
+        # print(target_q_values)
 
         for i in range(len(batch)):
             if dones[i]:
                 new_q_batch.append(rewards[i])
             else:
                 new_q_batch.append(rewards[i] + GAMMA*target_q_values[i])
-            new_q_batch = torch.Tensor(new_q_batch)
+        
+        # print(new_q_batch)
+
+        new_q_batch = np.array(new_q_batch)
+        new_q_batch = torch.from_numpy(new_q_batch).to(torch.float32).cuda()
 
         if training:
             critic.train(states, actions, new_q_batch)
 
-            states = torch.Tensor(states)
+            states = torch.Tensor(states).cuda()
             critic_out = -critic(states, actor(states))
 
             actor.train(critic_out)
 
             # weights into targets
-
+        print(f'\n num steps: {buff.num_added}')
         if done: 
             break        
 
