@@ -40,10 +40,10 @@ class Critic(nn.Module):
 
         q_batch = self(state_batch, action_batch).flatten()
 
-        print('qbatch: \n')
-        print(q_batch)
-        print('q_values: \n')
-        print(q_values)
+        # print('qbatch: \n')
+        # print(q_batch)
+        # print('q_values: \n')
+        # print(q_values)
 
         self.zero_grad()
         loss = self.loss(q_batch, q_values)

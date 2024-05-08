@@ -8,10 +8,10 @@ from gymnasium import spaces
 
 class QuadrupedEnv(gym.Env):
 
-    def __init__(self, render_mode=None):
-        self.init_pybullet()
-        self.step_count = 0 #initialize for stepping the training
+    def __init__(self, render_mode):
         self.done = False
+        self.render_mode = render_mode
+        self.step_count = 0 #initialize for stepping the training
         self.observation_space = spaces.Dict(
             {
                 "velocity": spaces.Box(dtype=np.float32, low=-100, high=100),
@@ -21,9 +21,13 @@ class QuadrupedEnv(gym.Env):
         )
 
         self.action_space = spaces.Box(shape=(12,), dtype=np.float32, low=-100, high=100)
+        self.init_pybullet()
 
     def init_pybullet(self):
-        p.connect(p.DIRECT) # p.GUI for graphical
+        if self.render_mode == 'GUI':
+            p.connect(p.GUI) # p.GUI for graphical
+        else:
+            p.connect(p.DIRECT) 
         p.resetSimulation()
         p.setAdditionalSearchPath(pybullet_data.getDataPath())
         p.setGravity(0, 0, -9.81)
@@ -67,9 +71,10 @@ class QuadrupedEnv(gym.Env):
 
         p.setJointMotorControlArray(self.robot, self.pos_array, self.mode, action)
 
-        for i in range(60):
+        for i in range(24):
             p.stepSimulation()
-            #time.sleep(1/240)
+            if self.render_mode == 'GUI':
+                time.sleep(1/240)
 
         velocity = p.getBaseVelocity(self.robot)[0][1]
         deltaPos = p.getBasePositionAndOrientation(self.robot)
@@ -77,15 +82,18 @@ class QuadrupedEnv(gym.Env):
         delta_ypos = deltaPos[0][1]
         diff = abs(delta_ypos - init_ypos)
 
-        rotations = np.array(deltaPos[1])
+        rotations = np.array(p.getEulerFromQuaternion(deltaPos[1]))
         
-        reward = 0.05 if velocity > 0.1 else 0
-        reward += 0.05 if diff > 0.05 else 0
-        reward += -0.01 if np.any(rotations > 0.1) or np.any(rotations < 0.1) else 0
+        reward = 0
+        reward += 1 if velocity > 0.1 else 0
+        reward += 1 if diff > 0.05 else 0
+        #reward += -0.1 if np.any(rotations > 0.1) or np.any(rotations < -0.1) else 0
+
+        print(reward)
 
         self.step_count += 1
 
-        if self.step_count == 40:
+        if self.step_count == 70:
             self.done = True
 
         observation = self._get_obs()
