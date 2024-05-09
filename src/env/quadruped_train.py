@@ -9,9 +9,10 @@ import torch.nn.functional as F
 from models.actor import Actor
 from models.critic import Critic
 from quadruped_env import QuadrupedEnv
-from utils.replayBuffer import ReplayBuffer
+from utils.graph import Grapher
 from utils.ornstienUhlenbeck import OU
 from utils.update_target import Updater
+from utils.replayBuffer import ReplayBuffer
 from tqdm import tqdm
 
 
@@ -29,10 +30,16 @@ TAU = 0.001
 buff = ReplayBuffer(BUFFER_SIZE)
 # env = QuadrupedEnv(render_mode='GUI')
 env = QuadrupedEnv(render_mode='direct')
+grapher = Grapher()
 updater = Updater()
 epsilon = 1.0
 orn_uhlen = OU()
 training = True
+
+actor_losses = []
+critic_losses = []
+epsilons = []
+reward_acc = []
 
 actor = Actor()
 critic = Critic()
@@ -46,15 +53,21 @@ critic_target = critic_target.to(device=device)
 updater.equate_model(actor_target, actor)
 updater.equate_model(critic_target, critic)
 
-#TODO: need to map values correctly to DOF ranges, verify LR and verify and adjust reward values with extreme prejudice
+#TODO: graph, verify LR and verify and adjust reward values with extreme prejudice
 
 for episode in tqdm(range(MAX_EPISODES)):
     obs = env.reset()
     cur_state = obs
     obs = torch.Tensor(obs).cuda()
 
+    episode_actor_losses = []
+    episode_critic_losses = []
+    episode_epsilons = []
+    episode_rewards = []
+
     while True: 
         epsilon -= 1.0/ EXPLORE
+        episode_epsilons.append(epsilon)
         loss = 0
 
         action = actor(obs)
@@ -69,7 +82,8 @@ for episode in tqdm(range(MAX_EPISODES)):
         # print('action: \n')
         # print(action)
         obs, reward, done = env.step(action=action)
-        
+        episode_rewards.append(reward)
+
         # should add replay buffer for random sampling of critic
         new_state = obs
         obs = torch.Tensor(obs).cuda()
@@ -106,12 +120,14 @@ for episode in tqdm(range(MAX_EPISODES)):
         new_q_batch = torch.from_numpy(new_q_batch).to(torch.float32).cuda()
 
         if training:
-            critic.train(states, actions, new_q_batch)
+            critic_loss = critic.train(states, actions, new_q_batch)
+            episode_critic_losses.append(critic_loss)
 
             states = torch.Tensor(states).cuda()
             critic_out = -critic(states, actor(states))
 
-            actor.train(critic_out)
+            actor_loss = actor.train(critic_out)
+            episode_actor_losses.append(actor_loss)
             updater.update_target(actor_target, actor, TAU)
             updater.update_target(critic_target, critic, TAU)
 
@@ -119,9 +135,16 @@ for episode in tqdm(range(MAX_EPISODES)):
         # print(f'\n num steps: {buff.num_added}')
 
         if done: 
-            break        
+            break
+    
+    actor_losses.append(np.mean(episode_actor_losses))
+    critic_losses.append(np.mean(episode_critic_losses))
+    epsilons.append(np.mean(episode_epsilons))
+    reward_acc.append(np.mean(rewards))
 
 p.disconnect()
+
+grapher.graph_params(reward_acc, epsilons, actor_losses, critic_losses)
 
 torch.save(actor.state_dict(), './saved_models/actor.pt')
 torch.save(critic.state_dict(), './saved_models/critic.pt')

@@ -49,5 +49,6 @@ class Critic(nn.Module):
         loss = self.loss(q_batch, q_values)
         loss.backward()
         self.optimizer.step()
+        return loss
 
     # implement target

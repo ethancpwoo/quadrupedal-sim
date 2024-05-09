@@ -30,5 +30,6 @@ class Actor(nn.Module):
         critic_grad = critic_out.mean()
         critic_grad.backward()
         self.optimizer.step()
+        return critic_grad
 
     # implement target

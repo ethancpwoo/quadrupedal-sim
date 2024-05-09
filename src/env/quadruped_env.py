@@ -68,6 +68,12 @@ class QuadrupedEnv(gym.Env):
     def step(self, action):
         initPos = p.getBasePositionAndOrientation(self.robot)
         init_ypos = initPos[0][1]
+        # print(action)
+
+        for i in range(len(self.pos_array)):
+            action[i] = np.interp(action[i], (-1, 1), (self.lower_lims[i], self.upper_lims[i]))
+
+        # print(action)
 
         p.setJointMotorControlArray(self.robot, self.pos_array, self.mode, action)
 
@@ -80,16 +86,17 @@ class QuadrupedEnv(gym.Env):
         deltaPos = p.getBasePositionAndOrientation(self.robot)
 
         delta_ypos = deltaPos[0][1]
-        diff = abs(delta_ypos - init_ypos)
+        diff = delta_ypos - init_ypos
 
         rotations = np.array(p.getEulerFromQuaternion(deltaPos[1]))
         
         reward = 0
-        reward += 1 if velocity > 0.1 else 0
-        reward += 1 if diff > 0.05 else 0
+        reward += 1 if velocity < -0.01 else 0
+        reward += 1 if diff < -0.01 else 0
+        reward -= 1 if diff > 0.01 else 0
         #reward += -0.1 if np.any(rotations > 0.1) or np.any(rotations < -0.1) else 0
 
-        print(reward)
+        # print(reward)
 
         self.step_count += 1
 
