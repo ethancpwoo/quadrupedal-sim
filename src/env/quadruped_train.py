@@ -121,13 +121,13 @@ for episode in tqdm(range(MAX_EPISODES)):
 
         if training:
             critic_loss = critic.train(states, actions, new_q_batch)
-            episode_critic_losses.append(critic_loss)
+            episode_critic_losses.append(critic_loss.cpu().detach().numpy())
 
             states = torch.Tensor(states).cuda()
             critic_out = -critic(states, actor(states))
 
             actor_loss = actor.train(critic_out)
-            episode_actor_losses.append(actor_loss)
+            episode_actor_losses.append(actor_loss.cpu().detach().numpy())
             updater.update_target(actor_target, actor, TAU)
             updater.update_target(critic_target, critic, TAU)
 
@@ -140,7 +140,7 @@ for episode in tqdm(range(MAX_EPISODES)):
     actor_losses.append(np.mean(episode_actor_losses))
     critic_losses.append(np.mean(episode_critic_losses))
     epsilons.append(np.mean(episode_epsilons))
-    reward_acc.append(np.mean(rewards))
+    reward_acc.append(np.mean(np.array(episode_rewards).flatten()))
 
 p.disconnect()
 

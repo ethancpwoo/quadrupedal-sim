@@ -17,12 +17,14 @@ def eval():
 
     obs = torch.Tensor(obs).cuda()
     action = agent(obs)
+    action = action.cpu().detach().numpy()
 
     for i in range(40):
         new_obs, reward, done = env.step(action)
         print(f'reward: {reward}')
         obs = torch.Tensor(new_obs).cuda()
         action = agent(obs)
+        action = action.cpu().detach().numpy()
 
     p.disconnect()
 
