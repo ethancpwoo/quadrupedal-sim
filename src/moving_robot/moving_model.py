@@ -39,12 +39,13 @@ for i in range(len(pos_array)):
 
 #set the center of mass frame (loadURDF sets base link frame) startPos/Ornp.resetBasePositionAndOrientation(boxId, startPos, startOrientation)
 p.setJointMotorControlArray(robot, pos_array, controlMode=mode, targetPositions=tweaking)
-for i in range(1):
+for i in range(10000):
     # tweaking = []
     # for i in range(len(pos_array)):
     #     tweaking.append(np.random.uniform(lower_lims[i], upper_lims[i]))
     
     p.stepSimulation()
+    print(p.getBasePositionAndOrientation(robot)[0][1])
     #print(p.getEulerFromQuaternion(p.getBasePositionAndOrientation(robot)[1]))
     #print(p.getBaseVelocity(robot)[0][0])
     links = []
@@ -54,7 +55,7 @@ for i in range(1):
     time.sleep(1./240.)
 
 links = np.array(links)
-print(links.flatten())
+#print(links.flatten())
 chassisPos, chassisOrn = p.getBasePositionAndOrientation(robot)
 #print(chassisPos,chassisOrn)
 p.disconnect()
