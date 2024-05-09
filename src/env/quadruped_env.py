@@ -91,9 +91,9 @@ class QuadrupedEnv(gym.Env):
         rotations = np.array(p.getEulerFromQuaternion(deltaPos[1]))
         
         reward = 0
-        reward += 1 if velocity < -0.01 else 0
-        reward += 1 if diff < -0.01 else 0
-        reward -= 1 if diff > 0.01 else 0
+        reward += 1 if velocity < -0.0005 else 0
+        reward += 1 if diff < -0.0005 else 0
+        reward -= 1 if diff > 0.0005 else 0
         #reward += -0.1 if np.any(rotations > 0.1) or np.any(rotations < -0.1) else 0
 
         # print(reward)
