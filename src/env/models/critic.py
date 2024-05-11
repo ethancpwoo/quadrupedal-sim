@@ -9,14 +9,14 @@ class Critic(nn.Module):
     """
     def __init__(self):
         super(Critic, self).__init__()
-        self.fc_states = nn.Linear(75, 225)
-        self.fc_actions = nn.Linear(12, 115)
+        self.fc_states = nn.Linear(33, 450)
+        self.fc_actions = nn.Linear(12, 300)
 
-        self.fc2_states = nn.Linear(225, 115)
+        self.fc2_states = nn.Linear(450, 300)
         
-        self.fc_all = nn.Linear(115, 115)
+        self.fc_all = nn.Linear(300, 115)
         self.actions = nn.Linear(115, 1)
-        self.learning_rate = 3e-4
+        self.learning_rate = 1e-3
         self.optimizer = torch.optim.AdamW(self.parameters(), lr=self.learning_rate)
         self.loss = nn.MSELoss()
     
@@ -29,7 +29,7 @@ class Critic(nn.Module):
 
         x = torch.add(states, actions)
         x = self.fc_all(x)
-        x = F.relu(states)
+        x = F.relu(x)
         x = self.actions(x)
 
         return x

@@ -20,16 +20,16 @@ device = "cuda:0" if torch.cuda.is_available() else 'cpu'
 
 # ==============================================================
 
-BATCH_SIZE = 41
-BUFFER_SIZE = 100000
+BATCH_SIZE = 149
+BUFFER_SIZE = 50000
 EXPLORE = 100000
 GAMMA = 0.99
-MAX_EPISODES = 1000
+MAX_EPISODES = 7000
 TAU = 0.001
 
 buff = ReplayBuffer(BUFFER_SIZE)
-# env = QuadrupedEnv(render_mode='GUI')
-env = QuadrupedEnv(render_mode='direct')
+env = QuadrupedEnv(render_mode='GUI')
+# env = QuadrupedEnv(render_mode='direct')
 grapher = Grapher()
 updater = Updater()
 epsilon = 1.0
@@ -72,7 +72,7 @@ for episode in tqdm(range(MAX_EPISODES)):
 
         action = actor(obs)
         action = action.cpu().detach().numpy()
-        noise = np.array([max(epsilon, 0) * orn_uhlen.OU(action[x], 0.5, 1, 0.1) for x in range(12)]).flatten()
+        noise = np.array([max(epsilon, 0) * orn_uhlen.OU(action[x], 0, 1, 0.3) for x in range(12)]).flatten()
         # print(action)
         # print(noise)
         action = np.add(action, noise)
@@ -144,7 +144,7 @@ for episode in tqdm(range(MAX_EPISODES)):
 
 p.disconnect()
 
-grapher.graph_params(reward_acc, epsilons, actor_losses, critic_losses)
+grapher.graph_params(reward_acc, env.final_positions, actor_losses, critic_losses)
 
 torch.save(actor.state_dict(), './saved_models/actor.pt')
 torch.save(critic.state_dict(), './saved_models/critic.pt')

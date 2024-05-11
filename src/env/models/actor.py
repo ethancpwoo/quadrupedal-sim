@@ -10,10 +10,10 @@ class Actor(nn.Module):
     def __init__(self):
         super(Actor, self).__init__()
 
-        self.fc1 = nn.Linear(75, 225)
-        self.fc2 = nn.Linear(225, 115)
-        self.actions = nn.Linear(115, 12)
-        self.learning_rate = 3e-4
+        self.fc1 = nn.Linear(33, 450)
+        self.fc2 = nn.Linear(450, 300)
+        self.actions = nn.Linear(300, 12)
+        self.learning_rate = 1e-3
         self.optimizer = torch.optim.AdamW(self.parameters(), lr=self.learning_rate)
     
     def forward(self, x):
