@@ -1,12 +1,12 @@
 {
     "configuration": "default",
     "documentId": "19ae09c2b1bdbb7b22f3b0ce",
-    "documentMicroversion": "8636599251e431ba6f3e0a2d",
+    "documentMicroversion": "8a4b8b1351c330d1f3c61653",
     "elementId": "3eb69fc8f69a2a0b12d2c313",
     "fullConfiguration": "default",
-    "id": "M97jKN3uJj4j/2nnb",
+    "id": "MKvapB6vokcemwACP",
     "isStandardContent": false,
-    "name": "Bearing 5x8x2.5 v1 <2>",
+    "name": "Bearing 5x8x2.5 v1 <1>",
     "partId": "JF/",
     "suppressed": false,
     "type": "Part"

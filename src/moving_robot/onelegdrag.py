@@ -24,41 +24,35 @@ for i in range(numJoints):
 # print(cam[9])
 # print(cam[10])
 
-p.resetDebugVisualizerCamera(cameraDistance=0.2, cameraYaw=-60, cameraPitch=-35, cameraTargetPosition=[-0.1,0,0])
+p.resetDebugVisualizerCamera(cameraDistance=0.2, cameraYaw=60, cameraPitch=-35, cameraTargetPosition=[0.1,0.05,0])
 
 mode = p.POSITION_CONTROL
 pos_array = [0, 1, 2, 4, 5, 6, 8, 9 ,10, 12, 13, 14]
-thighs = [1, 5, 9, 13]
-foots = [2, 6, 10, 14]
-lower_lims = [p.getJointInfo(robot, x)[8] for x in pos_array]
-upper_lims = [p.getJointInfo(robot, x)[9] for x in pos_array]
-flexed = [1.0472 for x in range(len(pos_array))]
-relaxed = [-1.0472 for x in range(len(pos_array))]
-
-extended = [0, 0, 1.0472, 0, 0, 1.0472, 0, 0, 0, 0, 0, 0]
-
-tweaking = []
-for i in range(len(pos_array)):
-    tweaking.append(np.random.uniform(lower_lims[i], upper_lims[i]))
+#extended = [0, 0]
+extended = 0
+#contract = [1.0472, 1.0472]
+contract = 1.0472
 
 #set the center of mass frame (loadURDF sets base link frame) startPos/Ornp.resetBasePositionAndOrientation(boxId, startPos, startOrientation)
 p.setJointMotorControlArray(robot, pos_array, controlMode=mode)
+
+# for i in pos_array:
+#     p.changeDynamics(robot, i, lateralFriction=35, spinningFriction=35)
+p.changeDynamics(robot, 3, lateralFriction=2, spinningFriction=2)
+move = extended
+counter = 0
+
 for i in range(10000):
-    # tweaking = []
-    # for i in range(len(pos_array)):
-    #     tweaking.append(np.random.uniform(lower_lims[i], upper_lims[i]))
-    
+    if move == extended and counter == 100:
+         move = contract
+         counter = 0
+    elif move == contract and counter == 100:
+         move = extended
+         counter = 0
     p.stepSimulation()
-    # print(p.getBasePositionAndOrientation(robot)[0])
-    # velocity = p.getBaseVelocity(robot)[0][1]
-    # print(velocity)
-    print(p.getEulerFromQuaternion(p.getBasePositionAndOrientation(robot)[1]))
-    #print(p.getBaseVelocity(robot)[0][0])
-    # links = []
-    # for i in range(12):
-    #     rel_pos = p.getLinkStates(robot, pos_array)[i][2]
-    #     links.append(rel_pos)
+    p.setJointMotorControl2(robot, 3, controlMode=mode, targetPosition=move)
     time.sleep(1./240.)
+    counter += 1
 
 # links = np.array(links)
 #print(links.flatten())

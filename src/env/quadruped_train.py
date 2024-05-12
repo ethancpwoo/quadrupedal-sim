@@ -21,15 +21,15 @@ device = "cuda:0" if torch.cuda.is_available() else 'cpu'
 # ==============================================================
 
 BATCH_SIZE = 149
-BUFFER_SIZE = 50000
-EXPLORE = 100000
+BUFFER_SIZE = 100000
+EXPLORE = 10000
 GAMMA = 0.99
-MAX_EPISODES = 1000
+MAX_EPISODES = 5
 TAU = 0.001
 
 buff = ReplayBuffer(BUFFER_SIZE)
-env = QuadrupedEnv(render_mode='GUI')
-# env = QuadrupedEnv(render_mode='direct')
+# env = QuadrupedEnv(render_mode='GUI')
+env = QuadrupedEnv(render_mode='direct')
 grapher = Grapher()
 updater = Updater()
 epsilon = 1.0
@@ -40,6 +40,10 @@ actor_losses = []
 critic_losses = []
 epsilons = []
 reward_acc = []
+step_count = []
+roll = [] #first index
+pitch = [] #second index
+yaw = [] #3rd index
 
 actor = Actor()
 critic = Critic()
@@ -144,7 +148,7 @@ for episode in tqdm(range(MAX_EPISODES)):
 
 p.disconnect()
 
-grapher.graph_params(reward_acc, env.final_positions, actor_losses, critic_losses)
+grapher.graph_params(reward_acc, env.final_positions, actor_losses, critic_losses, env.final_times, env.reward_vel, env.reward_time, env.reward_height, env.reward_rotations, env.cumulative_steps)
 
 torch.save(actor.state_dict(), './saved_models/actor.pt')
 torch.save(critic.state_dict(), './saved_models/critic.pt')

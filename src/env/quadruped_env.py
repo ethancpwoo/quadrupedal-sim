@@ -8,6 +8,15 @@ class QuadrupedEnv():
     def __init__(self, render_mode):
         self.done = False
         self.final_positions = []
+        self.final_times = []
+        self.reward_time = []
+        self.reward_vel = []
+        self.reward_height =  []
+        self.reward_rotations = []
+        self.cumulative_steps = 0
+        # self.final_roll = []
+        # self.final_pitch = []
+        # self.final_yaws = []
         self.render_mode = render_mode
         self.step_count = 0
         self.counter = 0
@@ -30,12 +39,12 @@ class QuadrupedEnv():
         self.robot = p.loadURDF("../robot/robot.urdf", startPos, startOrientation)
 
         self.mode = p.POSITION_CONTROL
-        self.pos_array = [0, 1, 2, 4, 5, 6, 8, 9 ,10, 12, 13, 14]
+        self.pos_array = [0, 2, 3, 4, 5, 6, 8, 9 ,10, 12, 13, 14]
         self.lower_lims = [p.getJointInfo(self.robot, x)[8] for x in self.pos_array]
         self.upper_lims = [p.getJointInfo(self.robot, x)[9] for x in self.pos_array]
 
         for i in self.pos_array:
-            p.changeDynamics(self.robot, i, lateralFriction=0.7, spinningFriction=0.7)
+            p.changeDynamics(self.robot, i, lateralFriction=10, spinningFriction=10)
 
         self.start_state = p.saveState()
     
@@ -86,10 +95,16 @@ class QuadrupedEnv():
         rotations = np.array(p.getEulerFromQuaternion(pos[1]))
         
         reward = 0
-        reward += 75 * (self.step_count/self.total_steps)
-        reward += (-10 * velocity)
+        
+        reward += 10 * (self.step_count/self.total_steps)
+        reward += (-100 * velocity)
         reward -= np.sqrt(np.square(0.0522 - pos[0][2])) * 50
         reward -= rotations[2]
+
+        self.reward_time.append(10 * (self.step_count/self.total_steps))
+        self.reward_vel.append(-100 * velocity)
+        self.reward_height.append(np.sqrt(np.square(0.0522 - pos[0][2])) * 5)
+        self.reward_rotations.append(rotations[2])
 
         #reward += -0.1 if np.any(rotations > 0.1) or np.any(rotations < -0.1) else 0
         # 0.455 is fallen down, 0.522 is normal. 
@@ -97,9 +112,14 @@ class QuadrupedEnv():
         # print(pos[0][2])
 
         self.step_count += 1
+        self.cumulative_steps += 1
 
         if self.step_count == self.total_steps or pos[0][2] < 0.0455 or abs(rotations[0]) > 0.1745 or abs(rotations[1]) > 0.1745 or abs(rotations[2]) > 0.3491:
             self.final_positions.append(pos[0][1])
+            self.final_times.append(self.step_count)
+            # self.final_roll.append(rotations[0])
+            # self.final_pitch.append(rotations[1])
+            # self.final_yaws.append(rotations[2])
             self.done = True
 
         observation = self._get_obs()
