@@ -148,7 +148,7 @@ for episode in tqdm(range(MAX_EPISODES)):
 
 p.disconnect()
 
-grapher.graph_params(reward_acc, env.final_positions, actor_losses, critic_losses, env.final_times, env.reward_vel, env.reward_time, env.reward_height, env.reward_rotations, env.cumulative_steps)
+grapher.graph_params(reward_acc, env.final_positions, actor_losses, critic_losses, env.final_times, env.reward_vel, env.reward_time, env.reward_height, env.reward_rotations)
 
 torch.save(actor.state_dict(), './saved_models/actor.pt')
 torch.save(critic.state_dict(), './saved_models/critic.pt')

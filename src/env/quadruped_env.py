@@ -7,19 +7,25 @@ class QuadrupedEnv():
 
     def __init__(self, render_mode):
         self.done = False
+
+        self.episode_displacement_reward = 0
+        self.episode_time_reward = 0
+        self.episode_height_reward = 0
+        self.episode_rotations_reward = 0
+
         self.final_positions = []
         self.final_times = []
         self.reward_time = []
         self.reward_vel = []
         self.reward_height =  []
         self.reward_rotations = []
-        self.cumulative_steps = 0
+
         # self.final_roll = []
         # self.final_pitch = []
         # self.final_yaws = []
         self.render_mode = render_mode
         self.step_count = 0
-        self.counter = 0
+        self.last_pos = 0
         self.total_steps = 150 #initialize for stepping the training
         self.init_pybullet()
 
@@ -89,37 +95,45 @@ class QuadrupedEnv():
             if self.render_mode == 'GUI':
                 time.sleep(1/240)
 
-        velocity = p.getBaseVelocity(self.robot)[0][1]
         pos = p.getBasePositionAndOrientation(self.robot)
-
-        rotations = np.array(p.getEulerFromQuaternion(pos[1]))
-        
+        rotations = np.array(p.getEulerFromQuaternion(pos[1]))       
         reward = 0
         
-        reward += 10 * (self.step_count/self.total_steps)
-        reward += (-100 * velocity)
-        reward -= np.sqrt(np.square(0.0522 - pos[0][2])) * 50
-        reward -= rotations[2]
+        reward_time = 0
+        if(self.step_count == 50):
+            reward_time = 10 * (self.step_count/self.total_steps)
+        if(self.start_count == 125):
+            reward_time = 10 * (self.step_count/self.total_steps)
+        reward_displacement = (-20 * (pos[0][1] - self.last_pos))
+        reward_height = np.sqrt(np.square(0.0522 - pos[0][2])) * 50
+        reward_rotation = rotations[2]
+        
+        self.episode_displacement_reward += reward_displacement
+        self.episode_time_reward += reward_time
+        self.episode_height_reward -= reward_height
+        self.episode_rotations_reward -= reward_rotation
+        reward = reward_time + reward_displacement - reward_height - reward_rotation
 
-        self.reward_time.append(10 * (self.step_count/self.total_steps))
-        self.reward_vel.append(-100 * velocity)
-        self.reward_height.append(np.sqrt(np.square(0.0522 - pos[0][2])) * 5)
-        self.reward_rotations.append(rotations[2])
-
-        #reward += -0.1 if np.any(rotations > 0.1) or np.any(rotations < -0.1) else 0
         # 0.455 is fallen down, 0.522 is normal. 
-
-        # print(pos[0][2])
-
         self.step_count += 1
-        self.cumulative_steps += 1
+        self.last_pos = pos[0][1]
 
         if self.step_count == self.total_steps or pos[0][2] < 0.0455 or abs(rotations[0]) > 0.1745 or abs(rotations[1]) > 0.1745 or abs(rotations[2]) > 0.3491:
             self.final_positions.append(pos[0][1])
             self.final_times.append(self.step_count)
+            self.reward_vel.append(self.episode_displacement_reward)
+            self.reward_time.append(self.episode_time_reward)
+            self.reward_height.append(self.episode_height_reward)
+            self.reward_rotations.append(self.episode_rotations_reward)
             # self.final_roll.append(rotations[0])
             # self.final_pitch.append(rotations[1])
             # self.final_yaws.append(rotations[2])
+
+            self.episode_displacement_reward = 0
+            self.episode_time_reward = 0
+            self.episode_height_reward = 0
+            self.episode_rotations_reward = 0
+
             self.done = True
 
         observation = self._get_obs()
