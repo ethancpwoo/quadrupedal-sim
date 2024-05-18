@@ -18,6 +18,7 @@ class QuadrupedEnv():
         # self.final_pitch = []
         # self.final_yaws = []
         self.render_mode = render_mode
+        self.last_pos = 0
         self.step_count = 0
         self.counter = 0
         self.total_steps = 150 #initialize for stepping the training
@@ -96,8 +97,13 @@ class QuadrupedEnv():
         
         reward = 0
         
+        # maybe should add incremented reward when reaches a time point
         reward += 10 * (self.step_count/self.total_steps)
-        reward += (-100 * velocity)
+        # maybe check displacement instead of instantaneous velocity
+        # reward += (-100 * velocity)
+
+        reward += -100 * (pos[0][1] - self.last_pos)
+
         reward -= np.sqrt(np.square(0.0522 - pos[0][2])) * 50
         reward -= rotations[2]
 
@@ -110,6 +116,7 @@ class QuadrupedEnv():
         # 0.455 is fallen down, 0.522 is normal. 
 
         # print(pos[0][2])
+        self.last_pos = pos[0][1]
 
         self.step_count += 1
         self.cumulative_steps += 1
