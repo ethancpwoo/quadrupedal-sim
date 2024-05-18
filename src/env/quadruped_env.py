@@ -101,13 +101,11 @@ class QuadrupedEnv():
         reward = 0
         
         reward_time = 0
-        if(self.step_count == 50):
-            reward_time = 10 * (self.step_count/self.total_steps)
-        if(self.start_count == 125):
-            reward_time = 10 * (self.step_count/self.total_steps)
+        if(self.step_count > 145):
+            reward_time = (self.step_count/self.total_steps)
         reward_displacement = (-20 * (pos[0][1] - self.last_pos))
-        reward_height = np.sqrt(np.square(0.0522 - pos[0][2])) * 50
-        reward_rotation = rotations[2]
+        reward_height = np.sqrt(np.square(0.0522 - pos[0][2])) * 10
+        reward_rotation = abs(rotations[2])
         
         self.episode_displacement_reward += reward_displacement
         self.episode_time_reward += reward_time

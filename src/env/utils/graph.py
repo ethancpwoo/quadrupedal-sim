@@ -32,17 +32,17 @@ class Grapher():
 
         # fig.savefig('./models/graph_phys.png', dpi=1000)
 
-        # fig, ax = plt.subplots(2, 2, constrained_layout = True)
+        fig1, ax1 = plt.subplots(2, 2, constrained_layout = True)
 
-        # ax[0,0].plot(x, reward_vel)
-        # ax[0,0].set_title('reward_vel')
-        # ax[0,1].plot(x, reward_time)
-        # ax[0,1].set_title('reward_time')
-        # ax[1,0].plot(x, reward_rotation)
-        # ax[1,0].set_title('reward_rotation')
-        # ax[1,1].plot(x, reward_height)
-        # ax[1,1].set_title('reward_height')
+        ax1[0,0].plot(x, reward_vel)
+        ax1[0,0].set_title('reward_vel')
+        ax1[0,1].plot(x, reward_time)
+        ax1[0,1].set_title('reward_time')
+        ax1[1,0].plot(x, reward_rotation)
+        ax1[1,0].set_title('reward_rotation')
+        ax1[1,1].plot(x, reward_height)
+        ax1[1,1].set_title('reward_height')
 
-        # fig.savefig('./models/graph_rewards.png', dpi=1000)
+        fig1.savefig('./models/graph_rewards.png', dpi=1000)
 
 
