@@ -24,6 +24,7 @@ class QuadrupedEnv():
         # self.final_pitch = []
         # self.final_yaws = []
         self.render_mode = render_mode
+        self.last_pos = 0
         self.step_count = 0
         self.last_pos = 0
         self.total_steps = 150 #initialize for stepping the training
