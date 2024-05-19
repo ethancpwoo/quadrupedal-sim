@@ -24,12 +24,12 @@ BATCH_SIZE = 149
 BUFFER_SIZE = 100000
 EXPLORE = 10000
 GAMMA = 0.99
-MAX_EPISODES = 4000
+MAX_EPISODES = 10
 TAU = 0.001
 
 buff = ReplayBuffer(BUFFER_SIZE)
-# env = QuadrupedEnv(render_mode='GUI')
-env = QuadrupedEnv(render_mode='direct')
+env = QuadrupedEnv(render_mode='GUI')
+# env = QuadrupedEnv(render_mode='direct')
 grapher = Grapher()
 updater = Updater()
 epsilon = 1.0

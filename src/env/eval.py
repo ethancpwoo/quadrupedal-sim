@@ -18,6 +18,8 @@ def eval():
     obs = torch.Tensor(obs).cuda()
     action = agent(obs)
     action = action.cpu().detach().numpy()
+    print("action: ")
+    print(action)
 
     for i in range(40):
         new_obs, reward, done = env.step(action)
@@ -25,6 +27,8 @@ def eval():
         obs = torch.Tensor(new_obs).cuda()
         action = agent(obs)
         action = action.cpu().detach().numpy()
+        print("action: ")
+        print(action)
 
     p.disconnect()
 
