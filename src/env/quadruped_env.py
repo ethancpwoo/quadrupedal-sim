@@ -6,8 +6,7 @@ import time
 class QuadrupedEnv():
 
     def __init__(self, render_mode):
-        self.done = False
-
+        # Graphing data init
         self.episode_displacement_reward = 0
         self.episode_time_reward = 0
         self.episode_height_reward = 0
@@ -20,21 +19,24 @@ class QuadrupedEnv():
         self.reward_height =  []
         self.reward_rotations = []
 
-        # self.final_roll = []
-        # self.final_pitch = []
-        # self.final_yaws = []
-        self.render_mode = render_mode
+        # Step counting
         self.last_pos = 0
         self.step_count = 0
         self.last_pos = 0
-        self.total_steps = 150 #initialize for stepping the training
+        self.total_steps = 150
+        # Initialize for stepping the training
+
+        self.render_mode = render_mode
+        self.done = False
+        
         self.init_pybullet()
 
     def init_pybullet(self):
         if self.render_mode == 'GUI':
             p.connect(p.GUI) # p.GUI for graphical
         else:
-            p.connect(p.DIRECT) 
+            p.connect(p.DIRECT)
+
         p.resetSimulation()
         p.setAdditionalSearchPath(pybullet_data.getDataPath())
         p.setGravity(0, 0, -9.81)
@@ -56,7 +58,6 @@ class QuadrupedEnv():
         self.start_state = p.saveState()
     
     def _get_obs(self):
-
         obs = np.array([])
         joint_state = p.getJointStates(self.robot, self.pos_array)
         base_state = p.getBasePositionAndOrientation(self.robot)
@@ -77,18 +78,14 @@ class QuadrupedEnv():
         p.restoreState(stateId=self.start_state)
         self.step_count = 0
         self.done = False
-        observation = self._get_obs()
-        return observation
+        return self._get_obs()
     
     def step(self, action):
-        # initPos = p.getBasePositionAndOrientation(self.robot)
-        # print(action)
-
+        # Interpolate network output [-1, 1] to joint values [lower_lim, upper_lim]
         for i in range(len(self.pos_array)):
             action[i] = np.interp(action[i], (-1, 1), (self.lower_lims[i], self.upper_lims[i]))
-
-        # print(action)
-
+        
+        # Move the joints
         p.setJointMotorControlArray(self.robot, self.pos_array, self.mode, action)
 
         for i in range(24):
@@ -98,25 +95,27 @@ class QuadrupedEnv():
 
         pos = p.getBasePositionAndOrientation(self.robot)
         rotations = np.array(p.getEulerFromQuaternion(pos[1]))       
+        
+        # Reward function
         reward = 0
-        
         reward_time = 0
-        if(self.step_count > 145):
+        if(self.step_count > 148):
             reward_time = (self.step_count/self.total_steps)
-        reward_displacement = (-20 * (pos[0][1] - self.last_pos))
-        reward_height = np.sqrt(np.square(0.0522 - pos[0][2])) * 10
-        reward_rotation = abs(rotations[2])
+        reward_displacement = (-50 * (pos[0][1] - self.last_pos))
+        reward_height = np.sqrt(np.square(0.0522 - pos[0][2]))
+        reward_rotation = abs(rotations[2] + rotations[1] + rotations[0]) * 0.5
+        reward = reward_time + reward_displacement - reward_height - reward_rotation
         
+        # Graphing/Debugging purposes
         self.episode_displacement_reward += reward_displacement
         self.episode_time_reward += reward_time
         self.episode_height_reward -= reward_height
         self.episode_rotations_reward -= reward_rotation
-        reward = reward_time + reward_displacement - reward_height - reward_rotation
 
-        # 0.455 is fallen down, 0.522 is normal. 
         self.step_count += 1
         self.last_pos = pos[0][1]
 
+        # Episode ending
         if self.step_count == self.total_steps or pos[0][2] < 0.0455 or abs(rotations[0]) > 0.1745 or abs(rotations[1]) > 0.1745 or abs(rotations[2]) > 0.3491:
             self.final_positions.append(pos[0][1])
             self.final_times.append(self.step_count)
@@ -124,9 +123,6 @@ class QuadrupedEnv():
             self.reward_time.append(self.episode_time_reward)
             self.reward_height.append(self.episode_height_reward)
             self.reward_rotations.append(self.episode_rotations_reward)
-            # self.final_roll.append(rotations[0])
-            # self.final_pitch.append(rotations[1])
-            # self.final_yaws.append(rotations[2])
 
             self.episode_displacement_reward = 0
             self.episode_time_reward = 0

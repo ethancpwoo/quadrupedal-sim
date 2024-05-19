@@ -3,7 +3,7 @@ import numpy as np
 
 class Grapher():
 
-    def graph_params(self, rewards, dist, actor_loss, critic_loss, time, reward_vel, reward_time, reward_height, reward_rotation):
+    def graph_params(self, rewards, dist, actor_loss, critic_loss, reward_vel, reward_time, reward_height, reward_rotation):
         
         fig, ax = plt.subplots(2, 2, constrained_layout = True)
         x = np.linspace(1, len(rewards), num=len(rewards))
@@ -17,21 +17,6 @@ class Grapher():
         ax[1,1].plot(x, critic_loss)
         ax[1,1].set_title('critic_loss')
 
-        fig.savefig('./models/graph_hyper.png', dpi=1000)
-
-        # fig, ax = plt.subplots(2, 2, constrained_layout = True)
-
-        # ax[0,0].plot(x, time)
-        # ax[0,0].set_title('time')
-        # ax[0,1].plot(x, roll)
-        # ax[0,1].set_title('roll')
-        # ax[1,0].plot(x, pitch)
-        # ax[1,0].set_title('pitch')
-        # ax[1,1].plot(x, yaw)
-        # ax[1,1].set_title('yaw')
-
-        # fig.savefig('./models/graph_phys.png', dpi=1000)
-
         fig1, ax1 = plt.subplots(2, 2, constrained_layout = True)
 
         ax1[0,0].plot(x, reward_vel)
@@ -43,6 +28,7 @@ class Grapher():
         ax1[1,1].plot(x, reward_height)
         ax1[1,1].set_title('reward_height')
 
+        fig.savefig('./models/graph_hyper.png', dpi=1000)
         fig1.savefig('./models/graph_rewards.png', dpi=1000)
 
 

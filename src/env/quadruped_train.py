@@ -41,9 +41,9 @@ critic_losses = []
 epsilons = []
 reward_acc = []
 step_count = []
-roll = [] #first index
-pitch = [] #second index
-yaw = [] #3rd index
+roll = [] # First index
+pitch = [] # Second index
+yaw = [] # Third index
 
 actor = Actor()
 critic = Critic()
@@ -77,18 +77,11 @@ for episode in tqdm(range(MAX_EPISODES)):
         action = actor(obs)
         action = action.cpu().detach().numpy()
         noise = np.array([max(epsilon, 0) * orn_uhlen.OU(action[x], 0, 1, 0.3) for x in range(12)]).flatten()
-        # print(action)
-        # print(noise)
         action = np.add(action, noise)
 
-        # should add OU noise for each action for exploration
-
-        # print('action: \n')
-        # print(action)
         obs, reward, done = env.step(action=action)
         episode_rewards.append(reward)
 
-        # should add replay buffer for random sampling of critic
         new_state = obs
         obs = torch.Tensor(obs).cuda()
 
@@ -109,16 +102,11 @@ for episode in tqdm(range(MAX_EPISODES)):
         target_q_values = critic_target(new_states, actor_target(new_states))
         target_q_values = target_q_values.cpu().detach().numpy().flatten()
 
-        # print(rewards)
-        # print(target_q_values)
-
         for i in range(len(batch)):
             if dones[i]:
                 new_q_batch.append(rewards[i])
             else:
                 new_q_batch.append(rewards[i] + GAMMA*target_q_values[i])
-        
-        # print(new_q_batch)
 
         new_q_batch = np.array(new_q_batch)
         new_q_batch = torch.from_numpy(new_q_batch).to(torch.float32).cuda()
@@ -135,9 +123,6 @@ for episode in tqdm(range(MAX_EPISODES)):
             updater.update_target(actor_target, actor, TAU)
             updater.update_target(critic_target, critic, TAU)
 
-            # weights into targets
-        # print(f'\n num steps: {buff.num_added}')
-
         if done: 
             break
     
@@ -148,7 +133,7 @@ for episode in tqdm(range(MAX_EPISODES)):
 
 p.disconnect()
 
-grapher.graph_params(reward_acc, env.final_positions, actor_losses, critic_losses, env.final_times, env.reward_vel, env.reward_time, env.reward_height, env.reward_rotations)
+grapher.graph_params(reward_acc, env.final_positions, actor_losses, critic_losses, env.reward_vel, env.reward_time, env.reward_height, env.reward_rotations)
 
 torch.save(actor.state_dict(), './saved_models/actor.pt')
 torch.save(critic.state_dict(), './saved_models/critic.pt')
