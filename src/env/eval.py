@@ -6,6 +6,8 @@ import torch
 from quadruped_env import QuadrupedEnv
 from models.actor import Actor
 
+#TODO: Seems like actor is not changing based off different observations.
+
 def eval():
     device = "cuda:0" if torch.cuda.is_available() else 'cpu'
     agent = Actor().to(device)
@@ -16,19 +18,18 @@ def eval():
     #print(np.shape(obs))
 
     obs = torch.Tensor(obs).cuda()
-    action = agent(obs)
+    action = agent.forward(obs)
     action = action.cpu().detach().numpy()
-    print("action: ")
-    print(action)
 
     for i in range(40):
+        print(action)
         new_obs, reward, done = env.step(action)
+        if done:
+            break
         print(f'reward: {reward}')
         obs = torch.Tensor(new_obs).cuda()
         action = agent(obs)
         action = action.cpu().detach().numpy()
-        print("action: ")
-        print(action)
 
     p.disconnect()
 

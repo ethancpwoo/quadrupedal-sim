@@ -13,7 +13,7 @@ class Actor(nn.Module):
         self.fc1 = nn.Linear(33, 450)
         self.fc2 = nn.Linear(450, 300)
         self.actions = nn.Linear(300, 12)
-        self.learning_rate = 1e-3
+        self.learning_rate = 1e-4
         self.optimizer = torch.optim.AdamW(self.parameters(), lr=self.learning_rate)
     
     def forward(self, x):
@@ -24,12 +24,3 @@ class Actor(nn.Module):
         x = self.actions(x)
 
         return F.tanh(x)
-
-    def train(self, critic_out):
-        self.zero_grad()
-        critic_grad = critic_out.mean()
-        critic_grad.backward()
-        self.optimizer.step()
-        return critic_grad
-
-    # implement target

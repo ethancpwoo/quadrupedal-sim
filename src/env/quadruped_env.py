@@ -84,7 +84,6 @@ class QuadrupedEnv():
         # Interpolate network output [-1, 1] to joint values [lower_lim, upper_lim]
         for i in range(len(self.pos_array)):
             action[i] = np.interp(action[i], (-1, 1), (self.lower_lims[i], self.upper_lims[i]))
-        
         # Move the joints
         p.setJointMotorControlArray(self.robot, self.pos_array, self.mode, action)
 
@@ -99,12 +98,16 @@ class QuadrupedEnv():
         # Reward function
         reward = 0
         reward_time = 0
-        if(self.step_count > 148):
-            reward_time = (self.step_count/self.total_steps)
-        reward_displacement = (-50 * (pos[0][1] - self.last_pos))
+        # if(self.step_count > 148):
+        #     reward_time = (self.step_count/self.total_steps)
+        reward_time += (self.step_count/self.total_steps)
+        reward_displacement = (-75 * (pos[0][1] - self.last_pos))
         reward_height = np.sqrt(np.square(0.0522 - pos[0][2]))
-        reward_rotation = abs(rotations[2] + rotations[1] + rotations[0]) * 0.5
+        reward_rotation = abs(rotations[2] + rotations[1] + rotations[0]) * 0.1
         reward = reward_time + reward_displacement - reward_height - reward_rotation
+
+        # - reward_height - reward_rotation
+        #TODO: Analyze obs space and see how network is reacting to it
         
         # Graphing/Debugging purposes
         self.episode_displacement_reward += reward_displacement

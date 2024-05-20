@@ -16,7 +16,7 @@ class Critic(nn.Module):
         
         self.fc_all = nn.Linear(300, 115)
         self.actions = nn.Linear(115, 1)
-        self.learning_rate = 1e-3
+        self.learning_rate = 1e-4
         self.optimizer = torch.optim.AdamW(self.parameters(), lr=self.learning_rate)
         self.loss = nn.MSELoss()
     
@@ -33,22 +33,4 @@ class Critic(nn.Module):
         x = self.actions(x)
 
         return x
-    
-    def train(self, state_batch, action_batch, q_values):
-        state_batch = torch.Tensor(state_batch).cuda()
-        action_batch = torch.Tensor(action_batch).cuda()
-
-        q_batch = self(state_batch, action_batch).flatten()
-
-        # print('qbatch: \n')
-        # print(q_batch)
-        # print('q_values: \n')
-        # print(q_values)
-
-        self.zero_grad()
-        loss = self.loss(q_batch, q_values)
-        loss.backward()
-        self.optimizer.step()
-        return loss
-
     # implement target
