@@ -21,10 +21,10 @@ device = "cuda:0" if torch.cuda.is_available() else 'cpu'
 # ==============================================================
 
 BATCH_SIZE = 149
-BUFFER_SIZE = 100000
-EXPLORE = 50000
+BUFFER_SIZE = 1e6
+EXPLORE = 100000
 GAMMA = 0.99
-MAX_EPISODES = 3000
+MAX_EPISODES = 1000
 TAU = 0.001
 
 buff = ReplayBuffer(BUFFER_SIZE)
@@ -104,7 +104,7 @@ for episode in tqdm(range(MAX_EPISODES)):
         target_q_batch = np.array(target_q_batch)
         target_q_batch = torch.from_numpy(target_q_batch).to(torch.float32).cuda()
 
-        # Recheck new q_batch and the loss...\
+        # Recheck new q_batch and the loss...
         states = torch.from_numpy(states).to(torch.float32).cuda()
         actions = torch.from_numpy(actions).to(torch.float32).cuda()
 

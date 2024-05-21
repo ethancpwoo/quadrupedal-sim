@@ -98,16 +98,22 @@ class QuadrupedEnv():
         # Reward function
         reward = 0
         reward_time = 0
+        reward_displacement = 0
         # if(self.step_count > 148):
         #     reward_time = (self.step_count/self.total_steps)
+        displacement = pos[0][1] - self.last_pos
+        # if abs(displacement) < 0.005 :
+        #     reward_displacement = -1
+        # else:
+        #     reward_displacement = (-75 * displacement)
+        reward_displacement = (-75 * displacement)
         reward_time += (self.step_count/self.total_steps)
-        reward_displacement = (-75 * (pos[0][1] - self.last_pos))
         reward_height = np.sqrt(np.square(0.0522 - pos[0][2]))
         reward_rotation = abs(rotations[2] + rotations[1] + rotations[0]) * 0.1
         reward = reward_time + reward_displacement - reward_height - reward_rotation
 
         # - reward_height - reward_rotation
-        #TODO: Analyze obs space and see how network is reacting to it
+        #TODO: Create stack post. graph_rewards.png is misleading, adjust velocity rewards (add punishment for no progress) and remove time?
         
         # Graphing/Debugging purposes
         self.episode_displacement_reward += reward_displacement
