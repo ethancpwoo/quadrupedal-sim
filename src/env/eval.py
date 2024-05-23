@@ -23,6 +23,20 @@ def eval():
 
     for i in range(40):
         print(action)
+
+        # Left side
+        for i in range(4):
+            action[i] = action[i] * 1.0472 
+
+        # Right side
+        for i in range(4):
+            action[i + 4] = action[i + 4] * -1.0472
+        
+        # Hips
+        for i in range(4):
+            action[i + 8] = action[i + 8] * 0.261799
+            
+
         new_obs, reward, done = env.step(action)
         if done:
             break

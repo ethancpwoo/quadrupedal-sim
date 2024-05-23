@@ -48,7 +48,7 @@ class QuadrupedEnv():
         self.robot = p.loadURDF("../robot/robot.urdf", startPos, startOrientation)
 
         self.mode = p.POSITION_CONTROL
-        self.pos_array = [0, 2, 3, 4, 5, 6, 8, 9 ,10, 12, 13, 14]
+        self.pos_array = [1, 2, 4, 5, 7, 8, 10, 11, 0, 3, 6, 9]
         self.lower_lims = [p.getJointInfo(self.robot, x)[8] for x in self.pos_array]
         self.upper_lims = [p.getJointInfo(self.robot, x)[9] for x in self.pos_array]
 
@@ -81,10 +81,6 @@ class QuadrupedEnv():
         return self._get_obs()
     
     def step(self, action):
-        # Interpolate network output [-1, 1] to joint values [lower_lim, upper_lim]
-        for i in range(len(self.pos_array)):
-            action[i] = np.interp(action[i], (-1, 1), (self.lower_lims[i], self.upper_lims[i]))
-        # Move the joints
         p.setJointMotorControlArray(self.robot, self.pos_array, self.mode, action)
 
         for i in range(24):

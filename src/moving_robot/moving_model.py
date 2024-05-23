@@ -27,13 +27,17 @@ for i in range(numJoints):
 p.resetDebugVisualizerCamera(cameraDistance=0.2, cameraYaw=-60, cameraPitch=-35, cameraTargetPosition=[-0.1,0,0])
 
 mode = p.POSITION_CONTROL
-pos_array = [0, 1, 2, 4, 5, 6, 8, 9 ,10, 12, 13, 14]
+pos_array = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
 thighs = [1, 5, 9, 13]
 foots = [2, 6, 10, 14]
 lower_lims = [p.getJointInfo(robot, x)[8] for x in pos_array]
 upper_lims = [p.getJointInfo(robot, x)[9] for x in pos_array]
 flexed = [1.0472 for x in range(len(pos_array))]
 relaxed = [-1.0472 for x in range(len(pos_array))]
+
+# hips [-0.261799, 0.261799]
+# left [0, 1.0472]
+# right [-1.0472, 0]
 
 extended = [0, 0, 1.0472, 0, 0, 1.0472, 0, 0, 0, 0, 0, 0]
 
