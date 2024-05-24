@@ -5,6 +5,14 @@ import time
 
 from utils.ornstienUhlenbeck import OU
 
+"""
+TODO:
+    Create stack post if cannot solve by next week.
+    1) Normalize inputs to -1 to 1
+    2) Change reward such that must pass certain threshold to gain reward, else scaled negative
+    3) Try PyTorch DDPG, make QuadrupedEnv inherit Gym
+    4) Implement PPO or go to stack post...
+"""        
 class QuadrupedEnv():
 
     def __init__(self, render_mode):
@@ -135,8 +143,6 @@ class QuadrupedEnv():
         reward = reward_time + reward_displacement - reward_height - reward_rotation
 
         # - reward_height - reward_rotation
-        #TODO: Create stack post. graph_rewards.png is misleading, adjust velocity rewards (add punishment for no progress) and remove time?
-        
         # Graphing/Debugging purposes
         self.episode_displacement_reward += reward_displacement
         self.episode_time_reward += reward_time
