@@ -10,7 +10,6 @@ from models.actor import Actor
 from models.critic import Critic
 from quadruped_env import QuadrupedEnv
 from utils.graph import Grapher
-from utils.ornstienUhlenbeck import OU
 from utils.update_target import Updater
 from utils.replayBuffer import ReplayBuffer
 from tqdm import tqdm
@@ -22,18 +21,17 @@ device = "cuda:0" if torch.cuda.is_available() else 'cpu'
 
 BATCH_SIZE = 149
 BUFFER_SIZE = 1e6
-EXPLORE = 10000
+EXPLORE = 50000
 GAMMA = 0.99
-MAX_EPISODES = 450
+MAX_EPISODES = 3000
 TAU = 0.001
 
 buff = ReplayBuffer(BUFFER_SIZE)
-env = QuadrupedEnv(render_mode='GUI')
-# env = QuadrupedEnv(render_mode='direct')
+# env = QuadrupedEnv(render_mode='GUI')
+env = QuadrupedEnv(render_mode='direct')
 grapher = Grapher()
 updater = Updater()
 epsilon = 1.0
-orn_uhlen = OU()
 
 actor_losses = []
 critic_losses = []
@@ -75,29 +73,8 @@ for episode in tqdm(range(MAX_EPISODES)):
 
         action = actor.forward(obs)
         action = action.cpu().detach().numpy()
-        
-        # Left side
-        for i in range(4):
-            action[i] = action[i] * 1.0472 
 
-        # Right side
-        for i in range(4):
-            action[i + 4] = action[i + 4] * -1.0472
-        
-        # Hips
-        for i in range(4):
-            action[i + 8] = action[i + 8] * 0.261799
-
-        # print(action)
-        noise_left = np.array([max(epsilon, 0) * orn_uhlen.OU(action[x], (1.0472/2), 0.75, 0.5) for x in range(4)]).flatten()
-        noise_right = np.array([max(epsilon, 0) * orn_uhlen.OU(action[x + 4], (-1.0472/2), 0.75, 0.5) for x in range(4)]).flatten()
-        noise_hips = np.array([max(epsilon, 0) * orn_uhlen.OU(action[x + 8], 0, 1, 0.05) for x in range(4)]).flatten()
-        action_left = np.clip(np.add(action[0: 4], noise_left), 0, 1.0472)
-        action_right = np.clip(np.add(action[4: 8], noise_right), -1.0472, 0)
-        action_hips = np.clip(np.add(action[8: 12], noise_hips), -0.261799, 0.261799) 
-        action = np.concatenate([action_left, action_right, action_hips])
-
-        obs, reward, done = env.step(action=action)
+        action, obs, reward, done = env.step(action, epsilon)
         episode_rewards.append(reward)
 
         new_state = obs
@@ -144,6 +121,8 @@ for episode in tqdm(range(MAX_EPISODES)):
 
         updater.update_target(actor_target, actor, TAU)
         updater.update_target(critic_target, critic, TAU)
+
+        cur_state = new_state
 
         if done: 
             break

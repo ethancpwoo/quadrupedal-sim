@@ -10,7 +10,7 @@ class Actor(nn.Module):
     def __init__(self):
         super(Actor, self).__init__()
 
-        self.fc1 = nn.Linear(33, 250)
+        self.fc1 = nn.Linear(21, 250)
         self.fc2 = nn.Linear(250, 75)
         self.hips = nn.Linear(75, 4)
         self.legs = nn.Linear(75, 8)

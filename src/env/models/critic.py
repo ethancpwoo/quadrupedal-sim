@@ -9,7 +9,7 @@ class Critic(nn.Module):
     """
     def __init__(self):
         super(Critic, self).__init__()
-        self.fc_states = nn.Linear(33, 250)
+        self.fc_states = nn.Linear(21, 250)
         self.fc_actions = nn.Linear(12, 115)
 
         self.fc2_states = nn.Linear(250, 115)

@@ -3,9 +3,13 @@ import pybullet as p
 import pybullet_data
 import time
 
+from utils.ornstienUhlenbeck import OU
+
 class QuadrupedEnv():
 
     def __init__(self, render_mode):
+        self.orn_uhlen = OU()
+        
         # Graphing data init
         self.episode_displacement_reward = 0
         self.episode_time_reward = 0
@@ -43,7 +47,7 @@ class QuadrupedEnv():
         p.loadURDF("plane.urdf")
         p.resetDebugVisualizerCamera(cameraDistance=0.2, cameraYaw=-90, cameraPitch=-35, cameraTargetPosition=[-0.1,0,0])
 
-        startPos = [0, 0, 0.0585]
+        startPos = [0, -0.061531337528119075, 0.0585]
         startOrientation = p.getQuaternionFromEuler([0,0,0])
         self.robot = p.loadURDF("../robot/robot.urdf", startPos, startOrientation)
 
@@ -55,6 +59,11 @@ class QuadrupedEnv():
         for i in self.pos_array:
             p.changeDynamics(self.robot, i, lateralFriction=10, spinningFriction=10)
 
+        p.setJointMotorControlArray(self.robot, self.pos_array, self.mode)
+
+        for i in range(1000):
+            p.stepSimulation()
+
         self.start_state = p.saveState()
     
     def _get_obs(self):
@@ -65,7 +74,7 @@ class QuadrupedEnv():
 
         for i in range(len(self.pos_array)):
             obs = np.append(obs, np.array(joint_state[i][0]).flatten()) # joint pos
-            obs = np.append(obs, np.array(joint_state[i][1]).flatten()) # joint velocities
+            # obs = np.append(obs, np.array(joint_state[i][1]).flatten()) # joint velocities
 
         obs = np.append(obs, p.getEulerFromQuaternion(base_state[1])) # base rotation
         obs = np.append(obs, np.array(velocity_state[0]).flatten()) # base velocity
@@ -80,7 +89,24 @@ class QuadrupedEnv():
         self.done = False
         return self._get_obs()
     
-    def step(self, action):
+    def step(self, action, epsilon):
+        print(action)
+        action[0:4] = np.clip(action[0:4] + np.array([max(epsilon, 0) * self.orn_uhlen.OU(action[x], 0.5, 0.75, 0.5) for x in range(4)]).flatten(), 0, 1)
+        action[4:8] = np.clip(action[4:8] + np.array([max(epsilon, 0) * self.orn_uhlen.OU(action[x], 0.5, 0.75, 0.5) for x in range(4)]).flatten(), 0, 1)
+        action[8:12] = np.clip(action[8:12] + np.array([max(epsilon, 0) * self.orn_uhlen.OU(action[x], 0, 1, 0.05) for x in range(4)]).flatten(), -1, 1)
+        action_train = action
+        # Left side
+        for i in range(4):
+            action[i] = action[i] * 1.0472 
+
+        # Right side
+        for i in range(4):
+            action[i + 4] = action[i + 4] * -1.0472
+        
+        # Hips
+        for i in range(4):
+            action[i + 8] = action[i + 8] * 0.261799
+
         p.setJointMotorControlArray(self.robot, self.pos_array, self.mode, action)
 
         for i in range(24):
@@ -102,7 +128,7 @@ class QuadrupedEnv():
         #     reward_displacement = -1
         # else:
         #     reward_displacement = (-75 * displacement)
-        reward_displacement = (-75 * displacement)
+        reward_displacement = (-120 * displacement)
         reward_time += (self.step_count/self.total_steps)
         reward_height = np.sqrt(np.square(0.0522 - pos[0][2]))
         reward_rotation = abs(rotations[2] + rotations[1] + rotations[0]) * 0.1
@@ -138,5 +164,5 @@ class QuadrupedEnv():
 
         observation = self._get_obs()
 
-        return observation, reward, self.done
+        return action_train, observation, reward, self.done
 
