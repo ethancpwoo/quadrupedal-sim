@@ -8,7 +8,6 @@ from utils.ornstienUhlenbeck import OU
 """
 TODO:
     Create stack post if cannot solve by next week.
-    1) Normalize inputs to -1 to 1
     2) Change reward such that must pass certain threshold to gain reward, else scaled negative
     3) Try PyTorch DDPG, make QuadrupedEnv inherit Gym
     4) Implement PPO or go to stack post...
@@ -73,7 +72,13 @@ class QuadrupedEnv():
             p.stepSimulation()
 
         self.start_state = p.saveState()
-    
+
+    def normalize_obs(self, obs, max, min):
+        normal_vals = []
+        for observation in obs:
+            normal_vals.append(2 * ((observation - min)/(max - min)) - 1)
+        return normal_vals
+
     def _get_obs(self):
         obs = np.array([])
         joint_state = p.getJointStates(self.robot, self.pos_array)
@@ -81,12 +86,11 @@ class QuadrupedEnv():
         velocity_state = p.getBaseVelocity(self.robot)
 
         for i in range(len(self.pos_array)):
-            obs = np.append(obs, np.array(joint_state[i][0]).flatten()) # joint pos
-            # obs = np.append(obs, np.array(joint_state[i][1]).flatten()) # joint velocities
+            obs = np.append(obs, self.normalize_obs(np.array(joint_state[i][0]).flatten(), self.upper_lims[i], self.lower_lims[i])) # joint pos
 
-        obs = np.append(obs, p.getEulerFromQuaternion(base_state[1])) # base rotation
-        obs = np.append(obs, np.array(velocity_state[0]).flatten()) # base velocity
-        obs = np.append(obs, np.array(velocity_state[1]).flatten()) # base ang velocity
+        obs = np.append(obs, self.normalize_obs(p.getEulerFromQuaternion(base_state[1]), 0.1745, -0.1745)) # base rotation
+        obs = np.append(obs, self.normalize_obs(np.array(velocity_state[0]).flatten(), 0.06, -0.06)) # base velocity
+        obs = np.append(obs, self.normalize_obs(np.array(velocity_state[1]).flatten(), 1.5, -1.5)) # base ang velocity
         obs = obs.flatten()
 
         return obs
@@ -98,7 +102,7 @@ class QuadrupedEnv():
         return self._get_obs()
     
     def step(self, action, epsilon):
-        print(action)
+        # print(action)
         action[0:4] = np.clip(action[0:4] + np.array([max(epsilon, 0) * self.orn_uhlen.OU(action[x], 0.5, 0.75, 0.5) for x in range(4)]).flatten(), 0, 1)
         action[4:8] = np.clip(action[4:8] + np.array([max(epsilon, 0) * self.orn_uhlen.OU(action[x], 0.5, 0.75, 0.5) for x in range(4)]).flatten(), 0, 1)
         action[8:12] = np.clip(action[8:12] + np.array([max(epsilon, 0) * self.orn_uhlen.OU(action[x], 0, 1, 0.05) for x in range(4)]).flatten(), -1, 1)
@@ -132,11 +136,10 @@ class QuadrupedEnv():
         # if(self.step_count > 148):
         #     reward_time = (self.step_count/self.total_steps)
         displacement = pos[0][1] - self.last_pos
-        # if abs(displacement) < 0.005 :
-        #     reward_displacement = -1
-        # else:
-        #     reward_displacement = (-75 * displacement)
-        reward_displacement = (-120 * displacement)
+        if abs(displacement) < 0.01 :
+            reward_displacement = -120 * 0.01
+        else:
+            reward_displacement = (-120 * displacement)
         reward_time += (self.step_count/self.total_steps)
         reward_height = np.sqrt(np.square(0.0522 - pos[0][2]))
         reward_rotation = abs(rotations[2] + rotations[1] + rotations[0]) * 0.1
