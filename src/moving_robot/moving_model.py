@@ -15,9 +15,9 @@ startOrientation = p.getQuaternionFromEuler([0, 0, 0])
 robot = p.loadURDF("../robot/robot.urdf", startPos, startOrientation)
 
 numJoints = p.getNumJoints(robot)
-print(numJoints) 
-for i in range(numJoints):
-    print(p.getJointInfo(robot, i))
+# print(numJoints) 
+# for i in range(numJoints):
+#     print(p.getJointInfo(robot, i))
 
 # cam = p.getDebugVisualizerCamera()
 # print(cam[8])
@@ -46,17 +46,18 @@ for i in range(len(pos_array)):
     tweaking.append(np.random.uniform(lower_lims[i], upper_lims[i]))
 
 #set the center of mass frame (loadURDF sets base link frame) startPos/Ornp.resetBasePositionAndOrientation(boxId, startPos, startOrientation)
-p.setJointMotorControlArray(robot, pos_array, controlMode=mode)
-for i in range(10000):
+p.setJointMotorControlArray(robot, pos_array, mode, extended)
+for i in range(1):
     # tweaking = []
     # for i in range(len(pos_array)):
     #     tweaking.append(np.random.uniform(lower_lims[i], upper_lims[i]))
     
     p.stepSimulation()
     # print(p.getBasePositionAndOrientation(robot)[0])
+    print(p.getJointStates(robot, pos_array))
     # velocity = p.getBaseVelocity(robot)[0][1]
     # print(velocity)
-    print(p.getEulerFromQuaternion(p.getBasePositionAndOrientation(robot)[1]))
+    # print(p.getEulerFromQuaternion(p.getBasePositionAndOrientation(robot)[1]))
     #print(p.getBaseVelocity(robot)[0][0])
     # links = []
     # for i in range(12):

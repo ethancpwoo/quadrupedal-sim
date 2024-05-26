@@ -19,11 +19,11 @@ device = "cuda:0" if torch.cuda.is_available() else 'cpu'
 
 # ==============================================================
 
-BATCH_SIZE = 149
+BATCH_SIZE = 30
 BUFFER_SIZE = 1e6
 EXPLORE = 50000
 GAMMA = 0.99
-MAX_EPISODES = 3000
+MAX_EPISODES = 7000
 TAU = 0.001
 
 buff = ReplayBuffer(BUFFER_SIZE)
@@ -75,6 +75,7 @@ for episode in tqdm(range(MAX_EPISODES)):
         action = action.cpu().detach().numpy()
 
         action, obs, reward, done = env.step(action, epsilon)
+        # print(action)
         episode_rewards.append(reward)
 
         new_state = obs

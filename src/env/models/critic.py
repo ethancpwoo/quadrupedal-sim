@@ -16,7 +16,7 @@ class Critic(nn.Module):
         
         self.fc_all = nn.Linear(115, 65)
         self.actions = nn.Linear(65, 1)
-        self.learning_rate = 1e-3
+        self.learning_rate = 1e-3 
         self.optimizer = torch.optim.AdamW(self.parameters(), lr=self.learning_rate)
         self.loss = nn.MSELoss()
     

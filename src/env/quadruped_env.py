@@ -8,7 +8,8 @@ from utils.ornstienUhlenbeck import OU
 """
 TODO:
     Create stack post if cannot solve by next week.
-    2) Change reward such that must pass certain threshold to gain reward, else scaled negative
+    1) Try to give it position values? 
+    2) Relook at environment
     3) Try PyTorch DDPG, make QuadrupedEnv inherit Gym
     4) Implement PPO or go to stack post...
 """        
@@ -86,13 +87,13 @@ class QuadrupedEnv():
         velocity_state = p.getBaseVelocity(self.robot)
 
         for i in range(len(self.pos_array)):
-            obs = np.append(obs, self.normalize_obs(np.array(joint_state[i][0]).flatten(), self.upper_lims[i], self.lower_lims[i])) # joint pos
+            obs = np.append(obs, self.normalize_obs(np.array(round(joint_state[i][0], 5)).flatten(), self.upper_lims[i], self.lower_lims[i])) # joint pos
 
         obs = np.append(obs, self.normalize_obs(p.getEulerFromQuaternion(base_state[1]), 0.1745, -0.1745)) # base rotation
         obs = np.append(obs, self.normalize_obs(np.array(velocity_state[0]).flatten(), 0.06, -0.06)) # base velocity
         obs = np.append(obs, self.normalize_obs(np.array(velocity_state[1]).flatten(), 1.5, -1.5)) # base ang velocity
         obs = obs.flatten()
-
+        # print(obs)
         return obs
 
     def reset(self):
