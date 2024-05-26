@@ -137,9 +137,9 @@ class QuadrupedEnv():
         # if(self.step_count > 148):
         #     reward_time = (self.step_count/self.total_steps)
         displacement = pos[0][1] - self.last_pos
-        if abs(displacement) < 0.01 :
-            reward_displacement = -120 * 0.01
-        else:
+        if abs(displacement) > 0.01 :
+        #     reward_displacement = -120 * 0.01
+        # else:
             reward_displacement = (-120 * displacement)
         reward_time += (self.step_count/self.total_steps)
         reward_height = np.sqrt(np.square(0.0522 - pos[0][2]))
@@ -157,7 +157,7 @@ class QuadrupedEnv():
         self.last_pos = pos[0][1]
 
         # Episode ending
-        if self.step_count == self.total_steps or pos[0][2] < 0.0455 or abs(rotations[0]) > 0.1745 or abs(rotations[1]) > 0.1745 or abs(rotations[2]) > 0.3491:
+        if self.step_count == self.total_steps :
             self.final_positions.append(pos[0][1])
             self.final_times.append(self.step_count)
             self.reward_vel.append(self.episode_displacement_reward)

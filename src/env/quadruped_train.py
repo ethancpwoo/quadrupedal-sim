@@ -23,7 +23,7 @@ BATCH_SIZE = 30
 BUFFER_SIZE = 1e6
 EXPLORE = 50000
 GAMMA = 0.99
-MAX_EPISODES = 7000
+MAX_EPISODES = 10000
 TAU = 0.001
 
 buff = ReplayBuffer(BUFFER_SIZE)
@@ -131,7 +131,7 @@ for episode in tqdm(range(MAX_EPISODES)):
     actor_losses.append(np.mean(episode_actor_losses))
     critic_losses.append(np.mean(episode_critic_losses))
     epsilons.append(np.mean(episode_epsilons))
-    reward_acc.append(np.mean(np.array(episode_rewards).flatten()))
+    reward_acc.append(np.sum(np.array(episode_rewards).flatten()))
 
 p.disconnect()
 
