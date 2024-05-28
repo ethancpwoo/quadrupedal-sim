@@ -21,14 +21,14 @@ device = "cuda:0" if torch.cuda.is_available() else 'cpu'
 
 BATCH_SIZE = 30
 BUFFER_SIZE = 1e6
-EXPLORE = 50000
+EXPLORE = 100000
 GAMMA = 0.99
-MAX_EPISODES = 2000
+MAX_EPISODES = 3000
 TAU = 0.001
 
 buff = ReplayBuffer(BUFFER_SIZE)
-# env = QuadrupedEnv(render_mode='GUI')
-env = QuadrupedEnv(render_mode='direct')
+env = QuadrupedEnv(render_mode='GUI')
+# env = QuadrupedEnv(render_mode='direct')
 grapher = Grapher()
 updater = Updater()
 epsilon = 1.0

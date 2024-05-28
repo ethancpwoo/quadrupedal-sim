@@ -28,7 +28,7 @@ class Grapher():
         ax1[1,1].plot(x, reward_height)
         ax1[1,1].set_title('reward_height')
 
-        fig.savefig('./models/graph_hyper.png', dpi=1000)
-        fig1.savefig('./models/graph_rewards.png', dpi=1000)
+        fig.savefig('./graphs/graph_hyper.png', dpi=1000)
+        fig1.savefig('./graphs/graph_rewards.png', dpi=1000)
 
 
