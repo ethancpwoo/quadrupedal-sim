@@ -21,7 +21,7 @@ device = "cuda:0" if torch.cuda.is_available() else 'cpu'
 
 BATCH_SIZE = 30
 BUFFER_SIZE = 1e6
-EXPLORE = 100000
+EXPLORE = 50000
 GAMMA = 0.99
 MAX_EPISODES = 4000
 TAU = 0.001

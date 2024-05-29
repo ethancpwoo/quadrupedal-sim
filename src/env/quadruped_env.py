@@ -7,11 +7,8 @@ from utils.ornstienUhlenbeck import OU
 
 """
 TODO:
-    Create stack post if cannot solve by next week.
-    1) Try to give it position values? 
-    2) Relook at environment
-    3) Try PyTorch DDPG, make QuadrupedEnv inherit Gym
-    4) Implement PPO or go to stack post...
+    1) Make feet DOF deterministic 1 or 0, adjust with rotating thighs.
+    2) If that doesnt work, go back into cad and make balled feet. 
 """        
 class QuadrupedEnv():
 
@@ -67,7 +64,7 @@ class QuadrupedEnv():
         self.upper_lims = [p.getJointInfo(self.robot, x)[9] for x in self.pos_array]
 
         for i in self.pos_array:
-            p.changeDynamics(self.robot, i, spinningFriction=2)
+            p.changeDynamics(self.robot, i, lateralFriction=2, spinningFriction=2)
 
         p.setJointMotorControlArray(self.robot, self.pos_array, self.mode)
         p.setJointMotorControlArray(self.robot, [0, 3, 6, 9], self.mode, [0, 0, 0, 0])
@@ -158,7 +155,7 @@ class QuadrupedEnv():
         self.last_pos = pos[0][1]
 
         # Episode ending
-        if self.step_count == self.total_steps or pos[0][2] < 0.0455 or abs(rotations[0]) > 0.2 or abs(rotations[1]) > 0.2 or abs(rotations[2]) > 0.2:
+        if self.step_count == self.total_steps or pos[0][2] < 0.0455 or abs(rotations[0]) > 0.3 or abs(rotations[1]) > 0.2 or abs(rotations[2]) > 0.2:
             self.final_positions.append(pos[0][1])
             self.final_times.append(self.step_count)
             self.reward_vel.append(self.episode_displacement_reward)

@@ -11,13 +11,13 @@ p.setGravity(0,0,-9.81)
 
 planeId = p.loadURDF("plane.urdf")
 startPos = [0.0, 0, 0.0585]
-startOrientation = p.getQuaternionFromEuler([0, 0, 0])
+startOrientation = p.getQuaternionFromEuler([0.4, 0, 0])
 robot = p.loadURDF("../robot/robot.urdf", startPos, startOrientation)
 
-numJoints = p.getNumJoints(robot)
-print(numJoints) 
-for i in range(numJoints):
-    print(p.getJointInfo(robot, i))
+# numJoints = p.getNumJoints(robot)
+# print(numJoints) 
+# for i in range(numJoints):
+#     print(p.getJointInfo(robot, i))
 
 # cam = p.getDebugVisualizerCamera()
 # print(cam[8])
@@ -39,13 +39,13 @@ relaxed = [-1.0472 for x in range(len(pos_array))]
 # left [0, 1.0472]
 # right [-1.0472, 0]
 
-extended = [0, 0, 1.0472, 0, 0, 1.0472, 0, 0, 0, 0, 0, 0]
+extended = [0, 1.0472, 0.2, 0, 0, 0.2, 0, 0, -0.2, 0, 0, -0.2]
 tweaking = []
 for i in range(len(pos_array)):
     tweaking.append(np.random.uniform(lower_lims[i], upper_lims[i]))
 
 #set the center of mass frame (loadURDF sets base link frame) startPos/Ornp.resetBasePositionAndOrientation(boxId, startPos, startOrientation)
-p.setJointMotorControlArray(robot, pos_array, mode, extended)
+
 for i in range(1):
     # tweaking = []
     # for i in range(len(pos_array)):
@@ -53,16 +53,23 @@ for i in range(1):
     
     p.stepSimulation()
     # print(p.getBasePositionAndOrientation(robot)[0])
-    print(p.getJointStates(robot, pos_array))
+    #print(p.getJointStates(robot, pos_array))
     # velocity = p.getBaseVelocity(robot)[0][1]
     # print(velocity)
     # print(p.getEulerFromQuaternion(p.getBasePositionAndOrientation(robot)[1]))
-    #print(p.getBaseVelocity(robot)[0][0])
+    pos = p.getBasePositionAndOrientation(robot)
+    rotations = np.array(p.getEulerFromQuaternion(pos[1])) 
+    print(rotations)
     # links = []
     # for i in range(12):
     #     rel_pos = p.getLinkStates(robot, pos_array)[i][2]
     #     links.append(rel_pos)
-    time.sleep(1./240.)
+    time.sleep(10)
+
+# for i in range(10000):
+#     p.setJointMotorControlArray(robot, pos_array, mode, extended)
+#     p.stepSimulation()
+#     time.sleep(1./240.)
 
 # links = np.array(links)
 #print(links.flatten())
