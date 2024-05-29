@@ -67,7 +67,7 @@ class QuadrupedEnv():
         self.upper_lims = [p.getJointInfo(self.robot, x)[9] for x in self.pos_array]
 
         for i in self.pos_array:
-            p.changeDynamics(self.robot, i, lateralFriction=0.7, spinningFriction=0.7)
+            p.changeDynamics(self.robot, i, spinningFriction=2)
 
         p.setJointMotorControlArray(self.robot, self.pos_array, self.mode)
         p.setJointMotorControlArray(self.robot, [0, 3, 6, 9], self.mode, [0, 0, 0, 0])
@@ -107,8 +107,8 @@ class QuadrupedEnv():
     
     def step(self, action, epsilon):
         # print(action)
-        action[0:4] = np.clip(action[0:4] + np.array([max(epsilon, 0) * self.orn_uhlen.OU(action[x], 0.5, 0.7, 0.5) for x in range(4)]).flatten(), 0, 1)
-        action[4:8] = np.clip(action[4:8] + np.array([max(epsilon, 0) * self.orn_uhlen.OU(action[x], 0.5, 0.7, 0.5) for x in range(4)]).flatten(), 0, 1)
+        action[0:4] = np.clip(action[0:4] + np.array([max(epsilon, 0) * self.orn_uhlen.OU(action[x], 0.5, 0.1, 0.8) for x in range(4)]).flatten(), 0, 1)
+        action[4:8] = np.clip(action[4:8] + np.array([max(epsilon, 0) * self.orn_uhlen.OU(action[x], 0.5, 0.1, 0.8) for x in range(4)]).flatten(), 0, 1)
         action_train = action
         # Left side
         for i in range(4):
@@ -120,7 +120,7 @@ class QuadrupedEnv():
 
         p.setJointMotorControlArray(self.robot, self.pos_array, self.mode, action)
 
-        for i in range(30):
+        for i in range(10):
             p.stepSimulation()
             if self.render_mode == 'GUI':
                 time.sleep(1/240)
