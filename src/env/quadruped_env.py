@@ -32,7 +32,7 @@ class QuadrupedEnv():
         self.last_pos = 0
         self.step_count = 0
         self.last_pos = 0
-        self.total_steps = 150
+        self.total_steps = 250
         # Initialize for stepping the training
 
         self.render_mode = render_mode
@@ -57,9 +57,9 @@ class QuadrupedEnv():
         self.robot = p.loadURDF("../robot/robot.urdf", startPos, startOrientation)
 
         self.mode = p.POSITION_CONTROL
-        self.left_side = [1, 2, 4, 5]
-        self.right_side = [7, 8, 10, 11]
-        self.pos_array = [1, 2, 4, 5, 7, 8, 10, 11]
+        self.left_side = [1, 4, 2, 5]
+        self.right_side = [7, 10, 8, 11]
+        self.pos_array = [1, 4, 2, 5, 7, 10, 8, 11]
         self.lower_lims = [p.getJointInfo(self.robot, x)[8] for x in self.pos_array]
         self.upper_lims = [p.getJointInfo(self.robot, x)[9] for x in self.pos_array]
 
@@ -67,7 +67,6 @@ class QuadrupedEnv():
             p.changeDynamics(self.robot, i, lateralFriction=2, spinningFriction=2)
 
         p.setJointMotorControlArray(self.robot, self.pos_array, self.mode)
-        p.setJointMotorControlArray(self.robot, [0, 3, 6, 9], self.mode, [0, 0, 0, 0])
 
         for i in range(1000):
             p.stepSimulation()
@@ -104,8 +103,10 @@ class QuadrupedEnv():
     
     def step(self, action, epsilon):
         # print(action)
-        action[0:4] = np.clip(action[0:4] + np.array([max(epsilon, 0) * self.orn_uhlen.OU(action[x], 0.5, 0.1, 0.8) for x in range(4)]).flatten(), 0, 1)
-        action[4:8] = np.clip(action[4:8] + np.array([max(epsilon, 0) * self.orn_uhlen.OU(action[x], 0.5, 0.1, 0.8) for x in range(4)]).flatten(), 0, 1)
+        action[0:2] = np.clip(action[0:2] + np.array([max(epsilon, 0) * self.orn_uhlen.OU(action[x], 0.5, 0.2, 0.8) for x in range(2)]).flatten(), 0, 1)
+        action[2:4] = np.clip(action[2:4] + np.array([max(epsilon, 0) * self.orn_uhlen.OU(action[x], 0.6, 0.5, 0.4) for x in range(2)]).flatten(), 0, 1)
+        action[4:6] = np.clip(action[4:6] + np.array([max(epsilon, 0) * self.orn_uhlen.OU(action[x], 0.5, 0.2, 0.8) for x in range(2)]).flatten(), 0, 1)
+        action[6:8] = np.clip(action[6:8] + np.array([max(epsilon, 0) * self.orn_uhlen.OU(action[x], 0.6, 0.5, 0.4) for x in range(2)]).flatten(), 0, 1)
         action_train = action
         # Left side
         for i in range(4):
@@ -117,31 +118,36 @@ class QuadrupedEnv():
 
         p.setJointMotorControlArray(self.robot, self.pos_array, self.mode, action)
 
-        for i in range(10):
+        for i in range(20):
             p.stepSimulation()
             if self.render_mode == 'GUI':
                 time.sleep(1/240)
 
         pos = p.getBasePositionAndOrientation(self.robot)
         rotations = np.array(p.getEulerFromQuaternion(pos[1]))       
-        
+        thigh_pos = [p.getLinkStates(self.robot, [1, 4, 7, 10])[x][0][2] for x in range(4)]
+        diff_pos = [np.sqrt(np.square(p.getLinkStates(self.robot, [1, 4, 7, 10])[x][0][2] - 0.475)) for x in range(4)]
+        thigh_end = [p.getLinkStates(self.robot, [1, 4, 7, 10])[x][0][2] < 0.035 for x in range(4)]
         # Reward function
         reward = 0
         reward_time = 0
         reward_displacement = 0
         reward_height = 0
         reward_rotation = 0
+        velocity = p.getBaseVelocity(self.robot)[0][1]
         # if(self.step_count > 148):
         #     reward_time = (self.step_count/self.total_steps)
         displacement = pos[0][1] - self.last_pos
         if abs(displacement) > 0.01 :
-            reward_displacement = -120 * 0.01
+            reward_displacement = (-150 * displacement)
         else:
-            reward_displacement = (-120 * displacement)
+            reward_displacement = (-50 * 0.01)
+        # reward_displacement = -120 * velocity
         # reward_time += (self.step_count/self.total_steps)
         # reward_height = np.sqrt(np.square(0.0522 - pos[0][2]))
         reward_rotation += abs(rotations[2]) * 0.1
         reward_rotation += abs(rotations[1]) * 0.1 
+        reward_height = np.sum(diff_pos) * 75
         reward = reward_time + reward_displacement - reward_height - reward_rotation
 
         # - reward_height - reward_rotation
@@ -155,7 +161,8 @@ class QuadrupedEnv():
         self.last_pos = pos[0][1]
 
         # Episode ending
-        if self.step_count == self.total_steps or pos[0][2] < 0.0455 or abs(rotations[0]) > 0.3 or abs(rotations[1]) > 0.2 or abs(rotations[2]) > 0.2:
+        if (self.step_count == self.total_steps or pos[0][2] < 0.0455 or abs(rotations[0]) > 0.3 or 
+            abs(rotations[1]) > 0.2 or abs(rotations[2]) > 0.2 or np.any(thigh_end)):
             self.final_positions.append(pos[0][1])
             self.final_times.append(self.step_count)
             self.reward_vel.append(self.episode_displacement_reward)
