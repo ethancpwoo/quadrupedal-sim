@@ -31,7 +31,6 @@ class QuadrupedEnv():
         # Step counting
         self.last_pos = 0
         self.step_count = 0
-        self.last_pos = 0
         self.total_steps = 150
         # Initialize for stepping the training
 
@@ -65,7 +64,7 @@ class QuadrupedEnv():
         self.upper_lims = [p.getJointInfo(self.robot, x)[9] for x in self.pos_array]
 
         for i in self.tips:
-            p.changeDynamics(self.robot, i, lateralFriction=2, spinningFriction=2)
+            p.changeDynamics(self.robot, i, lateralFriction=3.5, spinningFriction=3.5, frictionAnchor=1)
 
         p.setJointMotorControlArray(self.robot, self.pos_array, self.mode)
         p.setJointMotorControlArray(self.robot, [0, 4, 8, 12], self.mode, [0, 0, 0, 0])
@@ -134,6 +133,7 @@ class QuadrupedEnv():
         velocity = p.getBaseVelocity(self.robot)[0][1]
         # if(self.step_count > 148):
         #     reward_time = (self.step_count/self.total_steps)
+        print(pos[0][1])
         displacement = pos[0][1] - self.last_pos
         # if abs(displacement) > 0.01 :
         #     reward_displacement = -120 * 0.01
