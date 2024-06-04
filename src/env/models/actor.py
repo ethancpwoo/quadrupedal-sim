@@ -23,10 +23,7 @@ class Actor(nn.Module):
         x = F.relu(x)
         # print(x)
         legs = self.legs(x)
-        if legs.dim() == 1:
-            legs = F.softmax(legs, dim=0)
-        else:
-            legs = F.softmax(legs, dim=1)
+        legs = F.tanh(legs)
         # print(legs)
         # print(hips)
         return legs

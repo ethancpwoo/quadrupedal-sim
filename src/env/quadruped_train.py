@@ -27,8 +27,8 @@ MAX_EPISODES = 3000
 TAU = 0.001
 
 buff = ReplayBuffer(BUFFER_SIZE)
-# env = QuadrupedEnv(render_mode='GUI')
-env = QuadrupedEnv(render_mode='direct')
+env = QuadrupedEnv(render_mode='GUI')
+# env = QuadrupedEnv(render_mode='direct')
 grapher = Grapher()
 updater = Updater()
 epsilon = 1.0

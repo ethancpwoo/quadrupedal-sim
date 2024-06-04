@@ -26,10 +26,10 @@ for i in range(numJoints):
 
 p.resetDebugVisualizerCamera(cameraDistance=0.2, cameraYaw=-60, cameraPitch=-35, cameraTargetPosition=[-0.1,0,0])
 
-mode = p.POSITION_CONTROL
-pos_array = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
-thighs = [1, 4, 7, 10]
-foots = [2, 5, 8, 11]
+mode = p.TORQUE_CONTROL
+pos_array = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+thighs = [1, 5, 9, 13]
+foots = [2, 6, 9, 14]
 lower_lims = [p.getJointInfo(robot, x)[8] for x in pos_array]
 upper_lims = [p.getJointInfo(robot, x)[9] for x in pos_array]
 flexed = [1.0472 for x in range(len(pos_array))]
@@ -40,12 +40,13 @@ relaxed = [-1.0472 for x in range(len(pos_array))]
 # right [-1.0472, 0]
 
 extended = [0, 1.0472, 0, 0, 1.0472, 0, 0, -1.0472, 0, 0, -1.0472, 0]
-tweaking = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+tweaking = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+torque = [0, 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0]
 # for i in range(len(pos_array)):
 #     tweaking.append(np.random.uniform(lower_lims[i], upper_lims[i]))
 
 #set the center of mass frame (loadURDF sets base link frame) startPos/Ornp.resetBasePositionAndOrientation(boxId, startPos, startOrientation)
-p.setJointMotorControlArray(robot, pos_array, mode, tweaking)
+p.setJointMotorControlArray(robot, pos_array, mode, forces=tweaking)
 for i in range(100):
     # tweaking = []
     # for i in range(len(pos_array)):
@@ -71,8 +72,14 @@ contacts = p.getContactPoints(robot, planeId, 2)
 print(contacts)
 print()
 print()
+
+for i in range(30):
+    p.setJointMotorControlArray(robot, pos_array, mode, forces=torque)
+    p.stepSimulation()
+    time.sleep(1./240.)
+
 for i in range(100):
-    p.setJointMotorControlArray(robot, pos_array, mode, extended)
+
     p.stepSimulation()
     time.sleep(1./240.)
 contacts = p.getContactPoints(robot, planeId, 2)
