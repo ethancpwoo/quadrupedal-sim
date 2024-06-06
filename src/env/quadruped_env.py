@@ -103,15 +103,21 @@ class QuadrupedEnv():
         return self._get_obs()
     
     def check_lims(self):
-        joint_state = p.getJointState(self.robot, 1)
-        current_position = joint_state[0]
-        current_velocity = joint_state[1]
+        joint_states = [p.getJointState(self.robot, x)[0] for x in self.pos_array]
+
         # Adjust target velocity based on positional limits
-        if current_position < 0 and current_velocity < 0:
-            p.setJointMotorControl2(self.robot, 1, self.mode, targetVelocity=0)
-        elif current_position > 1.0472 and current_velocity > 0:
-            p.setJointMotorControl2(self.robot, 1, self.mode, targetVelocity=0)
-    
+        for j, i in enumerate(joint_states[0:4]):
+            if i < 0:
+                p.setJointMotorControl2(self.robot, self.pos_array[j], self.mode, targetVelocity=0)
+            elif i > 1.0472:
+                p.setJointMotorControl2(self.robot, self.pos_array[j], self.mode, targetVelocity=0)
+
+        for j, i in enumerate(joint_states[4:8]):
+            if i > 0:
+                p.setJointMotorControl2(self.robot, self.pos_array[j + 4], self.mode, targetVelocity=0)
+            elif i < -1.0472:
+                p.setJointMotorControl2(self.robot, self.pos_array[j + 4], self.mode, targetVelocity=0)
+
     def step(self, action, epsilon):
         # print(action)
         action[0:2] = np.clip(action[0:2] + np.array([max(epsilon, 0) * self.orn_uhlen.OU(action[x], 0.5, 0.1, 0.8) for x in range(2)]).flatten(), 0, 1)
@@ -125,6 +131,7 @@ class QuadrupedEnv():
 
         for i in range(60):
             p.stepSimulation()
+            self.check_lims()
             if self.render_mode == 'GUI':
                 time.sleep(1/240)
 

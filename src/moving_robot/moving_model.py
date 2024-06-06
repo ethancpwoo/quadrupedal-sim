@@ -45,6 +45,23 @@ torque = [0, 10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 # for i in range(len(pos_array)):
 #     tweaking.append(np.random.uniform(lower_lims[i], upper_lims[i]))
 
+def check_lims():
+    joint_states = [p.getJointState(robot, x)[0] for x in pos_array]
+    print(joint_states[1])
+    # Adjust target velocity based on positional limits
+    for j, i in enumerate(joint_states[0:4]):
+        if i < 0:
+            p.setJointMotorControl2(robot, pos_array[j], mode, targetVelocity=0)
+        elif i > 1.0472:
+            p.setJointMotorControl2(robot, pos_array[j], mode, targetVelocity=0)
+
+    for j, i in enumerate(joint_states[4:8]):
+        if i > 0:
+            p.setJointMotorControl2(robot, pos_array[j + 4], mode, targetVelocity=0)
+        elif i < -1.0472:
+            p.setJointMotorControl2(robot, pos_array[j + 4], mode, targetVelocity=0)
+
+
 #set the center of mass frame (loadURDF sets base link frame) startPos/Ornp.resetBasePositionAndOrientation(boxId, startPos, startOrientation)
 p.setJointMotorControlArray(robot, pos_array, mode, targetVelocities=tweaking)
 for i in range(100):
@@ -74,23 +91,11 @@ print()
 print()
 
 p.setJointMotorControlArray(robot, pos_array, mode, targetVelocities=torque)
-for i in range(100):
-    joint_state = p.getJointState(robot, 1)
-    current_position = joint_state[0]
-    current_velocity = joint_state[1]
-    # Adjust target velocity based on positional limits
-    if current_position < 0 and current_velocity < 0:
-        p.setJointMotorControl2(robot, 1, mode, targetVelocity=0)
-    elif current_position > 1.0472 and current_velocity > 0:
-        p.setJointMotorControl2(robot, 1, mode, targetVelocity=0)
-
+for i in range(1000):
+    check_lims()
     p.stepSimulation()
     time.sleep(1./240.)
 
-for i in range(100):
-
-    p.stepSimulation()
-    time.sleep(1./240.)
 contacts = p.getContactPoints(robot, planeId, 2)
 # thigh_pos = [p.getLinkStates(robot, [2, 5, 8, 11])[x][0][2] for x in range(4)] 
 # print(thigh_pos)
