@@ -4,12 +4,7 @@ import pybullet_data
 import time
 
 from utils.ornstienUhlenbeck import OU
-
-"""
-TODO:
-    1) Make feet DOF deterministic 1 or 0, adjust with rotating thighs.
-    2) If that doesnt work, go back into cad and make balled feet. 
-"""        
+        
 class QuadrupedEnv():
 
     def __init__(self, render_mode):
@@ -131,26 +126,21 @@ class QuadrupedEnv():
         reward_height = 0
         reward_rotation = 0
         velocity = p.getBaseVelocity(self.robot)[0][1]
-        # if(self.step_count > 148):
-        #     reward_time = (self.step_count/self.total_steps)
+        
         print(pos[0][1])
         displacement = pos[0][1] - self.last_pos
-        # if abs(displacement) > 0.01 :
-        #     reward_displacement = -120 * 0.01
-        # else:
         reward_displacement = (-120 * displacement)
-        # reward_time += (self.step_count/self.total_steps)
+        
         reward_height = np.sqrt(np.square(0.0522 - pos[0][2]))
         reward_rotation += abs(rotations[2]) * 0.1
         reward_rotation += abs(rotations[1]) * 0.1 
-        # reward_height = np.sum(diff_pos) * 75
+        
         reward = reward_time + reward_displacement - reward_height - reward_rotation
         print(reward)
-        # - reward_height - reward_rotation
-        # Graphing/Debugging purposes
+               
         self.episode_displacement_reward += reward_displacement
         self.episode_time_reward += reward_time
-        # self.episode_height_reward -= reward_height
+        self.episode_height_reward -= reward_height
         self.episode_rotations_reward -= reward_rotation
 
         self.step_count += 1
@@ -159,7 +149,7 @@ class QuadrupedEnv():
         # Episode ending
         if (self.step_count == self.total_steps or pos[0][2] < 0.0455 or abs(rotations[0]) > 0.3 or 
         abs(rotations[1]) > 0.2 or abs(rotations[2]) > 0.2):
-            # or np.any(thigh_end)
+            
             self.final_positions.append(pos[0][1])
             self.final_times.append(self.step_count)
             self.reward_vel.append(self.episode_displacement_reward)

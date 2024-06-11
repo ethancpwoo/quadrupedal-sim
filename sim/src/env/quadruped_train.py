@@ -54,7 +54,6 @@ critic_target = critic_target.to(device=device)
 updater.equate_model(actor_target, actor)
 updater.equate_model(critic_target, critic)
 
-#TODO: graph, verify LR and verify and adjust reward values with extreme prejudice
 
 for episode in tqdm(range(MAX_EPISODES)):
     obs = env.reset()
@@ -75,7 +74,6 @@ for episode in tqdm(range(MAX_EPISODES)):
         action = action.cpu().detach().numpy()
 
         action, obs, reward, done = env.step(action, epsilon)
-        # print(action)
         episode_rewards.append(reward)
 
         new_state = obs
