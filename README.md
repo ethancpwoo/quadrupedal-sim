@@ -12,6 +12,21 @@ The reward function will be based on the position of the chassis. Unlike the Sol
 
 DDPG (Deterministic Deep Policy Gradients) will be the approach for this problem. It is an actor-critic algorithm, the actor being a policy gradient and the critic being a DQN or Q-Network. The actor trains off the DQNs results and the rewards of its actions. DDPGs support multiple continuous actions which is perfect for a robotics application such as making a quadruped walk.
 
+## Training Process
+
+Agent will be provided chassis RPY and joint positions. Agent will generate action consisting of position control values for each DOF every 60 timesteps or every .25 seconds. Simulation will reset every 10 seconds (each episode is 10 seconds).
+
+## Reward Values
+
+$`\reward = 120 * (\(\Delta \)d) - sqrt((0.0522 - h)^2) - 0.1(|r| + |y|)`$
+
+## Running
+
+```shell
+cd /src/
+python moving_model.py
+```
+
 ## Encountered Problem Log
 
 1) During research, my first problem was that most PGs are essentially Markov Chains which will have only 1 probabilistic action for each given observation. Vanilla Policy Gradients and the REINFORCE algorithm are simple on-policy algorithms that I started with. The probabilities for each action in these algorithms are generated from the agent and the action with the highest probability is selected. The negative values are multiplied with standardized rewards and summed as the loss where SGD optimizes it. This is insufficient for the robot as position values are required + deterministic action.\
@@ -26,20 +41,6 @@ It is possible to map the stochastic policy to the min and maxes of each joint a
 
 5) PyBullet provides 3 ways to control the joints. Positional, velocity and torque control. I chose positional at the beginning due to it being easy to map with the action space of the agent. However, with the nature of stepping the environment, the actions are very choppy and not entirely smooth. The resulting optimal policy from this control scheme is having 2 feet move of the 4 to maintain balance in the robot during non-action simulation steps. I started exploring with velocity and torque control since they can result in continuous movements.
 
-## Training Process
-
-Agent will be provided chassis RPY and joint positions. Agent will generate action consisting of position control values for each DOF every 60 timesteps or every .25 seconds. Simulation will reset every 10 seconds (each episode is 10 seconds).
-
-## Reward Values
-
-$`\ Yaw\:Reward = -0.01 * |Yaw| `$
-
-## Running
-
-```shell
-cd /src/
-python moving_model.py
-```
 ## Resources:
 
 [reddit](https://www.reddit.com/r/MachineLearning/comments/9z8tok/d_reinforcement_learning_with_multiple/) \
