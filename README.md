@@ -18,7 +18,7 @@ Agent will be provided chassis RPY and joint positions. Agent will generate acti
 
 ## Reward Values
 
-$`\reward = 120 * (\Delta d) - sqrt((0.0522 - h)^2) - 0.1(|r| + |y|)`$
+$`reward = 120 * (\Delta d) - sqrt((0.0522 - h)^2) - 0.1(|r| + |y|)`$
 
 ## Running
 
