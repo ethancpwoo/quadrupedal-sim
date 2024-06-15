@@ -22,8 +22,17 @@ $`reward = 120 * (\Delta d) - sqrt((0.0522 - h)^2) - 0.1(|r| + |y|)`$
 
 ## Running
 
+Using Python 3.10.12.
+
 ```shell
-cd /src/
+git clone <repo>
+sudo apt-get install -y python3-venv
+mkdir venv && cd venv
+python -m venv .
+
+source lib/activate
+
+cd ../sim/src/moving_model
 python moving_model.py
 ```
 
