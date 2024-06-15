@@ -22,8 +22,9 @@ $`reward = 120 * (\Delta d) - sqrt((0.0522 - h)^2) - 0.1(|r| + |y|)`$
 
 ## Running
 
-Using Python 3.10.12.
+Using Python 3.10.12 and ROS2 Humble.
 
+Setup: 
 ```shell
 git clone <repo>
 sudo apt-get install -y python3-venv
@@ -31,9 +32,20 @@ mkdir venv && cd venv
 python -m venv .
 
 source lib/activate
+source <ros_distro>/install/setup.bash
+source ros/install/setup.bash
+```
 
+Simulation:
+```shell
 cd ../sim/src/moving_model
 python moving_model.py
+```
+
+ROS:
+```shell
+colcon build
+ros2 run model talker
 ```
 
 ## Encountered Problem Log

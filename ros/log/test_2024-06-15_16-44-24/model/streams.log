@@ -1,0 +1,118 @@
+[0.475s] Invoking command in '/home/ethan/quadrupedal-sim/ros/src/model': AMENT_PREFIX_PATH=/home/ethan/quadrupedal-sim/ros/install/model:${AMENT_PREFIX_PATH} PYTEST_ADDOPTS=--tb=short --junit-xml=/home/ethan/quadrupedal-sim/ros/build/model/pytest.xml --junit-prefix=model -o cache_dir=/home/ethan/quadrupedal-sim/ros/build/model/.pytest_cache PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=/home/ethan/quadrupedal-sim/ros/build/model:/home/ethan/quadrupedal-sim/ros/install/model/lib/python3.10/site-packages:${PYTHONPATH} VIRTUAL_ENV_PROMPT=(venv) /usr/bin/python3 -m pytest
+[1.228s] [1m============================= test session starts ==============================[0m
+[1.228s] platform linux -- Python 3.10.12, pytest-6.2.5, py-1.10.0, pluggy-0.13.0
+[1.234s] cachedir: /home/ethan/quadrupedal-sim/ros/build/model/.pytest_cache
+[1.234s] rootdir: /home/ethan/quadrupedal-sim/ros/src/model
+[1.234s] plugins: launch-testing-ros-0.19.7, launch-pytest-1.0.6, launch-testing-1.0.6, ament-xmllint-0.12.11, ament-pep257-0.12.11, ament-mypy-0.12.11, ament-flake8-0.12.11, ament-copyright-0.12.11, ament-lint-0.12.11, cov-3.0.0, mock-3.6.1, timeout-2.1.0, rerunfailures-10.2, repeat-0.9.1, colcon-core-0.16.1
+[1.326s] [1mcollecting ... [0m[1m
+[1.326s] collected 3 items                                                              [0m
+[1.326s] 
+[1.331s] test/test_copyright.py [33ms[0m[32m                                                 [ 33%][0m
+[1.572s] test/test_flake8.py [31mF[0m[31m                                                    [ 66%][0m
+[1.598s] test/test_pep257.py [31mF[0m[31m                                                    [100%][0m
+[1.598s] 
+[1.598s] =================================== FAILURES ===================================
+[1.598s] [31m[1m_________________________________ test_flake8 __________________________________[0m
+[1.598s] [1m[31mtest/test_flake8.py[0m:23: in test_flake8
+[1.636s]     [94massert[39;49;00m rc == [94m0[39;49;00m, \
+[1.637s] [1m[31mE   AssertionError: Found 6 code style errors / warnings:[0m
+[1.637s] [1m[31mE     ./model/actor.py:1:1: F401 'numpy as np' imported but unused[0m
+[1.637s] [1m[31mE     ./model/actor.py:6:1: E302 expected 2 blank lines, found 1[0m
+[1.637s] [1m[31mE     ./model/actor.py:7:1: D200 One-line docstring should fit on one line with quotes[0m
+[1.637s] [1m[31mE     ./model/actor.py:7:1: D204 1 blank line required after class docstring[0m
+[1.637s] [1m[31mE     ./model/actor.py:18:1: W293 blank line contains whitespace[0m
+[1.637s] [1m[31mE     ./model/actor.py:32:20: W292 no newline at end of file[0m
+[1.637s] [1m[31mE   assert 1 == 0[0m
+[1.637s] ----------------------------- Captured stdout call -----------------------------
+[1.637s] 
+[1.637s] ./model/actor.py:1:1: F401 'numpy as np' imported but unused
+[1.637s] import numpy as np
+[1.637s] ^
+[1.637s] 
+[1.637s] ./model/actor.py:6:1: E302 expected 2 blank lines, found 1
+[1.637s] class Actor(nn.Module):
+[1.637s] ^
+[1.637s] 
+[1.638s] ./model/actor.py:7:1: D200 One-line docstring should fit on one line with quotes
+[1.638s]     """
+[1.638s]     Define multi-layer perceptron to deep learn and optimize policy.
+[1.638s]     """
+[1.638s] ^
+[1.638s] 
+[1.638s] ./model/actor.py:7:1: D204 1 blank line required after class docstring
+[1.638s]     """
+[1.638s]     Define multi-layer perceptron to deep learn and optimize policy.
+[1.638s]     """
+[1.638s] ^
+[1.638s] 
+[1.638s] ./model/actor.py:18:1: W293 blank line contains whitespace
+[1.638s]     
+[1.638s] ^
+[1.638s] 
+[1.638s] ./model/actor.py:32:20: W292 no newline at end of file
+[1.638s]         return legs                   ^
+[1.638s] 
+[1.638s] 1     D200 One-line docstring should fit on one line with quotes
+[1.638s] 1     D204 1 blank line required after class docstring
+[1.639s] 1     E302 expected 2 blank lines, found 1
+[1.639s] 1     F401 'numpy as np' imported but unused
+[1.639s] 1     W292 no newline at end of file
+[1.639s] 1     W293 blank line contains whitespace
+[1.639s] 
+[1.639s] 7 files checked
+[1.639s] 6 errors
+[1.639s] 
+[1.639s] 'D'-type errors: 2
+[1.639s] 'E'-type errors: 1
+[1.639s] 'F'-type errors: 1
+[1.639s] 'W'-type errors: 2
+[1.639s] 
+[1.639s] Checked files:
+[1.639s] 
+[1.639s] * ./setup.py
+[1.639s] * ./test/test_flake8.py
+[1.639s] * ./test/test_copyright.py
+[1.639s] * ./test/test_pep257.py
+[1.639s] * ./model/__init__.py
+[1.639s] * ./model/actor.py
+[1.640s] * ./model/model_action.py
+[1.640s] ----------------------------- Captured stderr call -----------------------------
+[1.640s] option --max-complexity: please update from optparse string `type=` to argparse callable `type=` -- this will be an error in the future
+[1.640s] option --application-import-names: please update from optparse string `type=` to argparse callable `type=` -- this will be an error in the future
+[1.640s] option --application-package-names: please update from optparse string `type=` to argparse callable `type=` -- this will be an error in the future
+[1.640s] option --import-order-style: please update from optparse string `type=` to argparse callable `type=` -- this will be an error in the future
+[1.640s] option --quotes: please update from optparse string `type=` to argparse callable `type=` -- this will be an error in the future
+[1.640s] option --inline-quotes: please update from optparse string `type=` to argparse callable `type=` -- this will be an error in the future
+[1.640s] option --multiline-quotes: please update from optparse string `type=` to argparse callable `type=` -- this will be an error in the future
+[1.640s] option --docstring-quotes: please update from optparse string `type=` to argparse callable `type=` -- this will be an error in the future
+[1.640s] [31m[1m_________________________________ test_pep257 __________________________________[0m
+[1.640s] [1m[31mtest/test_pep257.py[0m:23: in test_pep257
+[1.640s]     [94massert[39;49;00m rc == [94m0[39;49;00m, [33m'[39;49;00m[33mFound code style errors / warnings[39;49;00m[33m'[39;49;00m
+[1.640s] [1m[31mE   AssertionError: Found code style errors / warnings[0m
+[1.640s] [1m[31mE   assert 1 == 0[0m
+[1.640s] ----------------------------- Captured stdout call -----------------------------
+[1.640s] checking ./model/__init__.py
+[1.640s] checking ./model/actor.py
+[1.640s] ./model/actor.py:7 in public class `Actor`: D200: One-line docstring should fit on one line with quotes (found 3)
+[1.640s] ./model/actor.py:7 in public class `Actor`: D204: 1 blank line required after class docstring (found 0)
+[1.641s] checking ./model/model_action.py
+[1.641s] checking ./setup.py
+[1.641s] checking ./test/test_copyright.py
+[1.641s] checking ./test/test_flake8.py
+[1.641s] checking ./test/test_pep257.py
+[1.641s] checking test/test_copyright.py
+[1.641s] checking test/test_flake8.py
+[1.641s] checking test/test_pep257.py
+[1.641s] 2 errors
+[1.641s] [33m=============================== warnings summary ===============================[0m
+[1.641s] test/test_flake8.py::test_flake8
+[1.641s] test/test_flake8.py::test_flake8
+[1.641s]   Warning: SelectableGroups dict interface is deprecated. Use select.
+[1.641s] 
+[1.641s] -- Docs: https://docs.pytest.org/en/stable/warnings.html
+[1.641s] -- generated xml file: /home/ethan/quadrupedal-sim/ros/build/model/pytest.xml --
+[1.641s] =========================== short test summary info ============================
+[1.641s] FAILED test/test_flake8.py::test_flake8 - AssertionError: Found 6 code style ...
+[1.641s] FAILED test/test_pep257.py::test_pep257 - AssertionError: Found code style er...
+[1.642s] [31m=================== [31m[1m2 failed[0m, [33m1 skipped[0m, [33m2 warnings[0m[31m in 0.41s[0m[31m ===================[0m
+[1.726s] Invoked command in '/home/ethan/quadrupedal-sim/ros/src/model' returned '1': AMENT_PREFIX_PATH=/home/ethan/quadrupedal-sim/ros/install/model:${AMENT_PREFIX_PATH} PYTEST_ADDOPTS=--tb=short --junit-xml=/home/ethan/quadrupedal-sim/ros/build/model/pytest.xml --junit-prefix=model -o cache_dir=/home/ethan/quadrupedal-sim/ros/build/model/.pytest_cache PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=/home/ethan/quadrupedal-sim/ros/build/model:/home/ethan/quadrupedal-sim/ros/install/model/lib/python3.10/site-packages:${PYTHONPATH} VIRTUAL_ENV_PROMPT=(venv) /usr/bin/python3 -m pytest

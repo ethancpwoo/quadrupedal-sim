@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite name="pytest" errors="0" failures="2" skipped="1" tests="3" time="0.372" timestamp="2024-06-15T16:44:25.512004" hostname="ethan-Surface-Laptop-3"><testcase classname="model.test.test_copyright" name="test_copyright" time="0.000"><skipped type="pytest.skip" message="No copyright header has been placed in the generated source file.">/home/ethan/quadrupedal-sim/ros/src/model/test/test_copyright.py:20: No copyright header has been placed in the generated source file.</skipped></testcase><testcase classname="model.test.test_flake8" name="test_flake8" time="0.210"><failure message="AssertionError: Found 6 code style errors / warnings:&#10;  ./model/actor.py:1:1: F401 'numpy as np' imported but unused&#10;  ./model/actor.py:6:1: E302 expected 2 blank lines, found 1&#10;  ./model/actor.py:7:1: D200 One-line docstring should fit on one line with quotes&#10;  ./model/actor.py:7:1: D204 1 blank line required after class docstring&#10;  ./model/actor.py:18:1: W293 blank line contains whitespace&#10;  ./model/actor.py:32:20: W292 no newline at end of file&#10;assert 1 == 0">test/test_flake8.py:23: in test_flake8
+    assert rc == 0, \
+E   AssertionError: Found 6 code style errors / warnings:
+E     ./model/actor.py:1:1: F401 'numpy as np' imported but unused
+E     ./model/actor.py:6:1: E302 expected 2 blank lines, found 1
+E     ./model/actor.py:7:1: D200 One-line docstring should fit on one line with quotes
+E     ./model/actor.py:7:1: D204 1 blank line required after class docstring
+E     ./model/actor.py:18:1: W293 blank line contains whitespace
+E     ./model/actor.py:32:20: W292 no newline at end of file
+E   assert 1 == 0</failure></testcase><testcase classname="model.test.test_pep257" name="test_pep257" time="0.024"><failure message="AssertionError: Found code style errors / warnings&#10;assert 1 == 0">test/test_pep257.py:23: in test_pep257
+    assert rc == 0, 'Found code style errors / warnings'
+E   AssertionError: Found code style errors / warnings
+E   assert 1 == 0</failure></testcase></testsuite></testsuites>

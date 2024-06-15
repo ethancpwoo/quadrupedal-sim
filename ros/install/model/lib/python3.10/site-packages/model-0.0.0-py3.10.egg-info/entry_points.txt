@@ -1,0 +1,3 @@
+[console_scripts]
+talker = model.model_action:main
+
