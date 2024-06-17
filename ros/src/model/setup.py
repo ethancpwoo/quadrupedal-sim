@@ -1,6 +1,7 @@
 from setuptools import find_packages, setup
 
 package_name = 'model'
+submodules = 'model/neural_model'
 
 setup(
     name=package_name,

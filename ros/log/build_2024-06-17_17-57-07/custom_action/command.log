@@ -1,0 +1,2 @@
+Invoking command in '/home/ethan/quadrupedal-sim/ros/build/custom_action': VIRTUAL_ENV_PROMPT=(venv) /usr/bin/cmake /home/ethan/quadrupedal-sim/ros/src/custom_action -DCMAKE_INSTALL_PREFIX=/home/ethan/quadrupedal-sim/ros/install/custom_action
+Invoked command in '/home/ethan/quadrupedal-sim/ros/build/custom_action' returned '1': VIRTUAL_ENV_PROMPT=(venv) /usr/bin/cmake /home/ethan/quadrupedal-sim/ros/src/custom_action -DCMAKE_INSTALL_PREFIX=/home/ethan/quadrupedal-sim/ros/install/custom_action

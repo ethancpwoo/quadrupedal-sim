@@ -24,7 +24,7 @@ $`reward = 120 * (\Delta d) - sqrt((0.0522 - h)^2) - 0.1(|r| + |y|)`$
 
 Using Python 3.10.12 and ROS2 Humble.
 
-Setup: 
+Setup for Training and Simulation: 
 ```shell
 git clone <repo>
 sudo apt-get install -y python3-venv
@@ -32,21 +32,21 @@ mkdir venv && cd venv
 python -m venv .
 
 source lib/activate
-source <ros_distro>/install/setup.bash
-source ros/install/setup.bash
-```
-
-Simulation:
-```shell
 cd ../sim/src/moving_model
 python moving_model.py
+
 ```
 
 ROS:
 ```shell
+source <ros_distro>/install/setup.bash
+source ros/install/setup.bash
+
 colcon build
 ros2 run model talker
 ```
+
+** I ran into a lot of issues running a venv w/ ROS2, better to use rosdep instead. If I were to redo this project, I would purely use rosdep instead of venv to keep dependencies in one place.
 
 ## Encountered Problem Log
 

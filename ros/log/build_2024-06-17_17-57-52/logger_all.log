@@ -1,0 +1,146 @@
+[0.193s] DEBUG:colcon:Command line arguments: ['/usr/bin/colcon', 'build']
+[0.193s] DEBUG:colcon:Parsed command line arguments: Namespace(log_base=None, log_level=None, verb_name='build', build_base='build', install_base='install', merge_install=False, symlink_install=False, test_result_base=None, continue_on_error=False, executor='parallel', parallel_workers=8, event_handlers=None, ignore_user_meta=False, metas=['./colcon.meta'], base_paths=['.'], packages_ignore=None, packages_ignore_regex=None, paths=None, packages_up_to=None, packages_up_to_regex=None, packages_above=None, packages_above_and_dependencies=None, packages_above_depth=None, packages_select_by_dep=None, packages_skip_by_dep=None, packages_skip_up_to=None, packages_select_build_failed=False, packages_skip_build_finished=False, packages_select_test_failures=False, packages_skip_test_passed=False, packages_select=None, packages_skip=None, packages_select_regex=None, packages_skip_regex=None, packages_start=None, packages_end=None, allow_overriding=[], cmake_args=None, cmake_target=None, cmake_target_skip_unavailable=False, cmake_clean_cache=False, cmake_clean_first=False, cmake_force_configure=False, ament_cmake_args=None, catkin_cmake_args=None, catkin_skip_building_tests=False, mixin_files=None, mixin=None, verb_parser=<colcon_mixin.mixin.mixin_argument.MixinArgumentDecorator object at 0x6ffc83d5a680>, verb_extension=<colcon_core.verb.build.BuildVerb object at 0x6ffc83d5a110>, main=<bound method BuildVerb.main of <colcon_core.verb.build.BuildVerb object at 0x6ffc83d5a110>>, mixin_verb=('build',))
+[0.407s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) check parameters
+[0.408s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) check parameters
+[0.408s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) check parameters
+[0.408s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) check parameters
+[0.408s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) discover
+[0.408s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) discover
+[0.408s] INFO:colcon.colcon_core.package_discovery:Crawling recursively for packages in '/home/ethan/quadrupedal-sim/ros'
+[0.408s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ignore', 'ignore_ament_install']
+[0.408s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore'
+[0.408s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore_ament_install'
+[0.408s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_pkg']
+[0.408s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_pkg'
+[0.408s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_meta']
+[0.408s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_meta'
+[0.408s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ros']
+[0.408s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ros'
+[0.419s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['cmake', 'python']
+[0.419s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'cmake'
+[0.420s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python'
+[0.420s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['python_setup_py']
+[0.420s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python_setup_py'
+[0.420s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extensions ['ignore', 'ignore_ament_install']
+[0.420s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extension 'ignore'
+[0.420s] Level 1:colcon.colcon_core.package_identification:_identify(build) ignored
+[0.420s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extensions ['ignore', 'ignore_ament_install']
+[0.420s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extension 'ignore'
+[0.420s] Level 1:colcon.colcon_core.package_identification:_identify(install) ignored
+[0.420s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extensions ['ignore', 'ignore_ament_install']
+[0.420s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extension 'ignore'
+[0.420s] Level 1:colcon.colcon_core.package_identification:_identify(log) ignored
+[0.421s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['ignore', 'ignore_ament_install']
+[0.421s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ignore'
+[0.421s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ignore_ament_install'
+[0.421s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['colcon_pkg']
+[0.421s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'colcon_pkg'
+[0.421s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['colcon_meta']
+[0.421s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'colcon_meta'
+[0.421s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['ros']
+[0.421s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ros'
+[0.421s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['cmake', 'python']
+[0.421s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'cmake'
+[0.421s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'python'
+[0.421s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['python_setup_py']
+[0.421s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'python_setup_py'
+[0.421s] Level 1:colcon.colcon_core.package_identification:_identify(src/custom_action) by extensions ['ignore', 'ignore_ament_install']
+[0.421s] Level 1:colcon.colcon_core.package_identification:_identify(src/custom_action) by extension 'ignore'
+[0.421s] Level 1:colcon.colcon_core.package_identification:_identify(src/custom_action) by extension 'ignore_ament_install'
+[0.421s] Level 1:colcon.colcon_core.package_identification:_identify(src/custom_action) by extensions ['colcon_pkg']
+[0.421s] Level 1:colcon.colcon_core.package_identification:_identify(src/custom_action) by extension 'colcon_pkg'
+[0.421s] Level 1:colcon.colcon_core.package_identification:_identify(src/custom_action) by extensions ['colcon_meta']
+[0.421s] Level 1:colcon.colcon_core.package_identification:_identify(src/custom_action) by extension 'colcon_meta'
+[0.421s] Level 1:colcon.colcon_core.package_identification:_identify(src/custom_action) by extensions ['ros']
+[0.421s] Level 1:colcon.colcon_core.package_identification:_identify(src/custom_action) by extension 'ros'
+[0.423s] DEBUG:colcon.colcon_core.package_identification:Package 'src/custom_action' with type 'ros.ament_cmake' and name 'custom_action'
+[0.423s] Level 1:colcon.colcon_core.package_identification:_identify(src/model) by extensions ['ignore', 'ignore_ament_install']
+[0.424s] Level 1:colcon.colcon_core.package_identification:_identify(src/model) by extension 'ignore'
+[0.424s] Level 1:colcon.colcon_core.package_identification:_identify(src/model) by extension 'ignore_ament_install'
+[0.424s] Level 1:colcon.colcon_core.package_identification:_identify(src/model) by extensions ['colcon_pkg']
+[0.424s] Level 1:colcon.colcon_core.package_identification:_identify(src/model) by extension 'colcon_pkg'
+[0.424s] Level 1:colcon.colcon_core.package_identification:_identify(src/model) by extensions ['colcon_meta']
+[0.424s] Level 1:colcon.colcon_core.package_identification:_identify(src/model) by extension 'colcon_meta'
+[0.424s] Level 1:colcon.colcon_core.package_identification:_identify(src/model) by extensions ['ros']
+[0.424s] Level 1:colcon.colcon_core.package_identification:_identify(src/model) by extension 'ros'
+[0.424s] DEBUG:colcon.colcon_core.package_identification:Package 'src/model' with type 'ros.ament_python' and name 'model'
+[0.424s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) using defaults
+[0.424s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) discover
+[0.424s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) using defaults
+[0.424s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) discover
+[0.424s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) using defaults
+[0.458s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) check parameters
+[0.458s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) discover
+[0.473s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 345 installed packages in /home/ethan/ros2_humble/install
+[0.475s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 2 installed packages in /home/ethan/quadrupedal-sim/ros/install
+[0.475s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) using defaults
+[0.495s] Level 5:colcon.colcon_core.verb:set package 'custom_action' build argument 'cmake_args' from command line to 'None'
+[0.495s] Level 5:colcon.colcon_core.verb:set package 'custom_action' build argument 'cmake_target' from command line to 'None'
+[0.495s] Level 5:colcon.colcon_core.verb:set package 'custom_action' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.495s] Level 5:colcon.colcon_core.verb:set package 'custom_action' build argument 'cmake_clean_cache' from command line to 'False'
+[0.495s] Level 5:colcon.colcon_core.verb:set package 'custom_action' build argument 'cmake_clean_first' from command line to 'False'
+[0.495s] Level 5:colcon.colcon_core.verb:set package 'custom_action' build argument 'cmake_force_configure' from command line to 'False'
+[0.495s] Level 5:colcon.colcon_core.verb:set package 'custom_action' build argument 'ament_cmake_args' from command line to 'None'
+[0.495s] Level 5:colcon.colcon_core.verb:set package 'custom_action' build argument 'catkin_cmake_args' from command line to 'None'
+[0.495s] Level 5:colcon.colcon_core.verb:set package 'custom_action' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.495s] DEBUG:colcon.colcon_core.verb:Building package 'custom_action' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/ethan/quadrupedal-sim/ros/build/custom_action', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/ethan/quadrupedal-sim/ros/install/custom_action', 'merge_install': False, 'path': '/home/ethan/quadrupedal-sim/ros/src/custom_action', 'symlink_install': False, 'test_result_base': None}
+[0.496s] Level 5:colcon.colcon_core.verb:set package 'model' build argument 'cmake_args' from command line to 'None'
+[0.496s] Level 5:colcon.colcon_core.verb:set package 'model' build argument 'cmake_target' from command line to 'None'
+[0.496s] Level 5:colcon.colcon_core.verb:set package 'model' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.496s] Level 5:colcon.colcon_core.verb:set package 'model' build argument 'cmake_clean_cache' from command line to 'False'
+[0.496s] Level 5:colcon.colcon_core.verb:set package 'model' build argument 'cmake_clean_first' from command line to 'False'
+[0.496s] Level 5:colcon.colcon_core.verb:set package 'model' build argument 'cmake_force_configure' from command line to 'False'
+[0.496s] Level 5:colcon.colcon_core.verb:set package 'model' build argument 'ament_cmake_args' from command line to 'None'
+[0.496s] Level 5:colcon.colcon_core.verb:set package 'model' build argument 'catkin_cmake_args' from command line to 'None'
+[0.496s] Level 5:colcon.colcon_core.verb:set package 'model' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.496s] DEBUG:colcon.colcon_core.verb:Building package 'model' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/ethan/quadrupedal-sim/ros/build/model', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/ethan/quadrupedal-sim/ros/install/model', 'merge_install': False, 'path': '/home/ethan/quadrupedal-sim/ros/src/model', 'symlink_install': False, 'test_result_base': None}
+[0.496s] INFO:colcon.colcon_core.executor:Executing jobs using 'parallel' executor
+[0.497s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete
+[0.497s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/ethan/quadrupedal-sim/ros/src/custom_action' with build type 'ament_cmake'
+[0.498s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/ethan/quadrupedal-sim/ros/src/custom_action'
+[0.502s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_core.shell.bat': Not used on non-Windows systems
+[0.502s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.503s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.521s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/ethan/quadrupedal-sim/ros/src/model' with build type 'ament_python'
+[0.521s] Level 1:colcon.colcon_core.shell:create_environment_hook('model', 'ament_prefix_path')
+[0.522s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/ethan/quadrupedal-sim/ros/install/model/share/model/hook/ament_prefix_path.ps1'
+[0.522s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/ethan/quadrupedal-sim/ros/install/model/share/model/hook/ament_prefix_path.dsv'
+[0.522s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/ethan/quadrupedal-sim/ros/install/model/share/model/hook/ament_prefix_path.sh'
+[0.523s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.523s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.548s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/ethan/quadrupedal-sim/ros/build/custom_action': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/ethan/quadrupedal-sim/ros/install/model:/home/ethan/ros2_humble/install/rqt_bag_plugins:/home/ethan/ros2_humble/install/rqt_bag:/home/ethan/ros2_humble/install/ros2bag:/home/ethan/ros2_humble/install/tracetools_test:/home/ethan/ros2_humble/install/tracetools_launch:/home/ethan/ros2_humble/install/topic_monitor:/home/ethan/ros2_humble/install/tf2_tools:/home/ethan/ros2_humble/install/examples_tf2_py:/home/ethan/ros2_humble/install/tf2_ros_py:/home/ethan/ros2_humble/install/sros2:/home/ethan/ros2_humble/install/rqt_topic:/home/ethan/ros2_humble/install/rqt_srv:/home/ethan/ros2_humble/install/rqt_shell:/home/ethan/ros2_humble/install/rqt_service_caller:/home/ethan/ros2_humble/install/rqt_reconfigure:/home/ethan/ros2_humble/install/rqt_py_console:/home/ethan/ros2_humble/install/rqt_publisher:/home/ethan/ros2_humble/install/rqt_plot:/home/ethan/ros2_humble/install/rqt_action:/home/ethan/ros2_humble/install/rqt_msg:/home/ethan/ros2_humble/install/rqt_console:/home/ethan/ros2_humble/install/rqt:/home/ethan/ros2_humble/install/rqt_graph:/home/ethan/ros2_humble/install/rqt_gui_py:/home/ethan/ros2_humble/install/rqt_gui:/home/ethan/ros2_humble/install/ros2trace:/home/ethan/ros2_humble/install/ros2topic:/home/ethan/ros2_humble/install/ros2test:/home/ethan/ros2_humble/install/ros2component:/home/ethan/ros2_humble/install/ros2param:/home/ethan/ros2_humble/install/ros2lifecycle:/home/ethan/ros2_humble/install/ros2service:/home/ethan/ros2_humble/install/ros2run:/home/ethan/ros2_humble/install/ros2launch:/home/ethan/ros2_humble/install/ros2pkg:/home/ethan/ros2_humble/install/ros2node:/home/ethan/ros2_humble/install/ros2multicast:/home/ethan/ros2_humble/install/ros2interface:/home/ethan/ros2_humble/install/ros2doctor:/home/ethan/ros2_humble/install/ros2action:/home/ethan/ros2_humble/install/ros2cli:/home/ethan/ros2_humble/install/quality_of_service_demo_py:/home/ethan/ros2_humble/install/lifecycle_py:/home/ethan/ros2_humble/install/launch_testing_ros:/home/ethan/ros2_humble/install/launch_ros:/home/ethan/ros2_humble/install/examples_rclpy_pointcloud_publisher:/home/ethan/ros2_humble/install/examples_rclpy_minimal_subscriber:/home/ethan/ros2_humble/install/examples_rclpy_minimal_service:/home/ethan/ros2_humble/install/examples_rclpy_minimal_publisher:/home/ethan/ros2_humble/install/examples_rclpy_minimal_client:/home/ethan/ros2_humble/install/examples_rclpy_minimal_action_server:/home/ethan/ros2_humble/install/examples_rclpy_minimal_action_client:/home/ethan/ros2_humble/install/examples_rclpy_guard_conditions:/home/ethan/ros2_humble/install/examples_rclpy_executors:/home/ethan/ros2_humble/install/demo_nodes_py:/home/ethan/ros2_humble/install/action_tutorials_py:/home/ethan/ros2_humble/install/ament_uncrustify:/home/ethan/ros2_humble/install/tracetools_trace:/home/ethan/ros2_humble/install/tracetools_read:/home/ethan/ros2_humble/install/test_tracetools_launch:/home/ethan/ros2_humble/install/test_launch_ros:/home/ethan/ros2_humble/install/sensor_msgs_py:/home/ethan/ros2_humble/install/rpyutils:/home/ethan/ros2_humble/install/rosidl_runtime_py:/home/ethan/ros2_humble/install/rosidl_cli:/home/ethan/ros2_humble/install/launch_pytest:/home/ethan/ros2_humble/install/launch_testing:/home/ethan/ros2_humble/install/launch_yaml:/home/ethan/ros2_humble/install/launch_xml:/home/ethan/ros2_humble/install/launch:/home/ethan/ros2_humble/install/osrf_pycommon:/home/ethan/ros2_humble/install/launch_testing_examples:/home/ethan/ros2_humble/install/domain_coordinator:/home/ethan/ros2_humble/install/ament_xmllint:/home/ethan/ros2_humble/install/ament_pyflakes:/home/ethan/ros2_humble/install/ament_pycodestyle:/home/ethan/ros2_humble/install/ament_pep257:/home/ethan/ros2_humble/install/ament_pclint:/home/ethan/ros2_humble/install/ament_package:/home/ethan/ros2_humble/install/ament_mypy:/home/ethan/ros2_humble/install/ament_lint_cmake:/home/ethan/ros2_humble/install/ament_flake8:/home/ethan/ros2_humble/install/ament_copyright:/home/ethan/ros2_humble/install/ament_lint:/home/ethan/ros2_humble/install/ament_index_python:/home/ethan/ros2_humble/install/ament_cpplint:/home/ethan/ros2_humble/install/ament_cppcheck:/home/ethan/ros2_humble/install/ament_clang_tidy:/home/ethan/ros2_humble/install/ament_clang_format VIRTUAL_ENV_PROMPT=(venv) /usr/bin/cmake /home/ethan/quadrupedal-sim/ros/src/custom_action -DCMAKE_INSTALL_PREFIX=/home/ethan/quadrupedal-sim/ros/install/custom_action
+[1.031s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/ethan/quadrupedal-sim/ros/src/model'
+[1.031s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[1.031s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[1.499s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/ethan/quadrupedal-sim/ros/build/custom_action' returned '1': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/ethan/quadrupedal-sim/ros/install/model:/home/ethan/ros2_humble/install/rqt_bag_plugins:/home/ethan/ros2_humble/install/rqt_bag:/home/ethan/ros2_humble/install/ros2bag:/home/ethan/ros2_humble/install/tracetools_test:/home/ethan/ros2_humble/install/tracetools_launch:/home/ethan/ros2_humble/install/topic_monitor:/home/ethan/ros2_humble/install/tf2_tools:/home/ethan/ros2_humble/install/examples_tf2_py:/home/ethan/ros2_humble/install/tf2_ros_py:/home/ethan/ros2_humble/install/sros2:/home/ethan/ros2_humble/install/rqt_topic:/home/ethan/ros2_humble/install/rqt_srv:/home/ethan/ros2_humble/install/rqt_shell:/home/ethan/ros2_humble/install/rqt_service_caller:/home/ethan/ros2_humble/install/rqt_reconfigure:/home/ethan/ros2_humble/install/rqt_py_console:/home/ethan/ros2_humble/install/rqt_publisher:/home/ethan/ros2_humble/install/rqt_plot:/home/ethan/ros2_humble/install/rqt_action:/home/ethan/ros2_humble/install/rqt_msg:/home/ethan/ros2_humble/install/rqt_console:/home/ethan/ros2_humble/install/rqt:/home/ethan/ros2_humble/install/rqt_graph:/home/ethan/ros2_humble/install/rqt_gui_py:/home/ethan/ros2_humble/install/rqt_gui:/home/ethan/ros2_humble/install/ros2trace:/home/ethan/ros2_humble/install/ros2topic:/home/ethan/ros2_humble/install/ros2test:/home/ethan/ros2_humble/install/ros2component:/home/ethan/ros2_humble/install/ros2param:/home/ethan/ros2_humble/install/ros2lifecycle:/home/ethan/ros2_humble/install/ros2service:/home/ethan/ros2_humble/install/ros2run:/home/ethan/ros2_humble/install/ros2launch:/home/ethan/ros2_humble/install/ros2pkg:/home/ethan/ros2_humble/install/ros2node:/home/ethan/ros2_humble/install/ros2multicast:/home/ethan/ros2_humble/install/ros2interface:/home/ethan/ros2_humble/install/ros2doctor:/home/ethan/ros2_humble/install/ros2action:/home/ethan/ros2_humble/install/ros2cli:/home/ethan/ros2_humble/install/quality_of_service_demo_py:/home/ethan/ros2_humble/install/lifecycle_py:/home/ethan/ros2_humble/install/launch_testing_ros:/home/ethan/ros2_humble/install/launch_ros:/home/ethan/ros2_humble/install/examples_rclpy_pointcloud_publisher:/home/ethan/ros2_humble/install/examples_rclpy_minimal_subscriber:/home/ethan/ros2_humble/install/examples_rclpy_minimal_service:/home/ethan/ros2_humble/install/examples_rclpy_minimal_publisher:/home/ethan/ros2_humble/install/examples_rclpy_minimal_client:/home/ethan/ros2_humble/install/examples_rclpy_minimal_action_server:/home/ethan/ros2_humble/install/examples_rclpy_minimal_action_client:/home/ethan/ros2_humble/install/examples_rclpy_guard_conditions:/home/ethan/ros2_humble/install/examples_rclpy_executors:/home/ethan/ros2_humble/install/demo_nodes_py:/home/ethan/ros2_humble/install/action_tutorials_py:/home/ethan/ros2_humble/install/ament_uncrustify:/home/ethan/ros2_humble/install/tracetools_trace:/home/ethan/ros2_humble/install/tracetools_read:/home/ethan/ros2_humble/install/test_tracetools_launch:/home/ethan/ros2_humble/install/test_launch_ros:/home/ethan/ros2_humble/install/sensor_msgs_py:/home/ethan/ros2_humble/install/rpyutils:/home/ethan/ros2_humble/install/rosidl_runtime_py:/home/ethan/ros2_humble/install/rosidl_cli:/home/ethan/ros2_humble/install/launch_pytest:/home/ethan/ros2_humble/install/launch_testing:/home/ethan/ros2_humble/install/launch_yaml:/home/ethan/ros2_humble/install/launch_xml:/home/ethan/ros2_humble/install/launch:/home/ethan/ros2_humble/install/osrf_pycommon:/home/ethan/ros2_humble/install/launch_testing_examples:/home/ethan/ros2_humble/install/domain_coordinator:/home/ethan/ros2_humble/install/ament_xmllint:/home/ethan/ros2_humble/install/ament_pyflakes:/home/ethan/ros2_humble/install/ament_pycodestyle:/home/ethan/ros2_humble/install/ament_pep257:/home/ethan/ros2_humble/install/ament_pclint:/home/ethan/ros2_humble/install/ament_package:/home/ethan/ros2_humble/install/ament_mypy:/home/ethan/ros2_humble/install/ament_lint_cmake:/home/ethan/ros2_humble/install/ament_flake8:/home/ethan/ros2_humble/install/ament_copyright:/home/ethan/ros2_humble/install/ament_lint:/home/ethan/ros2_humble/install/ament_index_python:/home/ethan/ros2_humble/install/ament_cpplint:/home/ethan/ros2_humble/install/ament_cppcheck:/home/ethan/ros2_humble/install/ament_clang_tidy:/home/ethan/ros2_humble/install/ament_clang_format VIRTUAL_ENV_PROMPT=(venv) /usr/bin/cmake /home/ethan/quadrupedal-sim/ros/src/custom_action -DCMAKE_INSTALL_PREFIX=/home/ethan/quadrupedal-sim/ros/install/custom_action
+[1.522s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(custom_action)
+[1.529s] Level 1:colcon.colcon_core.environment:checking '/home/ethan/quadrupedal-sim/ros/install/custom_action' for CMake module files
+[1.529s] Level 1:colcon.colcon_core.environment:checking '/home/ethan/quadrupedal-sim/ros/install/custom_action' for CMake config files
+[1.530s] Level 1:colcon.colcon_core.environment:checking '/home/ethan/quadrupedal-sim/ros/install/custom_action/bin'
+[1.530s] Level 1:colcon.colcon_core.environment:checking '/home/ethan/quadrupedal-sim/ros/install/custom_action/lib/pkgconfig/custom_action.pc'
+[1.530s] Level 1:colcon.colcon_core.environment:checking '/home/ethan/quadrupedal-sim/ros/install/custom_action/lib/python3.10/site-packages'
+[1.530s] Level 1:colcon.colcon_core.environment:checking '/home/ethan/quadrupedal-sim/ros/install/custom_action/bin'
+[1.531s] INFO:colcon.colcon_core.shell:Creating package script '/home/ethan/quadrupedal-sim/ros/install/custom_action/share/custom_action/package.ps1'
+[1.531s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/ethan/quadrupedal-sim/ros/install/custom_action/share/custom_action/package.dsv'
+[1.532s] INFO:colcon.colcon_core.shell:Creating package script '/home/ethan/quadrupedal-sim/ros/install/custom_action/share/custom_action/package.sh'
+[1.532s] INFO:colcon.colcon_core.shell:Creating package script '/home/ethan/quadrupedal-sim/ros/install/custom_action/share/custom_action/package.bash'
+[1.533s] INFO:colcon.colcon_core.shell:Creating package script '/home/ethan/quadrupedal-sim/ros/install/custom_action/share/custom_action/package.zsh'
+[1.533s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/ethan/quadrupedal-sim/ros/install/custom_action/share/colcon-core/packages/custom_action)
+[1.669s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:closing loop
+[1.669s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:loop closed
+[1.670s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete finished with '1'
+[1.670s] DEBUG:colcon.colcon_core.event_reactor:joining thread
+[1.684s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.terminal_notifier': Not used on non-Darwin systems
+[1.684s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.win32': Not used on non-Windows systems
+[1.684s] INFO:colcon.colcon_notification.desktop_notification:Sending desktop notification using 'notify2'
+[1.696s] DEBUG:colcon.colcon_core.event_reactor:joined thread
+[1.696s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/ethan/quadrupedal-sim/ros/install/local_setup.ps1'
+[1.697s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/ethan/quadrupedal-sim/ros/install/_local_setup_util_ps1.py'
+[1.698s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/ethan/quadrupedal-sim/ros/install/setup.ps1'
+[1.708s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/ethan/quadrupedal-sim/ros/install/local_setup.sh'
+[1.708s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/ethan/quadrupedal-sim/ros/install/_local_setup_util_sh.py'
+[1.709s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/ethan/quadrupedal-sim/ros/install/setup.sh'
+[1.718s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/ethan/quadrupedal-sim/ros/install/local_setup.bash'
+[1.718s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/ethan/quadrupedal-sim/ros/install/setup.bash'
+[1.728s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/ethan/quadrupedal-sim/ros/install/local_setup.zsh'
+[1.729s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/ethan/quadrupedal-sim/ros/install/setup.zsh'

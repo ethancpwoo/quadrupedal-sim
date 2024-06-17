@@ -1,0 +1,47 @@
+[0.052s] Invoking command in '/home/ethan/quadrupedal-sim/ros/build/custom_action': VIRTUAL_ENV_PROMPT=(venv) /usr/bin/cmake /home/ethan/quadrupedal-sim/ros/src/custom_action -DCMAKE_INSTALL_PREFIX=/home/ethan/quadrupedal-sim/ros/install/custom_action
+[0.078s] -- Found ament_cmake: 1.3.9 (/home/ethan/ros2_humble/install/ament_cmake/share/ament_cmake/cmake)
+[0.419s] -- Found action_msgs: 1.2.1 (/home/ethan/ros2_humble/install/action_msgs/share/action_msgs/cmake)
+[0.445s] -- Found rosidl_generator_c: 3.1.5 (/home/ethan/ros2_humble/install/rosidl_generator_c/share/rosidl_generator_c/cmake)
+[0.447s] -- Found rosidl_adapter: 3.1.5 (/home/ethan/ros2_humble/install/rosidl_adapter/share/rosidl_adapter/cmake)
+[0.453s] -- Found rosidl_generator_cpp: 3.1.5 (/home/ethan/ros2_humble/install/rosidl_generator_cpp/share/rosidl_generator_cpp/cmake)
+[0.485s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_introspection_c;rosidl_typesupport_fastrtps_c
+[0.525s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_introspection_cpp;rosidl_typesupport_fastrtps_cpp
+[0.615s] -- Found std_msgs: 4.2.4 (/home/ethan/ros2_humble/install/std_msgs/share/std_msgs/cmake)
+[0.648s] -- Found rosidl_default_generators: 1.2.0 (/home/ethan/ros2_humble/install/rosidl_default_generators/share/rosidl_default_generators/cmake)
+[0.997s] [31mCMake Error at /home/ethan/ros2_humble/install/rosidl_adapter/share/rosidl_adapter/cmake/rosidl_adapt_interfaces.cmake:59 (message):
+[0.998s]   execute_process(/home/ethan/quadrupedal-sim/venv/bin/python3 -m
+[0.998s]   rosidl_adapter --package-name custom_action --arguments-file
+[0.998s]   /home/ethan/quadrupedal-sim/ros/build/custom_action/rosidl_adapter__arguments__$(PROJECT_NAME).json
+[0.998s]   --output-dir
+[0.998s]   /home/ethan/quadrupedal-sim/ros/build/custom_action/rosidl_adapter/custom_action
+[0.998s]   --output-file
+[0.998s]   /home/ethan/quadrupedal-sim/ros/build/custom_action/rosidl_adapter/$(PROJECT_NAME).idls)
+[0.998s]   returned error code 1:
+[0.998s] 
+[0.998s]   Traceback (most recent call last):
+[0.999s] 
+[0.999s]     File "/usr/lib/python3.10/runpy.py", line 196, in _run_module_as_main
+[0.999s]       return _run_code(code, main_globals, None,
+[0.999s]     File "/usr/lib/python3.10/runpy.py", line 86, in _run_code
+[0.999s]       exec(code, run_globals)
+[0.999s]     File "/home/ethan/ros2_humble/install/rosidl_adapter/local/lib/python3.10/dist-packages/rosidl_adapter/__main__.py", line 19, in <module>
+[0.999s]       sys.exit(main())
+[0.999s]     File "/home/ethan/ros2_humble/install/rosidl_adapter/local/lib/python3.10/dist-packages/rosidl_adapter/main.py", line 53, in main
+[0.999s]       abs_idl_file = convert_to_idl(
+[0.999s]     File "/home/ethan/ros2_humble/install/rosidl_adapter/local/lib/python3.10/dist-packages/rosidl_adapter/__init__.py", line 28, in convert_to_idl
+[0.999s]       from rosidl_adapter.action import convert_action_to_idl
+[0.999s]     File "/home/ethan/ros2_humble/install/rosidl_adapter/local/lib/python3.10/dist-packages/rosidl_adapter/action/__init__.py", line 16, in <module>
+[1.000s]       from rosidl_adapter.resource import expand_template
+[1.000s]     File "/home/ethan/ros2_humble/install/rosidl_adapter/local/lib/python3.10/dist-packages/rosidl_adapter/resource/__init__.py", line 19, in <module>
+[1.000s]       import em
+[1.000s] 
+[1.000s]   ModuleNotFoundError: No module named 'em'
+[1.000s] 
+[1.000s] Call Stack (most recent call first):
+[1.000s]   /home/ethan/ros2_humble/install/rosidl_cmake/share/rosidl_cmake/cmake/rosidl_generate_interfaces.cmake:130 (rosidl_adapt_interfaces)
+[1.000s]   CMakeLists.txt:14 (rosidl_generate_interfaces)
+[1.000s] 
+[1.001s] [0m
+[1.001s] -- Configuring incomplete, errors occurred!
+[1.001s] See also "/home/ethan/quadrupedal-sim/ros/build/custom_action/CMakeFiles/CMakeOutput.log".
+[1.003s] Invoked command in '/home/ethan/quadrupedal-sim/ros/build/custom_action' returned '1': VIRTUAL_ENV_PROMPT=(venv) /usr/bin/cmake /home/ethan/quadrupedal-sim/ros/src/custom_action -DCMAKE_INSTALL_PREFIX=/home/ethan/quadrupedal-sim/ros/install/custom_action
