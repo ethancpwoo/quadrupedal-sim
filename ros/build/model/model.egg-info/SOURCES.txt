@@ -10,8 +10,9 @@ setup.py
 ../../build/model/model.egg-info/top_level.txt
 ../../build/model/model.egg-info/zip-safe
 model/__init__.py
-model/actor.py
 model/model_action.py
+model/neural_model/__init__.py
+model/neural_model/actor.py
 resource/model
 test/test_copyright.py
 test/test_flake8.py

@@ -1,0 +1,7 @@
+running egg_info
+writing ../../build/model/model.egg-info/PKG-INFO
+writing dependency_links to ../../build/model/model.egg-info/dependency_links.txt
+writing entry points to ../../build/model/model.egg-info/entry_points.txt
+writing requirements to ../../build/model/model.egg-info/requires.txt
+writing top-level names to ../../build/model/model.egg-info/top_level.txt
+error: package directory 'model/action' does not exist
