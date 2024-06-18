@@ -1,0 +1,194 @@
+[1.078s] Invoking command in '/home/ethan/quadrupedal-sim/ros/src/model': PYTHONPATH=/home/ethan/quadrupedal-sim/ros/build/model/prefix_override:/home/ethan/quadrupedal-sim/ros/install/model/lib/python3.10/site-packages:${PYTHONPATH} VIRTUAL_ENV_PROMPT=(venv) /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../../build/model build --build-base /home/ethan/quadrupedal-sim/ros/build/model/build install --record /home/ethan/quadrupedal-sim/ros/build/model/install.log --single-version-externally-managed install_data
+[1.501s] running egg_info
+[1.502s] creating ../../build/model/model.egg-info
+[1.502s] writing ../../build/model/model.egg-info/PKG-INFO
+[1.502s] writing dependency_links to ../../build/model/model.egg-info/dependency_links.txt
+[1.502s] writing entry points to ../../build/model/model.egg-info/entry_points.txt
+[1.502s] writing requirements to ../../build/model/model.egg-info/requires.txt
+[1.502s] writing top-level names to ../../build/model/model.egg-info/top_level.txt
+[1.502s] writing manifest file '../../build/model/model.egg-info/SOURCES.txt'
+[1.505s] reading manifest file '../../build/model/model.egg-info/SOURCES.txt'
+[1.505s] adding license file 'LICENSE'
+[1.506s] writing manifest file '../../build/model/model.egg-info/SOURCES.txt'
+[1.507s] running build
+[1.507s] running build_py
+[1.507s] creating /home/ethan/quadrupedal-sim/ros/build/model/build
+[1.507s] creating /home/ethan/quadrupedal-sim/ros/build/model/build/lib
+[1.507s] creating /home/ethan/quadrupedal-sim/ros/build/model/build/lib/model
+[1.507s] copying model/__init__.py -> /home/ethan/quadrupedal-sim/ros/build/model/build/lib/model
+[1.507s] copying model/model_action.py -> /home/ethan/quadrupedal-sim/ros/build/model/build/lib/model
+[1.507s] creating /home/ethan/quadrupedal-sim/ros/build/model/build/lib/model/saved_models
+[1.507s] copying model/saved_models/__init__.py -> /home/ethan/quadrupedal-sim/ros/build/model/build/lib/model/saved_models
+[1.507s] copying model/saved_models/actor.py -> /home/ethan/quadrupedal-sim/ros/build/model/build/lib/model/saved_models
+[1.508s] copying model/saved_models/actor_target.pt -> /home/ethan/quadrupedal-sim/ros/build/model/build/lib/model/saved_models
+[1.508s] creating /home/ethan/quadrupedal-sim/ros/build/model/build/lib/model/robot
+[1.508s] copying model/robot/right_forearm_linkage_v1.part -> /home/ethan/quadrupedal-sim/ros/build/model/build/lib/model/robot
+[1.508s] copying model/robot/left_forearm_linkage_v1.stl -> /home/ethan/quadrupedal-sim/ros/build/model/build/lib/model/robot
+[1.509s] copying model/robot/top_hip_servo_v14.stl -> /home/ethan/quadrupedal-sim/ros/build/model/build/lib/model/robot
+[1.509s] copying model/robot/bearing_10x15x4_v1.stl -> /home/ethan/quadrupedal-sim/ros/build/model/build/lib/model/robot
+[1.509s] copying model/robot/right_forearm_pivot_v1.part -> /home/ethan/quadrupedal-sim/ros/build/model/build/lib/model/robot
+[1.509s] copying model/robot/left_forearm_linkage_v1.part -> /home/ethan/quadrupedal-sim/ros/build/model/build/lib/model/robot
+[1.510s] copying model/robot/servo_arm_retainer_v1.part -> /home/ethan/quadrupedal-sim/ros/build/model/build/lib/model/robot
+[1.510s] copying model/robot/hip_cage_v4.part -> /home/ethan/quadrupedal-sim/ros/build/model/build/lib/model/robot
+[1.510s] copying model/robot/right_thigh_v1.part -> /home/ethan/quadrupedal-sim/ros/build/model/build/lib/model/robot
+[1.510s] copying model/robot/left_forearm_inside_v1.stl -> /home/ethan/quadrupedal-sim/ros/build/model/build/lib/model/robot
+[1.510s] copying model/robot/top_body_v21.part -> /home/ethan/quadrupedal-sim/ros/build/model/build/lib/model/robot
+[1.510s] copying model/robot/battery.stl -> /home/ethan/quadrupedal-sim/ros/build/model/build/lib/model/robot
+[1.510s] copying model/robot/right_forearm_pivot_v1.stl -> /home/ethan/quadrupedal-sim/ros/build/model/build/lib/model/robot
+[1.511s] copying model/robot/left_cover_v2.part -> /home/ethan/quadrupedal-sim/ros/build/model/build/lib/model/robot
+[1.511s] copying model/robot/hip_v2.stl -> /home/ethan/quadrupedal-sim/ros/build/model/build/lib/model/robot
+[1.511s] copying model/robot/hip_v2.part -> /home/ethan/quadrupedal-sim/ros/build/model/build/lib/model/robot
+[1.511s] copying model/robot/servo_arm_retainer_v1.stl -> /home/ethan/quadrupedal-sim/ros/build/model/build/lib/model/robot
+[1.511s] copying model/robot/9g_servo_arm_v1.part -> /home/ethan/quadrupedal-sim/ros/build/model/build/lib/model/robot
+[1.511s] copying model/robot/left_thigh_v1.part -> /home/ethan/quadrupedal-sim/ros/build/model/build/lib/model/robot
+[1.511s] copying model/robot/top_hip_servo_v14.part -> /home/ethan/quadrupedal-sim/ros/build/model/build/lib/model/robot
+[1.512s] copying model/robot/right_cover_v2.stl -> /home/ethan/quadrupedal-sim/ros/build/model/build/lib/model/robot
+[1.512s] copying model/robot/bearing_5x8x2.5_v1.part -> /home/ethan/quadrupedal-sim/ros/build/model/build/lib/model/robot
+[1.512s] copying model/robot/hip_joint_to_bearing_v3.stl -> /home/ethan/quadrupedal-sim/ros/build/model/build/lib/model/robot
+[1.512s] copying model/robot/robot.urdf -> /home/ethan/quadrupedal-sim/ros/build/model/build/lib/model/robot
+[1.512s] copying model/robot/left_forearm_outside_v1.stl -> /home/ethan/quadrupedal-sim/ros/build/model/build/lib/model/robot
+[1.513s] copying model/robot/hip_cage_v4.stl -> /home/ethan/quadrupedal-sim/ros/build/model/build/lib/model/robot
+[1.513s] copying model/robot/right_forearm_outside_v1.part -> /home/ethan/quadrupedal-sim/ros/build/model/build/lib/model/robot
+[1.513s] copying model/robot/servo_controller_v1.stl -> /home/ethan/quadrupedal-sim/ros/build/model/build/lib/model/robot
+[1.514s] copying model/robot/hip_joint_to_bearing_v3.part -> /home/ethan/quadrupedal-sim/ros/build/model/build/lib/model/robot
+[1.514s] copying model/robot/right_forearm_servo_attachment_v1.part -> /home/ethan/quadrupedal-sim/ros/build/model/build/lib/model/robot
+[1.514s] copying model/robot/servo_controller_v1.part -> /home/ethan/quadrupedal-sim/ros/build/model/build/lib/model/robot
+[1.514s] copying model/robot/left_forearm_servo_attachment_v1.part -> /home/ethan/quadrupedal-sim/ros/build/model/build/lib/model/robot
+[1.514s] copying model/robot/bottom_body_v3.part -> /home/ethan/quadrupedal-sim/ros/build/model/build/lib/model/robot
+[1.515s] copying model/robot/left_forearm_pivot_v1.part -> /home/ethan/quadrupedal-sim/ros/build/model/build/lib/model/robot
+[1.515s] copying model/robot/right_forearm_inside_v1.stl -> /home/ethan/quadrupedal-sim/ros/build/model/build/lib/model/robot
+[1.515s] copying model/robot/microservosg90.part -> /home/ethan/quadrupedal-sim/ros/build/model/build/lib/model/robot
+[1.515s] copying model/robot/9g_thigh_servo_attachment_v1.part -> /home/ethan/quadrupedal-sim/ros/build/model/build/lib/model/robot
+[1.515s] copying model/robot/9g_thigh_servo_attachment_v1.stl -> /home/ethan/quadrupedal-sim/ros/build/model/build/lib/model/robot
+[1.515s] copying model/robot/hip_joint_to_servo_v2.stl -> /home/ethan/quadrupedal-sim/ros/build/model/build/lib/model/robot
+[1.516s] copying model/robot/right_thigh_v1.stl -> /home/ethan/quadrupedal-sim/ros/build/model/build/lib/model/robot
+[1.516s] copying model/robot/right_forearm_linkage_v1.stl -> /home/ethan/quadrupedal-sim/ros/build/model/build/lib/model/robot
+[1.516s] copying model/robot/lever_v1.stl -> /home/ethan/quadrupedal-sim/ros/build/model/build/lib/model/robot
+[1.516s] copying model/robot/left_cover_v2.stl -> /home/ethan/quadrupedal-sim/ros/build/model/build/lib/model/robot
+[1.517s] copying model/robot/18g_thigh_servo_attachment_v3.part -> /home/ethan/quadrupedal-sim/ros/build/model/build/lib/model/robot
+[1.517s] copying model/robot/right_cover_v2.part -> /home/ethan/quadrupedal-sim/ros/build/model/build/lib/model/robot
+[1.517s] copying model/robot/lever_v1.part -> /home/ethan/quadrupedal-sim/ros/build/model/build/lib/model/robot
+[1.517s] copying model/robot/left_thigh_v1.stl -> /home/ethan/quadrupedal-sim/ros/build/model/build/lib/model/robot
+[1.517s] copying model/robot/servo_driver_mount_v9.stl -> /home/ethan/quadrupedal-sim/ros/build/model/build/lib/model/robot
+[1.517s] copying model/robot/bottom_hip_servo_v12.part -> /home/ethan/quadrupedal-sim/ros/build/model/build/lib/model/robot
+[1.518s] copying model/robot/config.json -> /home/ethan/quadrupedal-sim/ros/build/model/build/lib/model/robot
+[1.518s] copying model/robot/left_forearm_pivot_v1.stl -> /home/ethan/quadrupedal-sim/ros/build/model/build/lib/model/robot
+[1.518s] copying model/robot/bearing_5x8x2.5_v1.stl -> /home/ethan/quadrupedal-sim/ros/build/model/build/lib/model/robot
+[1.518s] copying model/robot/right_forearm_servo_attachment_v1.stl -> /home/ethan/quadrupedal-sim/ros/build/model/build/lib/model/robot
+[1.518s] copying model/robot/bottom_body_v3.stl -> /home/ethan/quadrupedal-sim/ros/build/model/build/lib/model/robot
+[1.519s] copying model/robot/microservosg90.stl -> /home/ethan/quadrupedal-sim/ros/build/model/build/lib/model/robot
+[1.520s] copying model/robot/bearing_10x15x4_v1.part -> /home/ethan/quadrupedal-sim/ros/build/model/build/lib/model/robot
+[1.520s] copying model/robot/18g_thigh_servo_attachment_v3.stl -> /home/ethan/quadrupedal-sim/ros/build/model/build/lib/model/robot
+[1.520s] copying model/robot/part_1.part -> /home/ethan/quadrupedal-sim/ros/build/model/build/lib/model/robot
+[1.520s] copying model/robot/left_forearm_outside_v1.part -> /home/ethan/quadrupedal-sim/ros/build/model/build/lib/model/robot
+[1.520s] copying model/robot/left_forearm_servo_attachment_v1.stl -> /home/ethan/quadrupedal-sim/ros/build/model/build/lib/model/robot
+[1.520s] copying model/robot/bottom_hip_servo_v12.stl -> /home/ethan/quadrupedal-sim/ros/build/model/build/lib/model/robot
+[1.521s] copying model/robot/left_forearm_inside_v1.part -> /home/ethan/quadrupedal-sim/ros/build/model/build/lib/model/robot
+[1.521s] copying model/robot/hip_joint_to_servo_v2.part -> /home/ethan/quadrupedal-sim/ros/build/model/build/lib/model/robot
+[1.521s] copying model/robot/18g_servo_v1.part -> /home/ethan/quadrupedal-sim/ros/build/model/build/lib/model/robot
+[1.521s] copying model/robot/top_body_v21.stl -> /home/ethan/quadrupedal-sim/ros/build/model/build/lib/model/robot
+[1.522s] copying model/robot/part_1.stl -> /home/ethan/quadrupedal-sim/ros/build/model/build/lib/model/robot
+[1.522s] copying model/robot/right_forearm_outside_v1.stl -> /home/ethan/quadrupedal-sim/ros/build/model/build/lib/model/robot
+[1.522s] copying model/robot/battery.part -> /home/ethan/quadrupedal-sim/ros/build/model/build/lib/model/robot
+[1.522s] copying model/robot/18g_servo_v1.stl -> /home/ethan/quadrupedal-sim/ros/build/model/build/lib/model/robot
+[1.522s] copying model/robot/right_forearm_inside_v1.part -> /home/ethan/quadrupedal-sim/ros/build/model/build/lib/model/robot
+[1.522s] copying model/robot/servo_driver_mount_v9.part -> /home/ethan/quadrupedal-sim/ros/build/model/build/lib/model/robot
+[1.523s] copying model/robot/9g_servo_arm_v1.stl -> /home/ethan/quadrupedal-sim/ros/build/model/build/lib/model/robot
+[1.523s] running install
+[1.524s] running install_lib
+[1.525s] creating /home/ethan/quadrupedal-sim/ros/install/model/lib/python3.10/site-packages/model
+[1.525s] creating /home/ethan/quadrupedal-sim/ros/install/model/lib/python3.10/site-packages/model/robot
+[1.525s] copying /home/ethan/quadrupedal-sim/ros/build/model/build/lib/model/robot/right_forearm_linkage_v1.part -> /home/ethan/quadrupedal-sim/ros/install/model/lib/python3.10/site-packages/model/robot
+[1.525s] copying /home/ethan/quadrupedal-sim/ros/build/model/build/lib/model/robot/left_forearm_linkage_v1.stl -> /home/ethan/quadrupedal-sim/ros/install/model/lib/python3.10/site-packages/model/robot
+[1.525s] copying /home/ethan/quadrupedal-sim/ros/build/model/build/lib/model/robot/top_hip_servo_v14.stl -> /home/ethan/quadrupedal-sim/ros/install/model/lib/python3.10/site-packages/model/robot
+[1.525s] copying /home/ethan/quadrupedal-sim/ros/build/model/build/lib/model/robot/bearing_10x15x4_v1.stl -> /home/ethan/quadrupedal-sim/ros/install/model/lib/python3.10/site-packages/model/robot
+[1.526s] copying /home/ethan/quadrupedal-sim/ros/build/model/build/lib/model/robot/right_forearm_pivot_v1.part -> /home/ethan/quadrupedal-sim/ros/install/model/lib/python3.10/site-packages/model/robot
+[1.526s] copying /home/ethan/quadrupedal-sim/ros/build/model/build/lib/model/robot/left_forearm_linkage_v1.part -> /home/ethan/quadrupedal-sim/ros/install/model/lib/python3.10/site-packages/model/robot
+[1.526s] copying /home/ethan/quadrupedal-sim/ros/build/model/build/lib/model/robot/servo_arm_retainer_v1.part -> /home/ethan/quadrupedal-sim/ros/install/model/lib/python3.10/site-packages/model/robot
+[1.526s] copying /home/ethan/quadrupedal-sim/ros/build/model/build/lib/model/robot/hip_cage_v4.part -> /home/ethan/quadrupedal-sim/ros/install/model/lib/python3.10/site-packages/model/robot
+[1.526s] copying /home/ethan/quadrupedal-sim/ros/build/model/build/lib/model/robot/right_thigh_v1.part -> /home/ethan/quadrupedal-sim/ros/install/model/lib/python3.10/site-packages/model/robot
+[1.526s] copying /home/ethan/quadrupedal-sim/ros/build/model/build/lib/model/robot/left_forearm_inside_v1.stl -> /home/ethan/quadrupedal-sim/ros/install/model/lib/python3.10/site-packages/model/robot
+[1.526s] copying /home/ethan/quadrupedal-sim/ros/build/model/build/lib/model/robot/top_body_v21.part -> /home/ethan/quadrupedal-sim/ros/install/model/lib/python3.10/site-packages/model/robot
+[1.526s] copying /home/ethan/quadrupedal-sim/ros/build/model/build/lib/model/robot/battery.stl -> /home/ethan/quadrupedal-sim/ros/install/model/lib/python3.10/site-packages/model/robot
+[1.526s] copying /home/ethan/quadrupedal-sim/ros/build/model/build/lib/model/robot/right_forearm_pivot_v1.stl -> /home/ethan/quadrupedal-sim/ros/install/model/lib/python3.10/site-packages/model/robot
+[1.527s] copying /home/ethan/quadrupedal-sim/ros/build/model/build/lib/model/robot/left_cover_v2.part -> /home/ethan/quadrupedal-sim/ros/install/model/lib/python3.10/site-packages/model/robot
+[1.527s] copying /home/ethan/quadrupedal-sim/ros/build/model/build/lib/model/robot/hip_v2.stl -> /home/ethan/quadrupedal-sim/ros/install/model/lib/python3.10/site-packages/model/robot
+[1.527s] copying /home/ethan/quadrupedal-sim/ros/build/model/build/lib/model/robot/hip_v2.part -> /home/ethan/quadrupedal-sim/ros/install/model/lib/python3.10/site-packages/model/robot
+[1.527s] copying /home/ethan/quadrupedal-sim/ros/build/model/build/lib/model/robot/servo_arm_retainer_v1.stl -> /home/ethan/quadrupedal-sim/ros/install/model/lib/python3.10/site-packages/model/robot
+[1.527s] copying /home/ethan/quadrupedal-sim/ros/build/model/build/lib/model/robot/9g_servo_arm_v1.part -> /home/ethan/quadrupedal-sim/ros/install/model/lib/python3.10/site-packages/model/robot
+[1.527s] copying /home/ethan/quadrupedal-sim/ros/build/model/build/lib/model/robot/left_thigh_v1.part -> /home/ethan/quadrupedal-sim/ros/install/model/lib/python3.10/site-packages/model/robot
+[1.527s] copying /home/ethan/quadrupedal-sim/ros/build/model/build/lib/model/robot/top_hip_servo_v14.part -> /home/ethan/quadrupedal-sim/ros/install/model/lib/python3.10/site-packages/model/robot
+[1.527s] copying /home/ethan/quadrupedal-sim/ros/build/model/build/lib/model/robot/right_cover_v2.stl -> /home/ethan/quadrupedal-sim/ros/install/model/lib/python3.10/site-packages/model/robot
+[1.527s] copying /home/ethan/quadrupedal-sim/ros/build/model/build/lib/model/robot/bearing_5x8x2.5_v1.part -> /home/ethan/quadrupedal-sim/ros/install/model/lib/python3.10/site-packages/model/robot
+[1.527s] copying /home/ethan/quadrupedal-sim/ros/build/model/build/lib/model/robot/hip_joint_to_bearing_v3.stl -> /home/ethan/quadrupedal-sim/ros/install/model/lib/python3.10/site-packages/model/robot
+[1.528s] copying /home/ethan/quadrupedal-sim/ros/build/model/build/lib/model/robot/robot.urdf -> /home/ethan/quadrupedal-sim/ros/install/model/lib/python3.10/site-packages/model/robot
+[1.528s] copying /home/ethan/quadrupedal-sim/ros/build/model/build/lib/model/robot/left_forearm_outside_v1.stl -> /home/ethan/quadrupedal-sim/ros/install/model/lib/python3.10/site-packages/model/robot
+[1.528s] copying /home/ethan/quadrupedal-sim/ros/build/model/build/lib/model/robot/hip_cage_v4.stl -> /home/ethan/quadrupedal-sim/ros/install/model/lib/python3.10/site-packages/model/robot
+[1.528s] copying /home/ethan/quadrupedal-sim/ros/build/model/build/lib/model/robot/right_forearm_outside_v1.part -> /home/ethan/quadrupedal-sim/ros/install/model/lib/python3.10/site-packages/model/robot
+[1.528s] copying /home/ethan/quadrupedal-sim/ros/build/model/build/lib/model/robot/servo_controller_v1.stl -> /home/ethan/quadrupedal-sim/ros/install/model/lib/python3.10/site-packages/model/robot
+[1.529s] copying /home/ethan/quadrupedal-sim/ros/build/model/build/lib/model/robot/hip_joint_to_bearing_v3.part -> /home/ethan/quadrupedal-sim/ros/install/model/lib/python3.10/site-packages/model/robot
+[1.529s] copying /home/ethan/quadrupedal-sim/ros/build/model/build/lib/model/robot/right_forearm_servo_attachment_v1.part -> /home/ethan/quadrupedal-sim/ros/install/model/lib/python3.10/site-packages/model/robot
+[1.529s] copying /home/ethan/quadrupedal-sim/ros/build/model/build/lib/model/robot/servo_controller_v1.part -> /home/ethan/quadrupedal-sim/ros/install/model/lib/python3.10/site-packages/model/robot
+[1.530s] copying /home/ethan/quadrupedal-sim/ros/build/model/build/lib/model/robot/left_forearm_servo_attachment_v1.part -> /home/ethan/quadrupedal-sim/ros/install/model/lib/python3.10/site-packages/model/robot
+[1.530s] copying /home/ethan/quadrupedal-sim/ros/build/model/build/lib/model/robot/bottom_body_v3.part -> /home/ethan/quadrupedal-sim/ros/install/model/lib/python3.10/site-packages/model/robot
+[1.530s] copying /home/ethan/quadrupedal-sim/ros/build/model/build/lib/model/robot/left_forearm_pivot_v1.part -> /home/ethan/quadrupedal-sim/ros/install/model/lib/python3.10/site-packages/model/robot
+[1.530s] copying /home/ethan/quadrupedal-sim/ros/build/model/build/lib/model/robot/right_forearm_inside_v1.stl -> /home/ethan/quadrupedal-sim/ros/install/model/lib/python3.10/site-packages/model/robot
+[1.530s] copying /home/ethan/quadrupedal-sim/ros/build/model/build/lib/model/robot/microservosg90.part -> /home/ethan/quadrupedal-sim/ros/install/model/lib/python3.10/site-packages/model/robot
+[1.530s] copying /home/ethan/quadrupedal-sim/ros/build/model/build/lib/model/robot/9g_thigh_servo_attachment_v1.part -> /home/ethan/quadrupedal-sim/ros/install/model/lib/python3.10/site-packages/model/robot
+[1.530s] copying /home/ethan/quadrupedal-sim/ros/build/model/build/lib/model/robot/9g_thigh_servo_attachment_v1.stl -> /home/ethan/quadrupedal-sim/ros/install/model/lib/python3.10/site-packages/model/robot
+[1.530s] copying /home/ethan/quadrupedal-sim/ros/build/model/build/lib/model/robot/hip_joint_to_servo_v2.stl -> /home/ethan/quadrupedal-sim/ros/install/model/lib/python3.10/site-packages/model/robot
+[1.531s] copying /home/ethan/quadrupedal-sim/ros/build/model/build/lib/model/robot/right_thigh_v1.stl -> /home/ethan/quadrupedal-sim/ros/install/model/lib/python3.10/site-packages/model/robot
+[1.531s] copying /home/ethan/quadrupedal-sim/ros/build/model/build/lib/model/robot/right_forearm_linkage_v1.stl -> /home/ethan/quadrupedal-sim/ros/install/model/lib/python3.10/site-packages/model/robot
+[1.531s] copying /home/ethan/quadrupedal-sim/ros/build/model/build/lib/model/robot/lever_v1.stl -> /home/ethan/quadrupedal-sim/ros/install/model/lib/python3.10/site-packages/model/robot
+[1.531s] copying /home/ethan/quadrupedal-sim/ros/build/model/build/lib/model/robot/left_cover_v2.stl -> /home/ethan/quadrupedal-sim/ros/install/model/lib/python3.10/site-packages/model/robot
+[1.531s] copying /home/ethan/quadrupedal-sim/ros/build/model/build/lib/model/robot/18g_thigh_servo_attachment_v3.part -> /home/ethan/quadrupedal-sim/ros/install/model/lib/python3.10/site-packages/model/robot
+[1.531s] copying /home/ethan/quadrupedal-sim/ros/build/model/build/lib/model/robot/right_cover_v2.part -> /home/ethan/quadrupedal-sim/ros/install/model/lib/python3.10/site-packages/model/robot
+[1.531s] copying /home/ethan/quadrupedal-sim/ros/build/model/build/lib/model/robot/lever_v1.part -> /home/ethan/quadrupedal-sim/ros/install/model/lib/python3.10/site-packages/model/robot
+[1.532s] copying /home/ethan/quadrupedal-sim/ros/build/model/build/lib/model/robot/left_thigh_v1.stl -> /home/ethan/quadrupedal-sim/ros/install/model/lib/python3.10/site-packages/model/robot
+[1.532s] copying /home/ethan/quadrupedal-sim/ros/build/model/build/lib/model/robot/servo_driver_mount_v9.stl -> /home/ethan/quadrupedal-sim/ros/install/model/lib/python3.10/site-packages/model/robot
+[1.532s] copying /home/ethan/quadrupedal-sim/ros/build/model/build/lib/model/robot/bottom_hip_servo_v12.part -> /home/ethan/quadrupedal-sim/ros/install/model/lib/python3.10/site-packages/model/robot
+[1.532s] copying /home/ethan/quadrupedal-sim/ros/build/model/build/lib/model/robot/config.json -> /home/ethan/quadrupedal-sim/ros/install/model/lib/python3.10/site-packages/model/robot
+[1.532s] copying /home/ethan/quadrupedal-sim/ros/build/model/build/lib/model/robot/left_forearm_pivot_v1.stl -> /home/ethan/quadrupedal-sim/ros/install/model/lib/python3.10/site-packages/model/robot
+[1.532s] copying /home/ethan/quadrupedal-sim/ros/build/model/build/lib/model/robot/bearing_5x8x2.5_v1.stl -> /home/ethan/quadrupedal-sim/ros/install/model/lib/python3.10/site-packages/model/robot
+[1.533s] copying /home/ethan/quadrupedal-sim/ros/build/model/build/lib/model/robot/right_forearm_servo_attachment_v1.stl -> /home/ethan/quadrupedal-sim/ros/install/model/lib/python3.10/site-packages/model/robot
+[1.533s] copying /home/ethan/quadrupedal-sim/ros/build/model/build/lib/model/robot/bottom_body_v3.stl -> /home/ethan/quadrupedal-sim/ros/install/model/lib/python3.10/site-packages/model/robot
+[1.533s] copying /home/ethan/quadrupedal-sim/ros/build/model/build/lib/model/robot/microservosg90.stl -> /home/ethan/quadrupedal-sim/ros/install/model/lib/python3.10/site-packages/model/robot
+[1.534s] copying /home/ethan/quadrupedal-sim/ros/build/model/build/lib/model/robot/bearing_10x15x4_v1.part -> /home/ethan/quadrupedal-sim/ros/install/model/lib/python3.10/site-packages/model/robot
+[1.534s] copying /home/ethan/quadrupedal-sim/ros/build/model/build/lib/model/robot/18g_thigh_servo_attachment_v3.stl -> /home/ethan/quadrupedal-sim/ros/install/model/lib/python3.10/site-packages/model/robot
+[1.534s] copying /home/ethan/quadrupedal-sim/ros/build/model/build/lib/model/robot/part_1.part -> /home/ethan/quadrupedal-sim/ros/install/model/lib/python3.10/site-packages/model/robot
+[1.534s] copying /home/ethan/quadrupedal-sim/ros/build/model/build/lib/model/robot/left_forearm_outside_v1.part -> /home/ethan/quadrupedal-sim/ros/install/model/lib/python3.10/site-packages/model/robot
+[1.534s] copying /home/ethan/quadrupedal-sim/ros/build/model/build/lib/model/robot/left_forearm_servo_attachment_v1.stl -> /home/ethan/quadrupedal-sim/ros/install/model/lib/python3.10/site-packages/model/robot
+[1.535s] copying /home/ethan/quadrupedal-sim/ros/build/model/build/lib/model/robot/bottom_hip_servo_v12.stl -> /home/ethan/quadrupedal-sim/ros/install/model/lib/python3.10/site-packages/model/robot
+[1.535s] copying /home/ethan/quadrupedal-sim/ros/build/model/build/lib/model/robot/left_forearm_inside_v1.part -> /home/ethan/quadrupedal-sim/ros/install/model/lib/python3.10/site-packages/model/robot
+[1.535s] copying /home/ethan/quadrupedal-sim/ros/build/model/build/lib/model/robot/hip_joint_to_servo_v2.part -> /home/ethan/quadrupedal-sim/ros/install/model/lib/python3.10/site-packages/model/robot
+[1.535s] copying /home/ethan/quadrupedal-sim/ros/build/model/build/lib/model/robot/18g_servo_v1.part -> /home/ethan/quadrupedal-sim/ros/install/model/lib/python3.10/site-packages/model/robot
+[1.535s] copying /home/ethan/quadrupedal-sim/ros/build/model/build/lib/model/robot/top_body_v21.stl -> /home/ethan/quadrupedal-sim/ros/install/model/lib/python3.10/site-packages/model/robot
+[1.535s] copying /home/ethan/quadrupedal-sim/ros/build/model/build/lib/model/robot/part_1.stl -> /home/ethan/quadrupedal-sim/ros/install/model/lib/python3.10/site-packages/model/robot
+[1.536s] copying /home/ethan/quadrupedal-sim/ros/build/model/build/lib/model/robot/right_forearm_outside_v1.stl -> /home/ethan/quadrupedal-sim/ros/install/model/lib/python3.10/site-packages/model/robot
+[1.536s] copying /home/ethan/quadrupedal-sim/ros/build/model/build/lib/model/robot/battery.part -> /home/ethan/quadrupedal-sim/ros/install/model/lib/python3.10/site-packages/model/robot
+[1.536s] copying /home/ethan/quadrupedal-sim/ros/build/model/build/lib/model/robot/18g_servo_v1.stl -> /home/ethan/quadrupedal-sim/ros/install/model/lib/python3.10/site-packages/model/robot
+[1.536s] copying /home/ethan/quadrupedal-sim/ros/build/model/build/lib/model/robot/right_forearm_inside_v1.part -> /home/ethan/quadrupedal-sim/ros/install/model/lib/python3.10/site-packages/model/robot
+[1.536s] copying /home/ethan/quadrupedal-sim/ros/build/model/build/lib/model/robot/servo_driver_mount_v9.part -> /home/ethan/quadrupedal-sim/ros/install/model/lib/python3.10/site-packages/model/robot
+[1.536s] copying /home/ethan/quadrupedal-sim/ros/build/model/build/lib/model/robot/9g_servo_arm_v1.stl -> /home/ethan/quadrupedal-sim/ros/install/model/lib/python3.10/site-packages/model/robot
+[1.536s] copying /home/ethan/quadrupedal-sim/ros/build/model/build/lib/model/__init__.py -> /home/ethan/quadrupedal-sim/ros/install/model/lib/python3.10/site-packages/model
+[1.536s] creating /home/ethan/quadrupedal-sim/ros/install/model/lib/python3.10/site-packages/model/saved_models
+[1.537s] copying /home/ethan/quadrupedal-sim/ros/build/model/build/lib/model/saved_models/__init__.py -> /home/ethan/quadrupedal-sim/ros/install/model/lib/python3.10/site-packages/model/saved_models
+[1.537s] copying /home/ethan/quadrupedal-sim/ros/build/model/build/lib/model/saved_models/actor_target.pt -> /home/ethan/quadrupedal-sim/ros/install/model/lib/python3.10/site-packages/model/saved_models
+[1.537s] copying /home/ethan/quadrupedal-sim/ros/build/model/build/lib/model/saved_models/actor.py -> /home/ethan/quadrupedal-sim/ros/install/model/lib/python3.10/site-packages/model/saved_models
+[1.537s] copying /home/ethan/quadrupedal-sim/ros/build/model/build/lib/model/model_action.py -> /home/ethan/quadrupedal-sim/ros/install/model/lib/python3.10/site-packages/model
+[1.539s] byte-compiling /home/ethan/quadrupedal-sim/ros/install/model/lib/python3.10/site-packages/model/__init__.py to __init__.cpython-310.pyc
+[1.540s] byte-compiling /home/ethan/quadrupedal-sim/ros/install/model/lib/python3.10/site-packages/model/saved_models/__init__.py to __init__.cpython-310.pyc
+[1.540s] byte-compiling /home/ethan/quadrupedal-sim/ros/install/model/lib/python3.10/site-packages/model/saved_models/actor.py to actor.cpython-310.pyc
+[1.540s] byte-compiling /home/ethan/quadrupedal-sim/ros/install/model/lib/python3.10/site-packages/model/model_action.py to model_action.cpython-310.pyc
+[1.541s] running install_data
+[1.541s] creating /home/ethan/quadrupedal-sim/ros/install/model/share/ament_index
+[1.541s] creating /home/ethan/quadrupedal-sim/ros/install/model/share/ament_index/resource_index
+[1.541s] creating /home/ethan/quadrupedal-sim/ros/install/model/share/ament_index/resource_index/packages
+[1.541s] copying resource/model -> /home/ethan/quadrupedal-sim/ros/install/model/share/ament_index/resource_index/packages
+[1.541s] copying package.xml -> /home/ethan/quadrupedal-sim/ros/install/model/share/model
+[1.541s] running install_egg_info
+[1.544s] Copying ../../build/model/model.egg-info to /home/ethan/quadrupedal-sim/ros/install/model/lib/python3.10/site-packages/model-0.0.0-py3.10.egg-info
+[1.545s] running install_scripts
+[1.579s] Installing talker script to /home/ethan/quadrupedal-sim/ros/install/model/lib/model
+[1.580s] writing list of installed files to '/home/ethan/quadrupedal-sim/ros/build/model/install.log'
+[1.602s] Invoked command in '/home/ethan/quadrupedal-sim/ros/src/model' returned '0': PYTHONPATH=/home/ethan/quadrupedal-sim/ros/build/model/prefix_override:/home/ethan/quadrupedal-sim/ros/install/model/lib/python3.10/site-packages:${PYTHONPATH} VIRTUAL_ENV_PROMPT=(venv) /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../../build/model build --build-base /home/ethan/quadrupedal-sim/ros/build/model/build install --record /home/ethan/quadrupedal-sim/ros/build/model/install.log --single-version-externally-managed install_data

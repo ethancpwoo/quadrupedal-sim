@@ -1,0 +1,33 @@
+{
+  "package_name": "action_state",
+  "output_dir": "/home/ethan/quadrupedal-sim/ros/build/action_state/rosidl_typesupport_c/action_state",
+  "template_dir": "/home/ethan/ros2_humble/install/rosidl_typesupport_c/share/rosidl_typesupport_c/resource",
+  "idl_tuples": [
+    "/home/ethan/quadrupedal-sim/ros/build/action_state/rosidl_adapter/action_state:action/Jointstate.idl"
+  ],
+  "ros_interface_dependencies": [
+    "action_msgs:/home/ethan/ros2_humble/install/action_msgs/share/action_msgs/msg/GoalInfo.idl",
+    "action_msgs:/home/ethan/ros2_humble/install/action_msgs/share/action_msgs/msg/GoalStatus.idl",
+    "action_msgs:/home/ethan/ros2_humble/install/action_msgs/share/action_msgs/msg/GoalStatusArray.idl",
+    "action_msgs:/home/ethan/ros2_humble/install/action_msgs/share/action_msgs/srv/CancelGoal.idl",
+    "builtin_interfaces:/home/ethan/ros2_humble/install/builtin_interfaces/share/builtin_interfaces/msg/Duration.idl",
+    "builtin_interfaces:/home/ethan/ros2_humble/install/builtin_interfaces/share/builtin_interfaces/msg/Time.idl",
+    "unique_identifier_msgs:/home/ethan/ros2_humble/install/unique_identifier_msgs/share/unique_identifier_msgs/msg/UUID.idl"
+  ],
+  "target_dependencies": [
+    "/home/ethan/ros2_humble/install/rosidl_typesupport_c/lib/rosidl_typesupport_c/rosidl_typesupport_c",
+    "/home/ethan/ros2_humble/install/rosidl_typesupport_c/local/lib/python3.10/dist-packages/rosidl_typesupport_c/__init__.py",
+    "/home/ethan/ros2_humble/install/rosidl_typesupport_c/share/rosidl_typesupport_c/resource/action__type_support.c.em",
+    "/home/ethan/ros2_humble/install/rosidl_typesupport_c/share/rosidl_typesupport_c/resource/idl__type_support.cpp.em",
+    "/home/ethan/ros2_humble/install/rosidl_typesupport_c/share/rosidl_typesupport_c/resource/msg__type_support.cpp.em",
+    "/home/ethan/ros2_humble/install/rosidl_typesupport_c/share/rosidl_typesupport_c/resource/srv__type_support.cpp.em",
+    "/home/ethan/quadrupedal-sim/ros/build/action_state/rosidl_adapter/action_state/action/Jointstate.idl",
+    "/home/ethan/ros2_humble/install/action_msgs/share/action_msgs/msg/GoalInfo.idl",
+    "/home/ethan/ros2_humble/install/action_msgs/share/action_msgs/msg/GoalStatus.idl",
+    "/home/ethan/ros2_humble/install/action_msgs/share/action_msgs/msg/GoalStatusArray.idl",
+    "/home/ethan/ros2_humble/install/action_msgs/share/action_msgs/srv/CancelGoal.idl",
+    "/home/ethan/ros2_humble/install/builtin_interfaces/share/builtin_interfaces/msg/Duration.idl",
+    "/home/ethan/ros2_humble/install/builtin_interfaces/share/builtin_interfaces/msg/Time.idl",
+    "/home/ethan/ros2_humble/install/unique_identifier_msgs/share/unique_identifier_msgs/msg/UUID.idl"
+  ]
+}

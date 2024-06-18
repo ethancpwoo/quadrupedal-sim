@@ -5,7 +5,8 @@ import pybullet_data
 import rclpy
 import torch
 
-from .neural_model.actor import Actor
+from action_state.action import Jointstate
+from .saved_models.actor import Actor
 from rclpy.action import ActionServer
 from rclpy.node import Node
 
@@ -15,7 +16,7 @@ class ModelAction(Node):
         super().__init__('model_action')
         self.device = device = "cuda:0" if torch.cuda.is_available() else 'cpu'
         self.actor = Actor().to(device)
-        model = os.path.join(os.path.dirname(__file__), 'neural_model', 'actor_target.pt')
+        model = os.path.join(os.path.dirname(__file__), 'saved_models', 'actor_target.pt')
         self.actor = torch.load(model, map_location=torch.device('cpu'))
         self.mode = p.POSITION_CONTROL
 

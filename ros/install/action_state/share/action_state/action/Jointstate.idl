@@ -1,0 +1,32 @@
+// generated from rosidl_adapter/resource/action.idl.em
+// with input from action_state/action/Jointstate.action
+// generated code does not contain a copyright notice
+
+
+module action_state {
+  module action {
+    struct Jointstate_Goal {
+      float left_front_foot;
+
+      float left_front_thigh;
+
+      float left_back_foot;
+
+      float left_back_thigh;
+
+      float right_front_foot;
+
+      float right_front_thigh;
+
+      float right_back_foot;
+
+      float right_back_thigh;
+    };
+    struct Jointstate_Result {
+      boolean result;
+    };
+    struct Jointstate_Feedback {
+      boolean partial_result;
+    };
+  };
+};

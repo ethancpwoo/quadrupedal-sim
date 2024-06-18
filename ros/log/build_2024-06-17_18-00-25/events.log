@@ -1,5 +1,0 @@
-[0.000000] (-) TimerEvent: {}
-[0.000270] (custom_action) JobQueued: {'identifier': 'custom_action', 'dependencies': OrderedDict()}
-[0.000795] (custom_action) JobStarted: {'identifier': 'custom_action'}
-[0.009727] (custom_action) JobEnded: {'identifier': 'custom_action', 'rc': 1}
-[0.020226] (-) EventReactorShutdown: {}

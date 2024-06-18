@@ -1,9 +1,0 @@
-[1.070s] Invoking command in '/home/ethan/quadrupedal-sim/ros/src/model': PYTHONPATH=/home/ethan/quadrupedal-sim/ros/build/model/prefix_override:/home/ethan/quadrupedal-sim/ros/install/model/lib/python3.10/site-packages:${PYTHONPATH} VIRTUAL_ENV_PROMPT=(venv) /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../../build/model build --build-base /home/ethan/quadrupedal-sim/ros/build/model/build install --record /home/ethan/quadrupedal-sim/ros/build/model/install.log --single-version-externally-managed install_data
-[1.504s] running egg_info
-[1.505s] writing ../../build/model/model.egg-info/PKG-INFO
-[1.505s] writing dependency_links to ../../build/model/model.egg-info/dependency_links.txt
-[1.505s] writing entry points to ../../build/model/model.egg-info/entry_points.txt
-[1.505s] writing requirements to ../../build/model/model.egg-info/requires.txt
-[1.505s] writing top-level names to ../../build/model/model.egg-info/top_level.txt
-[1.506s] error: package directory 'model/action' does not exist
-[1.526s] Invoked command in '/home/ethan/quadrupedal-sim/ros/src/model' returned '1': PYTHONPATH=/home/ethan/quadrupedal-sim/ros/build/model/prefix_override:/home/ethan/quadrupedal-sim/ros/install/model/lib/python3.10/site-packages:${PYTHONPATH} VIRTUAL_ENV_PROMPT=(venv) /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../../build/model build --build-base /home/ethan/quadrupedal-sim/ros/build/model/build install --record /home/ethan/quadrupedal-sim/ros/build/model/install.log --single-version-externally-managed install_data

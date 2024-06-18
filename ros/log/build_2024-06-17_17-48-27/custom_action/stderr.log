@@ -1,8 +1,0 @@
-[31mCMake Error at /home/ethan/ros2_humble/install/rosidl_cmake/share/rosidl_cmake/cmake/rosidl_generate_interfaces.cmake:93 (message):
-  rosidl_generate_interfaces() the passed file '$(action_files)' doesn't
-  exist relative to the CMAKE_CURRENT_SOURCE_DIR
-  '/home/ethan/quadrupedal-sim/ros/src/custom_action'
-Call Stack (most recent call first):
-  CMakeLists.txt:16 (rosidl_generate_interfaces)
-
-[0m

@@ -1,2 +1,0 @@
-/home/ethan/quadrupedal-sim/venv/lib/python3.10/site-packages/setuptools/command/easy_install.py:158: EasyInstallDeprecationWarning: easy_install command is deprecated. Use build and pip and other standards-based tools.
-  warnings.warn(

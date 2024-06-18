@@ -1,0 +1,6 @@
+{
+  "package_name": "action_state",
+  "non_idl_tuples": [
+    "/home/ethan/quadrupedal-sim/ros/src/action_state:action/Jointstate.action"
+  ]
+}
