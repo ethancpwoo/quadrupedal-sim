@@ -14,6 +14,7 @@ class ModelAction(Node):
     
     def __init__(self):
         super().__init__('model_action')
+        self._action_server = ActionServer(self, Jointstate, 'jointstate', self.run_model)
         self.device = device = "cuda:0" if torch.cuda.is_available() else 'cpu'
         self.actor = Actor().to(device)
         model = os.path.join(os.path.dirname(__file__), 'saved_models', 'actor_target.pt')
@@ -66,15 +67,22 @@ class ModelAction(Node):
 
         for i in range(24):
             p.stepSimulation()
+        
+        return action
+    
+    def execute_callback(self, goal_handle):
+        self.get_logger().info('Executing goal...')
+        goal_handle.succeed()
+        
+        result = self.run_model()
+        print(result)
+        return result
     
 
 def main(args=None):
     rclpy.init(args=args)
     model_action = ModelAction()
     rclpy.spin(model_action)
-    model_action.destroy_node()
-    rclpy.shutdown()
-
 
 if __name__ == '__main__': 
     main()

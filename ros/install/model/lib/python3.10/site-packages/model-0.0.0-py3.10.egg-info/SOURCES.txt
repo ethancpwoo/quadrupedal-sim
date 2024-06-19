@@ -11,6 +11,7 @@ setup.py
 ../../build/model/model.egg-info/zip-safe
 model/__init__.py
 model/model_action.py
+model/model_goal.py
 model/robot/18g_servo_v1.part
 model/robot/18g_servo_v1.stl
 model/robot/18g_thigh_servo_attachment_v3.part

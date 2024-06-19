@@ -1,3 +1,4 @@
+/home/ethan/quadrupedal-sim/ros/install/model/lib/python3.10/site-packages/model/model_goal.py
 /home/ethan/quadrupedal-sim/ros/install/model/lib/python3.10/site-packages/model/__init__.py
 /home/ethan/quadrupedal-sim/ros/install/model/lib/python3.10/site-packages/model/model_action.py
 /home/ethan/quadrupedal-sim/ros/install/model/lib/python3.10/site-packages/model/saved_models/__init__.py
@@ -75,6 +76,7 @@
 /home/ethan/quadrupedal-sim/ros/install/model/lib/python3.10/site-packages/model/robot/right_forearm_inside_v1.part
 /home/ethan/quadrupedal-sim/ros/install/model/lib/python3.10/site-packages/model/robot/servo_driver_mount_v9.part
 /home/ethan/quadrupedal-sim/ros/install/model/lib/python3.10/site-packages/model/robot/9g_servo_arm_v1.stl
+/home/ethan/quadrupedal-sim/ros/install/model/lib/python3.10/site-packages/model/__pycache__/model_goal.cpython-310.pyc
 /home/ethan/quadrupedal-sim/ros/install/model/lib/python3.10/site-packages/model/__pycache__/__init__.cpython-310.pyc
 /home/ethan/quadrupedal-sim/ros/install/model/lib/python3.10/site-packages/model/__pycache__/model_action.cpython-310.pyc
 /home/ethan/quadrupedal-sim/ros/install/model/lib/python3.10/site-packages/model/saved_models/__pycache__/__init__.cpython-310.pyc
@@ -88,4 +90,5 @@
 /home/ethan/quadrupedal-sim/ros/install/model/lib/python3.10/site-packages/model-0.0.0-py3.10.egg-info/entry_points.txt
 /home/ethan/quadrupedal-sim/ros/install/model/lib/python3.10/site-packages/model-0.0.0-py3.10.egg-info/requires.txt
 /home/ethan/quadrupedal-sim/ros/install/model/lib/python3.10/site-packages/model-0.0.0-py3.10.egg-info/PKG-INFO
-/home/ethan/quadrupedal-sim/ros/install/model/lib/model/talker
+/home/ethan/quadrupedal-sim/ros/install/model/lib/model/client
+/home/ethan/quadrupedal-sim/ros/install/model/lib/model/server

@@ -24,7 +24,8 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            'talker = model.model_action:main',
+            'server = model.model_action:main',
+            'client = model.model_goal:main',
         ],
     },
 )
