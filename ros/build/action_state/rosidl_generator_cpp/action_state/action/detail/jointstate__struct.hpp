@@ -38,14 +38,7 @@ struct Jointstate_Goal_
     if (rosidl_runtime_cpp::MessageInitialization::ALL == _init ||
       rosidl_runtime_cpp::MessageInitialization::ZERO == _init)
     {
-      this->left_front_foot = 0.0f;
-      this->left_front_thigh = 0.0f;
-      this->left_back_foot = 0.0f;
-      this->left_back_thigh = 0.0f;
-      this->right_front_foot = 0.0f;
-      this->right_front_thigh = 0.0f;
-      this->right_back_foot = 0.0f;
-      this->right_back_thigh = 0.0f;
+      this->result = 0l;
     }
   }
 
@@ -55,90 +48,20 @@ struct Jointstate_Goal_
     if (rosidl_runtime_cpp::MessageInitialization::ALL == _init ||
       rosidl_runtime_cpp::MessageInitialization::ZERO == _init)
     {
-      this->left_front_foot = 0.0f;
-      this->left_front_thigh = 0.0f;
-      this->left_back_foot = 0.0f;
-      this->left_back_thigh = 0.0f;
-      this->right_front_foot = 0.0f;
-      this->right_front_thigh = 0.0f;
-      this->right_back_foot = 0.0f;
-      this->right_back_thigh = 0.0f;
+      this->result = 0l;
     }
   }
 
   // field types and members
-  using _left_front_foot_type =
-    float;
-  _left_front_foot_type left_front_foot;
-  using _left_front_thigh_type =
-    float;
-  _left_front_thigh_type left_front_thigh;
-  using _left_back_foot_type =
-    float;
-  _left_back_foot_type left_back_foot;
-  using _left_back_thigh_type =
-    float;
-  _left_back_thigh_type left_back_thigh;
-  using _right_front_foot_type =
-    float;
-  _right_front_foot_type right_front_foot;
-  using _right_front_thigh_type =
-    float;
-  _right_front_thigh_type right_front_thigh;
-  using _right_back_foot_type =
-    float;
-  _right_back_foot_type right_back_foot;
-  using _right_back_thigh_type =
-    float;
-  _right_back_thigh_type right_back_thigh;
+  using _result_type =
+    int32_t;
+  _result_type result;
 
   // setters for named parameter idiom
-  Type & set__left_front_foot(
-    const float & _arg)
+  Type & set__result(
+    const int32_t & _arg)
   {
-    this->left_front_foot = _arg;
-    return *this;
-  }
-  Type & set__left_front_thigh(
-    const float & _arg)
-  {
-    this->left_front_thigh = _arg;
-    return *this;
-  }
-  Type & set__left_back_foot(
-    const float & _arg)
-  {
-    this->left_back_foot = _arg;
-    return *this;
-  }
-  Type & set__left_back_thigh(
-    const float & _arg)
-  {
-    this->left_back_thigh = _arg;
-    return *this;
-  }
-  Type & set__right_front_foot(
-    const float & _arg)
-  {
-    this->right_front_foot = _arg;
-    return *this;
-  }
-  Type & set__right_front_thigh(
-    const float & _arg)
-  {
-    this->right_front_thigh = _arg;
-    return *this;
-  }
-  Type & set__right_back_foot(
-    const float & _arg)
-  {
-    this->right_back_foot = _arg;
-    return *this;
-  }
-  Type & set__right_back_thigh(
-    const float & _arg)
-  {
-    this->right_back_thigh = _arg;
+    this->result = _arg;
     return *this;
   }
 
@@ -184,28 +107,7 @@ struct Jointstate_Goal_
   // comparison operators
   bool operator==(const Jointstate_Goal_ & other) const
   {
-    if (this->left_front_foot != other.left_front_foot) {
-      return false;
-    }
-    if (this->left_front_thigh != other.left_front_thigh) {
-      return false;
-    }
-    if (this->left_back_foot != other.left_back_foot) {
-      return false;
-    }
-    if (this->left_back_thigh != other.left_back_thigh) {
-      return false;
-    }
-    if (this->right_front_foot != other.right_front_foot) {
-      return false;
-    }
-    if (this->right_front_thigh != other.right_front_thigh) {
-      return false;
-    }
-    if (this->right_back_foot != other.right_back_foot) {
-      return false;
-    }
-    if (this->right_back_thigh != other.right_back_thigh) {
+    if (this->result != other.result) {
       return false;
     }
     return true;
@@ -247,33 +149,25 @@ struct Jointstate_Result_
 
   explicit Jointstate_Result_(rosidl_runtime_cpp::MessageInitialization _init = rosidl_runtime_cpp::MessageInitialization::ALL)
   {
-    if (rosidl_runtime_cpp::MessageInitialization::ALL == _init ||
-      rosidl_runtime_cpp::MessageInitialization::ZERO == _init)
-    {
-      this->result = false;
-    }
+    (void)_init;
   }
 
   explicit Jointstate_Result_(const ContainerAllocator & _alloc, rosidl_runtime_cpp::MessageInitialization _init = rosidl_runtime_cpp::MessageInitialization::ALL)
   {
+    (void)_init;
     (void)_alloc;
-    if (rosidl_runtime_cpp::MessageInitialization::ALL == _init ||
-      rosidl_runtime_cpp::MessageInitialization::ZERO == _init)
-    {
-      this->result = false;
-    }
   }
 
   // field types and members
-  using _result_type =
-    bool;
-  _result_type result;
+  using _jointactions_type =
+    std::vector<float, typename std::allocator_traits<ContainerAllocator>::template rebind_alloc<float>>;
+  _jointactions_type jointactions;
 
   // setters for named parameter idiom
-  Type & set__result(
-    const bool & _arg)
+  Type & set__jointactions(
+    const std::vector<float, typename std::allocator_traits<ContainerAllocator>::template rebind_alloc<float>> & _arg)
   {
-    this->result = _arg;
+    this->jointactions = _arg;
     return *this;
   }
 
@@ -319,7 +213,7 @@ struct Jointstate_Result_
   // comparison operators
   bool operator==(const Jointstate_Result_ & other) const
   {
-    if (this->result != other.result) {
+    if (this->jointactions != other.jointactions) {
       return false;
     }
     return true;
@@ -364,7 +258,7 @@ struct Jointstate_Feedback_
     if (rosidl_runtime_cpp::MessageInitialization::ALL == _init ||
       rosidl_runtime_cpp::MessageInitialization::ZERO == _init)
     {
-      this->partial_result = false;
+      this->partial_result = 0l;
     }
   }
 
@@ -374,18 +268,18 @@ struct Jointstate_Feedback_
     if (rosidl_runtime_cpp::MessageInitialization::ALL == _init ||
       rosidl_runtime_cpp::MessageInitialization::ZERO == _init)
     {
-      this->partial_result = false;
+      this->partial_result = 0l;
     }
   }
 
   // field types and members
   using _partial_result_type =
-    bool;
+    int32_t;
   _partial_result_type partial_result;
 
   // setters for named parameter idiom
   Type & set__partial_result(
-    const bool & _arg)
+    const int32_t & _arg)
   {
     this->partial_result = _arg;
     return *this;

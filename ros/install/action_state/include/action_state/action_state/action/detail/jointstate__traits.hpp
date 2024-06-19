@@ -25,59 +25,10 @@ inline void to_flow_style_yaml(
   std::ostream & out)
 {
   out << "{";
-  // member: left_front_foot
+  // member: result
   {
-    out << "left_front_foot: ";
-    rosidl_generator_traits::value_to_yaml(msg.left_front_foot, out);
-    out << ", ";
-  }
-
-  // member: left_front_thigh
-  {
-    out << "left_front_thigh: ";
-    rosidl_generator_traits::value_to_yaml(msg.left_front_thigh, out);
-    out << ", ";
-  }
-
-  // member: left_back_foot
-  {
-    out << "left_back_foot: ";
-    rosidl_generator_traits::value_to_yaml(msg.left_back_foot, out);
-    out << ", ";
-  }
-
-  // member: left_back_thigh
-  {
-    out << "left_back_thigh: ";
-    rosidl_generator_traits::value_to_yaml(msg.left_back_thigh, out);
-    out << ", ";
-  }
-
-  // member: right_front_foot
-  {
-    out << "right_front_foot: ";
-    rosidl_generator_traits::value_to_yaml(msg.right_front_foot, out);
-    out << ", ";
-  }
-
-  // member: right_front_thigh
-  {
-    out << "right_front_thigh: ";
-    rosidl_generator_traits::value_to_yaml(msg.right_front_thigh, out);
-    out << ", ";
-  }
-
-  // member: right_back_foot
-  {
-    out << "right_back_foot: ";
-    rosidl_generator_traits::value_to_yaml(msg.right_back_foot, out);
-    out << ", ";
-  }
-
-  // member: right_back_thigh
-  {
-    out << "right_back_thigh: ";
-    rosidl_generator_traits::value_to_yaml(msg.right_back_thigh, out);
+    out << "result: ";
+    rosidl_generator_traits::value_to_yaml(msg.result, out);
   }
   out << "}";
 }  // NOLINT(readability/fn_size)
@@ -86,83 +37,13 @@ inline void to_block_style_yaml(
   const Jointstate_Goal & msg,
   std::ostream & out, size_t indentation = 0)
 {
-  // member: left_front_foot
+  // member: result
   {
     if (indentation > 0) {
       out << std::string(indentation, ' ');
     }
-    out << "left_front_foot: ";
-    rosidl_generator_traits::value_to_yaml(msg.left_front_foot, out);
-    out << "\n";
-  }
-
-  // member: left_front_thigh
-  {
-    if (indentation > 0) {
-      out << std::string(indentation, ' ');
-    }
-    out << "left_front_thigh: ";
-    rosidl_generator_traits::value_to_yaml(msg.left_front_thigh, out);
-    out << "\n";
-  }
-
-  // member: left_back_foot
-  {
-    if (indentation > 0) {
-      out << std::string(indentation, ' ');
-    }
-    out << "left_back_foot: ";
-    rosidl_generator_traits::value_to_yaml(msg.left_back_foot, out);
-    out << "\n";
-  }
-
-  // member: left_back_thigh
-  {
-    if (indentation > 0) {
-      out << std::string(indentation, ' ');
-    }
-    out << "left_back_thigh: ";
-    rosidl_generator_traits::value_to_yaml(msg.left_back_thigh, out);
-    out << "\n";
-  }
-
-  // member: right_front_foot
-  {
-    if (indentation > 0) {
-      out << std::string(indentation, ' ');
-    }
-    out << "right_front_foot: ";
-    rosidl_generator_traits::value_to_yaml(msg.right_front_foot, out);
-    out << "\n";
-  }
-
-  // member: right_front_thigh
-  {
-    if (indentation > 0) {
-      out << std::string(indentation, ' ');
-    }
-    out << "right_front_thigh: ";
-    rosidl_generator_traits::value_to_yaml(msg.right_front_thigh, out);
-    out << "\n";
-  }
-
-  // member: right_back_foot
-  {
-    if (indentation > 0) {
-      out << std::string(indentation, ' ');
-    }
-    out << "right_back_foot: ";
-    rosidl_generator_traits::value_to_yaml(msg.right_back_foot, out);
-    out << "\n";
-  }
-
-  // member: right_back_thigh
-  {
-    if (indentation > 0) {
-      out << std::string(indentation, ' ');
-    }
-    out << "right_back_thigh: ";
-    rosidl_generator_traits::value_to_yaml(msg.right_back_thigh, out);
+    out << "result: ";
+    rosidl_generator_traits::value_to_yaml(msg.result, out);
     out << "\n";
   }
 }  // NOLINT(readability/fn_size)
@@ -236,10 +117,21 @@ inline void to_flow_style_yaml(
   std::ostream & out)
 {
   out << "{";
-  // member: result
+  // member: jointactions
   {
-    out << "result: ";
-    rosidl_generator_traits::value_to_yaml(msg.result, out);
+    if (msg.jointactions.size() == 0) {
+      out << "jointactions: []";
+    } else {
+      out << "jointactions: [";
+      size_t pending_items = msg.jointactions.size();
+      for (auto item : msg.jointactions) {
+        rosidl_generator_traits::value_to_yaml(item, out);
+        if (--pending_items > 0) {
+          out << ", ";
+        }
+      }
+      out << "]";
+    }
   }
   out << "}";
 }  // NOLINT(readability/fn_size)
@@ -248,14 +140,24 @@ inline void to_block_style_yaml(
   const Jointstate_Result & msg,
   std::ostream & out, size_t indentation = 0)
 {
-  // member: result
+  // member: jointactions
   {
     if (indentation > 0) {
       out << std::string(indentation, ' ');
     }
-    out << "result: ";
-    rosidl_generator_traits::value_to_yaml(msg.result, out);
-    out << "\n";
+    if (msg.jointactions.size() == 0) {
+      out << "jointactions: []\n";
+    } else {
+      out << "jointactions:\n";
+      for (auto item : msg.jointactions) {
+        if (indentation > 0) {
+          out << std::string(indentation, ' ');
+        }
+        out << "- ";
+        rosidl_generator_traits::value_to_yaml(item, out);
+        out << "\n";
+      }
+    }
   }
 }  // NOLINT(readability/fn_size)
 
@@ -305,11 +207,11 @@ inline const char * name<action_state::action::Jointstate_Result>()
 
 template<>
 struct has_fixed_size<action_state::action::Jointstate_Result>
-  : std::integral_constant<bool, true> {};
+  : std::integral_constant<bool, false> {};
 
 template<>
 struct has_bounded_size<action_state::action::Jointstate_Result>
-  : std::integral_constant<bool, true> {};
+  : std::integral_constant<bool, false> {};
 
 template<>
 struct is_message<action_state::action::Jointstate_Result>

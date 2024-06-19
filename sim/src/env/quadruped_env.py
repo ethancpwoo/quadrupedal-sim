@@ -31,7 +31,6 @@ class QuadrupedEnv():
 
         self.render_mode = render_mode
         self.done = False
-        
         self.init_pybullet()
 
     def init_pybullet(self):

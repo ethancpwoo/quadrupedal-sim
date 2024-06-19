@@ -6,27 +6,13 @@
 module action_state {
   module action {
     struct Jointstate_Goal {
-      float left_front_foot;
-
-      float left_front_thigh;
-
-      float left_back_foot;
-
-      float left_back_thigh;
-
-      float right_front_foot;
-
-      float right_front_thigh;
-
-      float right_back_foot;
-
-      float right_back_thigh;
+      int32 result;
     };
     struct Jointstate_Result {
-      boolean result;
+      sequence<float> jointactions;
     };
     struct Jointstate_Feedback {
-      boolean partial_result;
+      int32 partial_result;
     };
   };
 };

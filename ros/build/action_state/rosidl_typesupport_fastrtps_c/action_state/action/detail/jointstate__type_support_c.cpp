@@ -49,44 +49,9 @@ static bool _Jointstate_Goal__cdr_serialize(
     return false;
   }
   const _Jointstate_Goal__ros_msg_type * ros_message = static_cast<const _Jointstate_Goal__ros_msg_type *>(untyped_ros_message);
-  // Field name: left_front_foot
+  // Field name: result
   {
-    cdr << ros_message->left_front_foot;
-  }
-
-  // Field name: left_front_thigh
-  {
-    cdr << ros_message->left_front_thigh;
-  }
-
-  // Field name: left_back_foot
-  {
-    cdr << ros_message->left_back_foot;
-  }
-
-  // Field name: left_back_thigh
-  {
-    cdr << ros_message->left_back_thigh;
-  }
-
-  // Field name: right_front_foot
-  {
-    cdr << ros_message->right_front_foot;
-  }
-
-  // Field name: right_front_thigh
-  {
-    cdr << ros_message->right_front_thigh;
-  }
-
-  // Field name: right_back_foot
-  {
-    cdr << ros_message->right_back_foot;
-  }
-
-  // Field name: right_back_thigh
-  {
-    cdr << ros_message->right_back_thigh;
+    cdr << ros_message->result;
   }
 
   return true;
@@ -101,44 +66,9 @@ static bool _Jointstate_Goal__cdr_deserialize(
     return false;
   }
   _Jointstate_Goal__ros_msg_type * ros_message = static_cast<_Jointstate_Goal__ros_msg_type *>(untyped_ros_message);
-  // Field name: left_front_foot
+  // Field name: result
   {
-    cdr >> ros_message->left_front_foot;
-  }
-
-  // Field name: left_front_thigh
-  {
-    cdr >> ros_message->left_front_thigh;
-  }
-
-  // Field name: left_back_foot
-  {
-    cdr >> ros_message->left_back_foot;
-  }
-
-  // Field name: left_back_thigh
-  {
-    cdr >> ros_message->left_back_thigh;
-  }
-
-  // Field name: right_front_foot
-  {
-    cdr >> ros_message->right_front_foot;
-  }
-
-  // Field name: right_front_thigh
-  {
-    cdr >> ros_message->right_front_thigh;
-  }
-
-  // Field name: right_back_foot
-  {
-    cdr >> ros_message->right_back_foot;
-  }
-
-  // Field name: right_back_thigh
-  {
-    cdr >> ros_message->right_back_thigh;
+    cdr >> ros_message->result;
   }
 
   return true;
@@ -158,51 +88,9 @@ size_t get_serialized_size_action_state__action__Jointstate_Goal(
   (void)padding;
   (void)wchar_size;
 
-  // field.name left_front_foot
+  // field.name result
   {
-    size_t item_size = sizeof(ros_message->left_front_foot);
-    current_alignment += item_size +
-      eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
-  }
-  // field.name left_front_thigh
-  {
-    size_t item_size = sizeof(ros_message->left_front_thigh);
-    current_alignment += item_size +
-      eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
-  }
-  // field.name left_back_foot
-  {
-    size_t item_size = sizeof(ros_message->left_back_foot);
-    current_alignment += item_size +
-      eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
-  }
-  // field.name left_back_thigh
-  {
-    size_t item_size = sizeof(ros_message->left_back_thigh);
-    current_alignment += item_size +
-      eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
-  }
-  // field.name right_front_foot
-  {
-    size_t item_size = sizeof(ros_message->right_front_foot);
-    current_alignment += item_size +
-      eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
-  }
-  // field.name right_front_thigh
-  {
-    size_t item_size = sizeof(ros_message->right_front_thigh);
-    current_alignment += item_size +
-      eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
-  }
-  // field.name right_back_foot
-  {
-    size_t item_size = sizeof(ros_message->right_back_foot);
-    current_alignment += item_size +
-      eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
-  }
-  // field.name right_back_thigh
-  {
-    size_t item_size = sizeof(ros_message->right_back_thigh);
+    size_t item_size = sizeof(ros_message->result);
     current_alignment += item_size +
       eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
   }
@@ -235,63 +123,7 @@ size_t max_serialized_size_action_state__action__Jointstate_Goal(
   full_bounded = true;
   is_plain = true;
 
-  // member: left_front_foot
-  {
-    size_t array_size = 1;
-
-    last_member_size = array_size * sizeof(uint32_t);
-    current_alignment += array_size * sizeof(uint32_t) +
-      eprosima::fastcdr::Cdr::alignment(current_alignment, sizeof(uint32_t));
-  }
-  // member: left_front_thigh
-  {
-    size_t array_size = 1;
-
-    last_member_size = array_size * sizeof(uint32_t);
-    current_alignment += array_size * sizeof(uint32_t) +
-      eprosima::fastcdr::Cdr::alignment(current_alignment, sizeof(uint32_t));
-  }
-  // member: left_back_foot
-  {
-    size_t array_size = 1;
-
-    last_member_size = array_size * sizeof(uint32_t);
-    current_alignment += array_size * sizeof(uint32_t) +
-      eprosima::fastcdr::Cdr::alignment(current_alignment, sizeof(uint32_t));
-  }
-  // member: left_back_thigh
-  {
-    size_t array_size = 1;
-
-    last_member_size = array_size * sizeof(uint32_t);
-    current_alignment += array_size * sizeof(uint32_t) +
-      eprosima::fastcdr::Cdr::alignment(current_alignment, sizeof(uint32_t));
-  }
-  // member: right_front_foot
-  {
-    size_t array_size = 1;
-
-    last_member_size = array_size * sizeof(uint32_t);
-    current_alignment += array_size * sizeof(uint32_t) +
-      eprosima::fastcdr::Cdr::alignment(current_alignment, sizeof(uint32_t));
-  }
-  // member: right_front_thigh
-  {
-    size_t array_size = 1;
-
-    last_member_size = array_size * sizeof(uint32_t);
-    current_alignment += array_size * sizeof(uint32_t) +
-      eprosima::fastcdr::Cdr::alignment(current_alignment, sizeof(uint32_t));
-  }
-  // member: right_back_foot
-  {
-    size_t array_size = 1;
-
-    last_member_size = array_size * sizeof(uint32_t);
-    current_alignment += array_size * sizeof(uint32_t) +
-      eprosima::fastcdr::Cdr::alignment(current_alignment, sizeof(uint32_t));
-  }
-  // member: right_back_thigh
+  // member: result
   {
     size_t array_size = 1;
 
@@ -308,7 +140,7 @@ size_t max_serialized_size_action_state__action__Jointstate_Goal(
     using DataType = action_state__action__Jointstate_Goal;
     is_plain =
       (
-      offsetof(DataType, right_back_thigh) +
+      offsetof(DataType, result) +
       last_member_size
       ) == ret_val;
   }
@@ -396,6 +228,8 @@ extern "C"
 {
 #endif
 
+#include "rosidl_runtime_c/primitives_sequence.h"  // jointactions
+#include "rosidl_runtime_c/primitives_sequence_functions.h"  // jointactions
 
 // forward declare type support functions
 
@@ -411,9 +245,12 @@ static bool _Jointstate_Result__cdr_serialize(
     return false;
   }
   const _Jointstate_Result__ros_msg_type * ros_message = static_cast<const _Jointstate_Result__ros_msg_type *>(untyped_ros_message);
-  // Field name: result
+  // Field name: jointactions
   {
-    cdr << (ros_message->result ? true : false);
+    size_t size = ros_message->jointactions.size;
+    auto array_ptr = ros_message->jointactions.data;
+    cdr << static_cast<uint32_t>(size);
+    cdr.serializeArray(array_ptr, size);
   }
 
   return true;
@@ -428,11 +265,20 @@ static bool _Jointstate_Result__cdr_deserialize(
     return false;
   }
   _Jointstate_Result__ros_msg_type * ros_message = static_cast<_Jointstate_Result__ros_msg_type *>(untyped_ros_message);
-  // Field name: result
+  // Field name: jointactions
   {
-    uint8_t tmp;
-    cdr >> tmp;
-    ros_message->result = tmp ? true : false;
+    uint32_t cdrSize;
+    cdr >> cdrSize;
+    size_t size = static_cast<size_t>(cdrSize);
+    if (ros_message->jointactions.data) {
+      rosidl_runtime_c__float__Sequence__fini(&ros_message->jointactions);
+    }
+    if (!rosidl_runtime_c__float__Sequence__init(&ros_message->jointactions, size)) {
+      fprintf(stderr, "failed to create array for field 'jointactions'");
+      return false;
+    }
+    auto array_ptr = ros_message->jointactions.data;
+    cdr.deserializeArray(array_ptr, size);
   }
 
   return true;
@@ -452,10 +298,15 @@ size_t get_serialized_size_action_state__action__Jointstate_Result(
   (void)padding;
   (void)wchar_size;
 
-  // field.name result
+  // field.name jointactions
   {
-    size_t item_size = sizeof(ros_message->result);
-    current_alignment += item_size +
+    size_t array_size = ros_message->jointactions.size;
+    auto array_ptr = ros_message->jointactions.data;
+    current_alignment += padding +
+      eprosima::fastcdr::Cdr::alignment(current_alignment, padding);
+    (void)array_ptr;
+    size_t item_size = sizeof(array_ptr[0]);
+    current_alignment += array_size * item_size +
       eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
   }
 
@@ -487,12 +338,17 @@ size_t max_serialized_size_action_state__action__Jointstate_Result(
   full_bounded = true;
   is_plain = true;
 
-  // member: result
+  // member: jointactions
   {
-    size_t array_size = 1;
+    size_t array_size = 0;
+    full_bounded = false;
+    is_plain = false;
+    current_alignment += padding +
+      eprosima::fastcdr::Cdr::alignment(current_alignment, padding);
 
-    last_member_size = array_size * sizeof(uint8_t);
-    current_alignment += array_size * sizeof(uint8_t);
+    last_member_size = array_size * sizeof(uint32_t);
+    current_alignment += array_size * sizeof(uint32_t) +
+      eprosima::fastcdr::Cdr::alignment(current_alignment, sizeof(uint32_t));
   }
 
   size_t ret_val = current_alignment - initial_alignment;
@@ -503,7 +359,7 @@ size_t max_serialized_size_action_state__action__Jointstate_Result(
     using DataType = action_state__action__Jointstate_Result;
     is_plain =
       (
-      offsetof(DataType, result) +
+      offsetof(DataType, jointactions) +
       last_member_size
       ) == ret_val;
   }
@@ -608,7 +464,7 @@ static bool _Jointstate_Feedback__cdr_serialize(
   const _Jointstate_Feedback__ros_msg_type * ros_message = static_cast<const _Jointstate_Feedback__ros_msg_type *>(untyped_ros_message);
   // Field name: partial_result
   {
-    cdr << (ros_message->partial_result ? true : false);
+    cdr << ros_message->partial_result;
   }
 
   return true;
@@ -625,9 +481,7 @@ static bool _Jointstate_Feedback__cdr_deserialize(
   _Jointstate_Feedback__ros_msg_type * ros_message = static_cast<_Jointstate_Feedback__ros_msg_type *>(untyped_ros_message);
   // Field name: partial_result
   {
-    uint8_t tmp;
-    cdr >> tmp;
-    ros_message->partial_result = tmp ? true : false;
+    cdr >> ros_message->partial_result;
   }
 
   return true;
@@ -686,8 +540,9 @@ size_t max_serialized_size_action_state__action__Jointstate_Feedback(
   {
     size_t array_size = 1;
 
-    last_member_size = array_size * sizeof(uint8_t);
-    current_alignment += array_size * sizeof(uint8_t);
+    last_member_size = array_size * sizeof(uint32_t);
+    current_alignment += array_size * sizeof(uint32_t) +
+      eprosima::fastcdr::Cdr::alignment(current_alignment, sizeof(uint32_t));
   }
 
   size_t ret_val = current_alignment - initial_alignment;

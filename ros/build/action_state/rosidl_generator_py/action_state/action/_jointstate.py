@@ -7,8 +7,6 @@
 
 import builtins  # noqa: E402, I100
 
-import math  # noqa: E402, I100
-
 import rosidl_parser.definition  # noqa: E402, I100
 
 
@@ -57,50 +55,22 @@ class Jointstate_Goal(metaclass=Metaclass_Jointstate_Goal):
     """Message class 'Jointstate_Goal'."""
 
     __slots__ = [
-        '_left_front_foot',
-        '_left_front_thigh',
-        '_left_back_foot',
-        '_left_back_thigh',
-        '_right_front_foot',
-        '_right_front_thigh',
-        '_right_back_foot',
-        '_right_back_thigh',
+        '_result',
     ]
 
     _fields_and_field_types = {
-        'left_front_foot': 'float',
-        'left_front_thigh': 'float',
-        'left_back_foot': 'float',
-        'left_back_thigh': 'float',
-        'right_front_foot': 'float',
-        'right_front_thigh': 'float',
-        'right_back_foot': 'float',
-        'right_back_thigh': 'float',
+        'result': 'int32',
     }
 
     SLOT_TYPES = (
-        rosidl_parser.definition.BasicType('float'),  # noqa: E501
-        rosidl_parser.definition.BasicType('float'),  # noqa: E501
-        rosidl_parser.definition.BasicType('float'),  # noqa: E501
-        rosidl_parser.definition.BasicType('float'),  # noqa: E501
-        rosidl_parser.definition.BasicType('float'),  # noqa: E501
-        rosidl_parser.definition.BasicType('float'),  # noqa: E501
-        rosidl_parser.definition.BasicType('float'),  # noqa: E501
-        rosidl_parser.definition.BasicType('float'),  # noqa: E501
+        rosidl_parser.definition.BasicType('int32'),  # noqa: E501
     )
 
     def __init__(self, **kwargs):
         assert all('_' + key in self.__slots__ for key in kwargs.keys()), \
             'Invalid arguments passed to constructor: %s' % \
             ', '.join(sorted(k for k in kwargs.keys() if '_' + k not in self.__slots__))
-        self.left_front_foot = kwargs.get('left_front_foot', float())
-        self.left_front_thigh = kwargs.get('left_front_thigh', float())
-        self.left_back_foot = kwargs.get('left_back_foot', float())
-        self.left_back_thigh = kwargs.get('left_back_thigh', float())
-        self.right_front_foot = kwargs.get('right_front_foot', float())
-        self.right_front_thigh = kwargs.get('right_front_thigh', float())
-        self.right_back_foot = kwargs.get('right_back_foot', float())
-        self.right_back_thigh = kwargs.get('right_back_thigh', float())
+        self.result = kwargs.get('result', int())
 
     def __repr__(self):
         typename = self.__class__.__module__.split('.')
@@ -131,21 +101,7 @@ class Jointstate_Goal(metaclass=Metaclass_Jointstate_Goal):
     def __eq__(self, other):
         if not isinstance(other, self.__class__):
             return False
-        if self.left_front_foot != other.left_front_foot:
-            return False
-        if self.left_front_thigh != other.left_front_thigh:
-            return False
-        if self.left_back_foot != other.left_back_foot:
-            return False
-        if self.left_back_thigh != other.left_back_thigh:
-            return False
-        if self.right_front_foot != other.right_front_foot:
-            return False
-        if self.right_front_thigh != other.right_front_thigh:
-            return False
-        if self.right_back_foot != other.right_back_foot:
-            return False
-        if self.right_back_thigh != other.right_back_thigh:
+        if self.result != other.result:
             return False
         return True
 
@@ -155,130 +111,30 @@ class Jointstate_Goal(metaclass=Metaclass_Jointstate_Goal):
         return copy(cls._fields_and_field_types)
 
     @builtins.property
-    def left_front_foot(self):
-        """Message field 'left_front_foot'."""
-        return self._left_front_foot
+    def result(self):
+        """Message field 'result'."""
+        return self._result
 
-    @left_front_foot.setter
-    def left_front_foot(self, value):
+    @result.setter
+    def result(self, value):
         if __debug__:
             assert \
-                isinstance(value, float), \
-                "The 'left_front_foot' field must be of type 'float'"
-            assert not (value < -3.402823466e+38 or value > 3.402823466e+38) or math.isinf(value), \
-                "The 'left_front_foot' field must be a float in [-3.402823466e+38, 3.402823466e+38]"
-        self._left_front_foot = value
-
-    @builtins.property
-    def left_front_thigh(self):
-        """Message field 'left_front_thigh'."""
-        return self._left_front_thigh
-
-    @left_front_thigh.setter
-    def left_front_thigh(self, value):
-        if __debug__:
-            assert \
-                isinstance(value, float), \
-                "The 'left_front_thigh' field must be of type 'float'"
-            assert not (value < -3.402823466e+38 or value > 3.402823466e+38) or math.isinf(value), \
-                "The 'left_front_thigh' field must be a float in [-3.402823466e+38, 3.402823466e+38]"
-        self._left_front_thigh = value
-
-    @builtins.property
-    def left_back_foot(self):
-        """Message field 'left_back_foot'."""
-        return self._left_back_foot
-
-    @left_back_foot.setter
-    def left_back_foot(self, value):
-        if __debug__:
-            assert \
-                isinstance(value, float), \
-                "The 'left_back_foot' field must be of type 'float'"
-            assert not (value < -3.402823466e+38 or value > 3.402823466e+38) or math.isinf(value), \
-                "The 'left_back_foot' field must be a float in [-3.402823466e+38, 3.402823466e+38]"
-        self._left_back_foot = value
-
-    @builtins.property
-    def left_back_thigh(self):
-        """Message field 'left_back_thigh'."""
-        return self._left_back_thigh
-
-    @left_back_thigh.setter
-    def left_back_thigh(self, value):
-        if __debug__:
-            assert \
-                isinstance(value, float), \
-                "The 'left_back_thigh' field must be of type 'float'"
-            assert not (value < -3.402823466e+38 or value > 3.402823466e+38) or math.isinf(value), \
-                "The 'left_back_thigh' field must be a float in [-3.402823466e+38, 3.402823466e+38]"
-        self._left_back_thigh = value
-
-    @builtins.property
-    def right_front_foot(self):
-        """Message field 'right_front_foot'."""
-        return self._right_front_foot
-
-    @right_front_foot.setter
-    def right_front_foot(self, value):
-        if __debug__:
-            assert \
-                isinstance(value, float), \
-                "The 'right_front_foot' field must be of type 'float'"
-            assert not (value < -3.402823466e+38 or value > 3.402823466e+38) or math.isinf(value), \
-                "The 'right_front_foot' field must be a float in [-3.402823466e+38, 3.402823466e+38]"
-        self._right_front_foot = value
-
-    @builtins.property
-    def right_front_thigh(self):
-        """Message field 'right_front_thigh'."""
-        return self._right_front_thigh
-
-    @right_front_thigh.setter
-    def right_front_thigh(self, value):
-        if __debug__:
-            assert \
-                isinstance(value, float), \
-                "The 'right_front_thigh' field must be of type 'float'"
-            assert not (value < -3.402823466e+38 or value > 3.402823466e+38) or math.isinf(value), \
-                "The 'right_front_thigh' field must be a float in [-3.402823466e+38, 3.402823466e+38]"
-        self._right_front_thigh = value
-
-    @builtins.property
-    def right_back_foot(self):
-        """Message field 'right_back_foot'."""
-        return self._right_back_foot
-
-    @right_back_foot.setter
-    def right_back_foot(self, value):
-        if __debug__:
-            assert \
-                isinstance(value, float), \
-                "The 'right_back_foot' field must be of type 'float'"
-            assert not (value < -3.402823466e+38 or value > 3.402823466e+38) or math.isinf(value), \
-                "The 'right_back_foot' field must be a float in [-3.402823466e+38, 3.402823466e+38]"
-        self._right_back_foot = value
-
-    @builtins.property
-    def right_back_thigh(self):
-        """Message field 'right_back_thigh'."""
-        return self._right_back_thigh
-
-    @right_back_thigh.setter
-    def right_back_thigh(self, value):
-        if __debug__:
-            assert \
-                isinstance(value, float), \
-                "The 'right_back_thigh' field must be of type 'float'"
-            assert not (value < -3.402823466e+38 or value > 3.402823466e+38) or math.isinf(value), \
-                "The 'right_back_thigh' field must be a float in [-3.402823466e+38, 3.402823466e+38]"
-        self._right_back_thigh = value
+                isinstance(value, int), \
+                "The 'result' field must be of type 'int'"
+            assert value >= -2147483648 and value < 2147483648, \
+                "The 'result' field must be an integer in [-2147483648, 2147483647]"
+        self._result = value
 
 
 # Import statements for member types
 
+# Member 'jointactions'
+import array  # noqa: E402, I100
+
 # already imported above
 # import builtins
+
+import math  # noqa: E402, I100
 
 # already imported above
 # import rosidl_parser.definition
@@ -329,22 +185,22 @@ class Jointstate_Result(metaclass=Metaclass_Jointstate_Result):
     """Message class 'Jointstate_Result'."""
 
     __slots__ = [
-        '_result',
+        '_jointactions',
     ]
 
     _fields_and_field_types = {
-        'result': 'boolean',
+        'jointactions': 'sequence<float>',
     }
 
     SLOT_TYPES = (
-        rosidl_parser.definition.BasicType('boolean'),  # noqa: E501
+        rosidl_parser.definition.UnboundedSequence(rosidl_parser.definition.BasicType('float')),  # noqa: E501
     )
 
     def __init__(self, **kwargs):
         assert all('_' + key in self.__slots__ for key in kwargs.keys()), \
             'Invalid arguments passed to constructor: %s' % \
             ', '.join(sorted(k for k in kwargs.keys() if '_' + k not in self.__slots__))
-        self.result = kwargs.get('result', bool())
+        self.jointactions = array.array('f', kwargs.get('jointactions', []))
 
     def __repr__(self):
         typename = self.__class__.__module__.split('.')
@@ -375,7 +231,7 @@ class Jointstate_Result(metaclass=Metaclass_Jointstate_Result):
     def __eq__(self, other):
         if not isinstance(other, self.__class__):
             return False
-        if self.result != other.result:
+        if self.jointactions != other.jointactions:
             return False
         return True
 
@@ -385,17 +241,32 @@ class Jointstate_Result(metaclass=Metaclass_Jointstate_Result):
         return copy(cls._fields_and_field_types)
 
     @builtins.property
-    def result(self):
-        """Message field 'result'."""
-        return self._result
+    def jointactions(self):
+        """Message field 'jointactions'."""
+        return self._jointactions
 
-    @result.setter
-    def result(self, value):
+    @jointactions.setter
+    def jointactions(self, value):
+        if isinstance(value, array.array):
+            assert value.typecode == 'f', \
+                "The 'jointactions' array.array() must have the type code of 'f'"
+            self._jointactions = value
+            return
         if __debug__:
+            from collections.abc import Sequence
+            from collections.abc import Set
+            from collections import UserList
+            from collections import UserString
             assert \
-                isinstance(value, bool), \
-                "The 'result' field must be of type 'bool'"
-        self._result = value
+                ((isinstance(value, Sequence) or
+                  isinstance(value, Set) or
+                  isinstance(value, UserList)) and
+                 not isinstance(value, str) and
+                 not isinstance(value, UserString) and
+                 all(isinstance(v, float) for v in value) and
+                 all(not (val < -3.402823466e+38 or val > 3.402823466e+38) or math.isinf(val) for val in value)), \
+                "The 'jointactions' field must be a set or sequence and each value of type 'float' and each float in [-340282346600000016151267322115014000640.000000, 340282346600000016151267322115014000640.000000]"
+        self._jointactions = array.array('f', value)
 
 
 # Import statements for member types
@@ -456,18 +327,18 @@ class Jointstate_Feedback(metaclass=Metaclass_Jointstate_Feedback):
     ]
 
     _fields_and_field_types = {
-        'partial_result': 'boolean',
+        'partial_result': 'int32',
     }
 
     SLOT_TYPES = (
-        rosidl_parser.definition.BasicType('boolean'),  # noqa: E501
+        rosidl_parser.definition.BasicType('int32'),  # noqa: E501
     )
 
     def __init__(self, **kwargs):
         assert all('_' + key in self.__slots__ for key in kwargs.keys()), \
             'Invalid arguments passed to constructor: %s' % \
             ', '.join(sorted(k for k in kwargs.keys() if '_' + k not in self.__slots__))
-        self.partial_result = kwargs.get('partial_result', bool())
+        self.partial_result = kwargs.get('partial_result', int())
 
     def __repr__(self):
         typename = self.__class__.__module__.split('.')
@@ -516,8 +387,10 @@ class Jointstate_Feedback(metaclass=Metaclass_Jointstate_Feedback):
     def partial_result(self, value):
         if __debug__:
             assert \
-                isinstance(value, bool), \
-                "The 'partial_result' field must be of type 'bool'"
+                isinstance(value, int), \
+                "The 'partial_result' field must be of type 'int'"
+            assert value >= -2147483648 and value < 2147483648, \
+                "The 'partial_result' field must be an integer in [-2147483648, 2147483647]"
         self._partial_result = value
 
 

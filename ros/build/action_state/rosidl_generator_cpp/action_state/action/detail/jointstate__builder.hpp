@@ -21,128 +21,16 @@ namespace action
 namespace builder
 {
 
-class Init_Jointstate_Goal_right_back_thigh
+class Init_Jointstate_Goal_result
 {
 public:
-  explicit Init_Jointstate_Goal_right_back_thigh(::action_state::action::Jointstate_Goal & msg)
-  : msg_(msg)
-  {}
-  ::action_state::action::Jointstate_Goal right_back_thigh(::action_state::action::Jointstate_Goal::_right_back_thigh_type arg)
-  {
-    msg_.right_back_thigh = std::move(arg);
-    return std::move(msg_);
-  }
-
-private:
-  ::action_state::action::Jointstate_Goal msg_;
-};
-
-class Init_Jointstate_Goal_right_back_foot
-{
-public:
-  explicit Init_Jointstate_Goal_right_back_foot(::action_state::action::Jointstate_Goal & msg)
-  : msg_(msg)
-  {}
-  Init_Jointstate_Goal_right_back_thigh right_back_foot(::action_state::action::Jointstate_Goal::_right_back_foot_type arg)
-  {
-    msg_.right_back_foot = std::move(arg);
-    return Init_Jointstate_Goal_right_back_thigh(msg_);
-  }
-
-private:
-  ::action_state::action::Jointstate_Goal msg_;
-};
-
-class Init_Jointstate_Goal_right_front_thigh
-{
-public:
-  explicit Init_Jointstate_Goal_right_front_thigh(::action_state::action::Jointstate_Goal & msg)
-  : msg_(msg)
-  {}
-  Init_Jointstate_Goal_right_back_foot right_front_thigh(::action_state::action::Jointstate_Goal::_right_front_thigh_type arg)
-  {
-    msg_.right_front_thigh = std::move(arg);
-    return Init_Jointstate_Goal_right_back_foot(msg_);
-  }
-
-private:
-  ::action_state::action::Jointstate_Goal msg_;
-};
-
-class Init_Jointstate_Goal_right_front_foot
-{
-public:
-  explicit Init_Jointstate_Goal_right_front_foot(::action_state::action::Jointstate_Goal & msg)
-  : msg_(msg)
-  {}
-  Init_Jointstate_Goal_right_front_thigh right_front_foot(::action_state::action::Jointstate_Goal::_right_front_foot_type arg)
-  {
-    msg_.right_front_foot = std::move(arg);
-    return Init_Jointstate_Goal_right_front_thigh(msg_);
-  }
-
-private:
-  ::action_state::action::Jointstate_Goal msg_;
-};
-
-class Init_Jointstate_Goal_left_back_thigh
-{
-public:
-  explicit Init_Jointstate_Goal_left_back_thigh(::action_state::action::Jointstate_Goal & msg)
-  : msg_(msg)
-  {}
-  Init_Jointstate_Goal_right_front_foot left_back_thigh(::action_state::action::Jointstate_Goal::_left_back_thigh_type arg)
-  {
-    msg_.left_back_thigh = std::move(arg);
-    return Init_Jointstate_Goal_right_front_foot(msg_);
-  }
-
-private:
-  ::action_state::action::Jointstate_Goal msg_;
-};
-
-class Init_Jointstate_Goal_left_back_foot
-{
-public:
-  explicit Init_Jointstate_Goal_left_back_foot(::action_state::action::Jointstate_Goal & msg)
-  : msg_(msg)
-  {}
-  Init_Jointstate_Goal_left_back_thigh left_back_foot(::action_state::action::Jointstate_Goal::_left_back_foot_type arg)
-  {
-    msg_.left_back_foot = std::move(arg);
-    return Init_Jointstate_Goal_left_back_thigh(msg_);
-  }
-
-private:
-  ::action_state::action::Jointstate_Goal msg_;
-};
-
-class Init_Jointstate_Goal_left_front_thigh
-{
-public:
-  explicit Init_Jointstate_Goal_left_front_thigh(::action_state::action::Jointstate_Goal & msg)
-  : msg_(msg)
-  {}
-  Init_Jointstate_Goal_left_back_foot left_front_thigh(::action_state::action::Jointstate_Goal::_left_front_thigh_type arg)
-  {
-    msg_.left_front_thigh = std::move(arg);
-    return Init_Jointstate_Goal_left_back_foot(msg_);
-  }
-
-private:
-  ::action_state::action::Jointstate_Goal msg_;
-};
-
-class Init_Jointstate_Goal_left_front_foot
-{
-public:
-  Init_Jointstate_Goal_left_front_foot()
+  Init_Jointstate_Goal_result()
   : msg_(::rosidl_runtime_cpp::MessageInitialization::SKIP)
   {}
-  Init_Jointstate_Goal_left_front_thigh left_front_foot(::action_state::action::Jointstate_Goal::_left_front_foot_type arg)
+  ::action_state::action::Jointstate_Goal result(::action_state::action::Jointstate_Goal::_result_type arg)
   {
-    msg_.left_front_foot = std::move(arg);
-    return Init_Jointstate_Goal_left_front_thigh(msg_);
+    msg_.result = std::move(arg);
+    return std::move(msg_);
   }
 
 private:
@@ -160,7 +48,7 @@ template<>
 inline
 auto build<::action_state::action::Jointstate_Goal>()
 {
-  return action_state::action::builder::Init_Jointstate_Goal_left_front_foot();
+  return action_state::action::builder::Init_Jointstate_Goal_result();
 }
 
 }  // namespace action_state
@@ -175,15 +63,15 @@ namespace action
 namespace builder
 {
 
-class Init_Jointstate_Result_result
+class Init_Jointstate_Result_jointactions
 {
 public:
-  Init_Jointstate_Result_result()
+  Init_Jointstate_Result_jointactions()
   : msg_(::rosidl_runtime_cpp::MessageInitialization::SKIP)
   {}
-  ::action_state::action::Jointstate_Result result(::action_state::action::Jointstate_Result::_result_type arg)
+  ::action_state::action::Jointstate_Result jointactions(::action_state::action::Jointstate_Result::_jointactions_type arg)
   {
-    msg_.result = std::move(arg);
+    msg_.jointactions = std::move(arg);
     return std::move(msg_);
   }
 
@@ -202,7 +90,7 @@ template<>
 inline
 auto build<::action_state::action::Jointstate_Result>()
 {
-  return action_state::action::builder::Init_Jointstate_Result_result();
+  return action_state::action::builder::Init_Jointstate_Result_jointactions();
 }
 
 }  // namespace action_state

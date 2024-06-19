@@ -39,7 +39,7 @@ def main(args=None):
 
     action_client = ModelGoal()
 
-    future = action_client.send_goal(10)
+    future = action_client.send_goal(True)
 
     rclpy.spin_until_future_complete(action_client, future)
 

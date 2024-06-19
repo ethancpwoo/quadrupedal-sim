@@ -20,14 +20,7 @@ extern "C"
 /// Struct defined in action/Jointstate in the package action_state.
 typedef struct action_state__action__Jointstate_Goal
 {
-  float left_front_foot;
-  float left_front_thigh;
-  float left_back_foot;
-  float left_back_thigh;
-  float right_front_foot;
-  float right_front_thigh;
-  float right_back_foot;
-  float right_back_thigh;
+  int32_t result;
 } action_state__action__Jointstate_Goal;
 
 // Struct for a sequence of action_state__action__Jointstate_Goal.
@@ -43,10 +36,14 @@ typedef struct action_state__action__Jointstate_Goal__Sequence
 
 // Constants defined in the message
 
+// Include directives for member types
+// Member 'jointactions'
+#include "rosidl_runtime_c/primitives_sequence.h"
+
 /// Struct defined in action/Jointstate in the package action_state.
 typedef struct action_state__action__Jointstate_Result
 {
-  bool result;
+  rosidl_runtime_c__float__Sequence jointactions;
 } action_state__action__Jointstate_Result;
 
 // Struct for a sequence of action_state__action__Jointstate_Result.
@@ -65,7 +62,7 @@ typedef struct action_state__action__Jointstate_Result__Sequence
 /// Struct defined in action/Jointstate in the package action_state.
 typedef struct action_state__action__Jointstate_Feedback
 {
-  bool partial_result;
+  int32_t partial_result;
 } action_state__action__Jointstate_Feedback;
 
 // Struct for a sequence of action_state__action__Jointstate_Feedback.

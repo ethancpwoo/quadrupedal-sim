@@ -1,12 +1,5 @@
-float32 left_front_foot
-float32 left_front_thigh
-float32 left_back_foot
-float32 left_back_thigh
-float32 right_front_foot
-float32 right_front_thigh
-float32 right_back_foot
-float32 right_back_thigh
+int32 result
 ---
-bool result
+float32[] jointactions
 ---
-bool partial_result
+int32 partial_result

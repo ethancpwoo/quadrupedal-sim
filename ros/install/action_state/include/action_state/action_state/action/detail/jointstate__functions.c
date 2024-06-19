@@ -17,14 +17,7 @@ action_state__action__Jointstate_Goal__init(action_state__action__Jointstate_Goa
   if (!msg) {
     return false;
   }
-  // left_front_foot
-  // left_front_thigh
-  // left_back_foot
-  // left_back_thigh
-  // right_front_foot
-  // right_front_thigh
-  // right_back_foot
-  // right_back_thigh
+  // result
   return true;
 }
 
@@ -34,14 +27,7 @@ action_state__action__Jointstate_Goal__fini(action_state__action__Jointstate_Goa
   if (!msg) {
     return;
   }
-  // left_front_foot
-  // left_front_thigh
-  // left_back_foot
-  // left_back_thigh
-  // right_front_foot
-  // right_front_thigh
-  // right_back_foot
-  // right_back_thigh
+  // result
 }
 
 bool
@@ -50,36 +36,8 @@ action_state__action__Jointstate_Goal__are_equal(const action_state__action__Joi
   if (!lhs || !rhs) {
     return false;
   }
-  // left_front_foot
-  if (lhs->left_front_foot != rhs->left_front_foot) {
-    return false;
-  }
-  // left_front_thigh
-  if (lhs->left_front_thigh != rhs->left_front_thigh) {
-    return false;
-  }
-  // left_back_foot
-  if (lhs->left_back_foot != rhs->left_back_foot) {
-    return false;
-  }
-  // left_back_thigh
-  if (lhs->left_back_thigh != rhs->left_back_thigh) {
-    return false;
-  }
-  // right_front_foot
-  if (lhs->right_front_foot != rhs->right_front_foot) {
-    return false;
-  }
-  // right_front_thigh
-  if (lhs->right_front_thigh != rhs->right_front_thigh) {
-    return false;
-  }
-  // right_back_foot
-  if (lhs->right_back_foot != rhs->right_back_foot) {
-    return false;
-  }
-  // right_back_thigh
-  if (lhs->right_back_thigh != rhs->right_back_thigh) {
+  // result
+  if (lhs->result != rhs->result) {
     return false;
   }
   return true;
@@ -93,22 +51,8 @@ action_state__action__Jointstate_Goal__copy(
   if (!input || !output) {
     return false;
   }
-  // left_front_foot
-  output->left_front_foot = input->left_front_foot;
-  // left_front_thigh
-  output->left_front_thigh = input->left_front_thigh;
-  // left_back_foot
-  output->left_back_foot = input->left_back_foot;
-  // left_back_thigh
-  output->left_back_thigh = input->left_back_thigh;
-  // right_front_foot
-  output->right_front_foot = input->right_front_foot;
-  // right_front_thigh
-  output->right_front_thigh = input->right_front_thigh;
-  // right_back_foot
-  output->right_back_foot = input->right_back_foot;
-  // right_back_thigh
-  output->right_back_thigh = input->right_back_thigh;
+  // result
+  output->result = input->result;
   return true;
 }
 
@@ -292,13 +236,21 @@ action_state__action__Jointstate_Goal__Sequence__copy(
 }
 
 
+// Include directives for member types
+// Member `jointactions`
+#include "rosidl_runtime_c/primitives_sequence_functions.h"
+
 bool
 action_state__action__Jointstate_Result__init(action_state__action__Jointstate_Result * msg)
 {
   if (!msg) {
     return false;
   }
-  // result
+  // jointactions
+  if (!rosidl_runtime_c__float__Sequence__init(&msg->jointactions, 0)) {
+    action_state__action__Jointstate_Result__fini(msg);
+    return false;
+  }
   return true;
 }
 
@@ -308,7 +260,8 @@ action_state__action__Jointstate_Result__fini(action_state__action__Jointstate_R
   if (!msg) {
     return;
   }
-  // result
+  // jointactions
+  rosidl_runtime_c__float__Sequence__fini(&msg->jointactions);
 }
 
 bool
@@ -317,8 +270,10 @@ action_state__action__Jointstate_Result__are_equal(const action_state__action__J
   if (!lhs || !rhs) {
     return false;
   }
-  // result
-  if (lhs->result != rhs->result) {
+  // jointactions
+  if (!rosidl_runtime_c__float__Sequence__are_equal(
+      &(lhs->jointactions), &(rhs->jointactions)))
+  {
     return false;
   }
   return true;
@@ -332,8 +287,12 @@ action_state__action__Jointstate_Result__copy(
   if (!input || !output) {
     return false;
   }
-  // result
-  output->result = input->result;
+  // jointactions
+  if (!rosidl_runtime_c__float__Sequence__copy(
+      &(input->jointactions), &(output->jointactions)))
+  {
+    return false;
+  }
   return true;
 }
 

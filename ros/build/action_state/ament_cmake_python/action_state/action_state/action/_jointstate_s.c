@@ -50,76 +50,13 @@ bool action_state__action__jointstate__goal__convert_from_py(PyObject * _pymsg, 
     assert(strncmp("action_state.action._jointstate.Jointstate_Goal", full_classname_dest, 47) == 0);
   }
   action_state__action__Jointstate_Goal * ros_message = _ros_message;
-  {  // left_front_foot
-    PyObject * field = PyObject_GetAttrString(_pymsg, "left_front_foot");
+  {  // result
+    PyObject * field = PyObject_GetAttrString(_pymsg, "result");
     if (!field) {
       return false;
     }
-    assert(PyFloat_Check(field));
-    ros_message->left_front_foot = (float)PyFloat_AS_DOUBLE(field);
-    Py_DECREF(field);
-  }
-  {  // left_front_thigh
-    PyObject * field = PyObject_GetAttrString(_pymsg, "left_front_thigh");
-    if (!field) {
-      return false;
-    }
-    assert(PyFloat_Check(field));
-    ros_message->left_front_thigh = (float)PyFloat_AS_DOUBLE(field);
-    Py_DECREF(field);
-  }
-  {  // left_back_foot
-    PyObject * field = PyObject_GetAttrString(_pymsg, "left_back_foot");
-    if (!field) {
-      return false;
-    }
-    assert(PyFloat_Check(field));
-    ros_message->left_back_foot = (float)PyFloat_AS_DOUBLE(field);
-    Py_DECREF(field);
-  }
-  {  // left_back_thigh
-    PyObject * field = PyObject_GetAttrString(_pymsg, "left_back_thigh");
-    if (!field) {
-      return false;
-    }
-    assert(PyFloat_Check(field));
-    ros_message->left_back_thigh = (float)PyFloat_AS_DOUBLE(field);
-    Py_DECREF(field);
-  }
-  {  // right_front_foot
-    PyObject * field = PyObject_GetAttrString(_pymsg, "right_front_foot");
-    if (!field) {
-      return false;
-    }
-    assert(PyFloat_Check(field));
-    ros_message->right_front_foot = (float)PyFloat_AS_DOUBLE(field);
-    Py_DECREF(field);
-  }
-  {  // right_front_thigh
-    PyObject * field = PyObject_GetAttrString(_pymsg, "right_front_thigh");
-    if (!field) {
-      return false;
-    }
-    assert(PyFloat_Check(field));
-    ros_message->right_front_thigh = (float)PyFloat_AS_DOUBLE(field);
-    Py_DECREF(field);
-  }
-  {  // right_back_foot
-    PyObject * field = PyObject_GetAttrString(_pymsg, "right_back_foot");
-    if (!field) {
-      return false;
-    }
-    assert(PyFloat_Check(field));
-    ros_message->right_back_foot = (float)PyFloat_AS_DOUBLE(field);
-    Py_DECREF(field);
-  }
-  {  // right_back_thigh
-    PyObject * field = PyObject_GetAttrString(_pymsg, "right_back_thigh");
-    if (!field) {
-      return false;
-    }
-    assert(PyFloat_Check(field));
-    ros_message->right_back_thigh = (float)PyFloat_AS_DOUBLE(field);
+    assert(PyLong_Check(field));
+    ros_message->result = (int32_t)PyLong_AsLong(field);
     Py_DECREF(field);
   }
 
@@ -144,88 +81,11 @@ PyObject * action_state__action__jointstate__goal__convert_to_py(void * raw_ros_
     }
   }
   action_state__action__Jointstate_Goal * ros_message = (action_state__action__Jointstate_Goal *)raw_ros_message;
-  {  // left_front_foot
+  {  // result
     PyObject * field = NULL;
-    field = PyFloat_FromDouble(ros_message->left_front_foot);
+    field = PyLong_FromLong(ros_message->result);
     {
-      int rc = PyObject_SetAttrString(_pymessage, "left_front_foot", field);
-      Py_DECREF(field);
-      if (rc) {
-        return NULL;
-      }
-    }
-  }
-  {  // left_front_thigh
-    PyObject * field = NULL;
-    field = PyFloat_FromDouble(ros_message->left_front_thigh);
-    {
-      int rc = PyObject_SetAttrString(_pymessage, "left_front_thigh", field);
-      Py_DECREF(field);
-      if (rc) {
-        return NULL;
-      }
-    }
-  }
-  {  // left_back_foot
-    PyObject * field = NULL;
-    field = PyFloat_FromDouble(ros_message->left_back_foot);
-    {
-      int rc = PyObject_SetAttrString(_pymessage, "left_back_foot", field);
-      Py_DECREF(field);
-      if (rc) {
-        return NULL;
-      }
-    }
-  }
-  {  // left_back_thigh
-    PyObject * field = NULL;
-    field = PyFloat_FromDouble(ros_message->left_back_thigh);
-    {
-      int rc = PyObject_SetAttrString(_pymessage, "left_back_thigh", field);
-      Py_DECREF(field);
-      if (rc) {
-        return NULL;
-      }
-    }
-  }
-  {  // right_front_foot
-    PyObject * field = NULL;
-    field = PyFloat_FromDouble(ros_message->right_front_foot);
-    {
-      int rc = PyObject_SetAttrString(_pymessage, "right_front_foot", field);
-      Py_DECREF(field);
-      if (rc) {
-        return NULL;
-      }
-    }
-  }
-  {  // right_front_thigh
-    PyObject * field = NULL;
-    field = PyFloat_FromDouble(ros_message->right_front_thigh);
-    {
-      int rc = PyObject_SetAttrString(_pymessage, "right_front_thigh", field);
-      Py_DECREF(field);
-      if (rc) {
-        return NULL;
-      }
-    }
-  }
-  {  // right_back_foot
-    PyObject * field = NULL;
-    field = PyFloat_FromDouble(ros_message->right_back_foot);
-    {
-      int rc = PyObject_SetAttrString(_pymessage, "right_back_foot", field);
-      Py_DECREF(field);
-      if (rc) {
-        return NULL;
-      }
-    }
-  }
-  {  // right_back_thigh
-    PyObject * field = NULL;
-    field = PyFloat_FromDouble(ros_message->right_back_thigh);
-    {
-      int rc = PyObject_SetAttrString(_pymessage, "right_back_thigh", field);
+      int rc = PyObject_SetAttrString(_pymessage, "result", field);
       Py_DECREF(field);
       if (rc) {
         return NULL;
@@ -250,6 +110,9 @@ PyObject * action_state__action__jointstate__goal__convert_to_py(void * raw_ros_
 // #include "action_state/action/detail/jointstate__struct.h"
 // already included above
 // #include "action_state/action/detail/jointstate__functions.h"
+
+#include "rosidl_runtime_c/primitives_sequence.h"
+#include "rosidl_runtime_c/primitives_sequence_functions.h"
 
 
 ROSIDL_GENERATOR_C_EXPORT
@@ -285,13 +148,66 @@ bool action_state__action__jointstate__result__convert_from_py(PyObject * _pymsg
     assert(strncmp("action_state.action._jointstate.Jointstate_Result", full_classname_dest, 49) == 0);
   }
   action_state__action__Jointstate_Result * ros_message = _ros_message;
-  {  // result
-    PyObject * field = PyObject_GetAttrString(_pymsg, "result");
+  {  // jointactions
+    PyObject * field = PyObject_GetAttrString(_pymsg, "jointactions");
     if (!field) {
       return false;
     }
-    assert(PyBool_Check(field));
-    ros_message->result = (Py_True == field);
+    if (PyObject_CheckBuffer(field)) {
+      // Optimization for converting arrays of primitives
+      Py_buffer view;
+      int rc = PyObject_GetBuffer(field, &view, PyBUF_SIMPLE);
+      if (rc < 0) {
+        Py_DECREF(field);
+        return false;
+      }
+      Py_ssize_t size = view.len / sizeof(float);
+      if (!rosidl_runtime_c__float__Sequence__init(&(ros_message->jointactions), size)) {
+        PyErr_SetString(PyExc_RuntimeError, "unable to create float__Sequence ros_message");
+        PyBuffer_Release(&view);
+        Py_DECREF(field);
+        return false;
+      }
+      float * dest = ros_message->jointactions.data;
+      rc = PyBuffer_ToContiguous(dest, &view, view.len, 'C');
+      if (rc < 0) {
+        PyBuffer_Release(&view);
+        Py_DECREF(field);
+        return false;
+      }
+      PyBuffer_Release(&view);
+    } else {
+      PyObject * seq_field = PySequence_Fast(field, "expected a sequence in 'jointactions'");
+      if (!seq_field) {
+        Py_DECREF(field);
+        return false;
+      }
+      Py_ssize_t size = PySequence_Size(field);
+      if (-1 == size) {
+        Py_DECREF(seq_field);
+        Py_DECREF(field);
+        return false;
+      }
+      if (!rosidl_runtime_c__float__Sequence__init(&(ros_message->jointactions), size)) {
+        PyErr_SetString(PyExc_RuntimeError, "unable to create float__Sequence ros_message");
+        Py_DECREF(seq_field);
+        Py_DECREF(field);
+        return false;
+      }
+      float * dest = ros_message->jointactions.data;
+      for (Py_ssize_t i = 0; i < size; ++i) {
+        PyObject * item = PySequence_Fast_GET_ITEM(seq_field, i);
+        if (!item) {
+          Py_DECREF(seq_field);
+          Py_DECREF(field);
+          return false;
+        }
+        assert(PyFloat_Check(item));
+        float tmp = (float)PyFloat_AS_DOUBLE(item);
+        memcpy(&dest[i], &tmp, sizeof(float));
+      }
+      Py_DECREF(seq_field);
+    }
     Py_DECREF(field);
   }
 
@@ -316,16 +232,62 @@ PyObject * action_state__action__jointstate__result__convert_to_py(void * raw_ro
     }
   }
   action_state__action__Jointstate_Result * ros_message = (action_state__action__Jointstate_Result *)raw_ros_message;
-  {  // result
+  {  // jointactions
     PyObject * field = NULL;
-    field = PyBool_FromLong(ros_message->result ? 1 : 0);
-    {
-      int rc = PyObject_SetAttrString(_pymessage, "result", field);
+    field = PyObject_GetAttrString(_pymessage, "jointactions");
+    if (!field) {
+      return NULL;
+    }
+    assert(field->ob_type != NULL);
+    assert(field->ob_type->tp_name != NULL);
+    assert(strcmp(field->ob_type->tp_name, "array.array") == 0);
+    // ensure that itemsize matches the sizeof of the ROS message field
+    PyObject * itemsize_attr = PyObject_GetAttrString(field, "itemsize");
+    assert(itemsize_attr != NULL);
+    size_t itemsize = PyLong_AsSize_t(itemsize_attr);
+    Py_DECREF(itemsize_attr);
+    if (itemsize != sizeof(float)) {
+      PyErr_SetString(PyExc_RuntimeError, "itemsize doesn't match expectation");
       Py_DECREF(field);
-      if (rc) {
+      return NULL;
+    }
+    // clear the array, poor approach to remove potential default values
+    Py_ssize_t length = PyObject_Length(field);
+    if (-1 == length) {
+      Py_DECREF(field);
+      return NULL;
+    }
+    if (length > 0) {
+      PyObject * pop = PyObject_GetAttrString(field, "pop");
+      assert(pop != NULL);
+      for (Py_ssize_t i = 0; i < length; ++i) {
+        PyObject * ret = PyObject_CallFunctionObjArgs(pop, NULL);
+        if (!ret) {
+          Py_DECREF(pop);
+          Py_DECREF(field);
+          return NULL;
+        }
+        Py_DECREF(ret);
+      }
+      Py_DECREF(pop);
+    }
+    if (ros_message->jointactions.size > 0) {
+      // populating the array.array using the frombytes method
+      PyObject * frombytes = PyObject_GetAttrString(field, "frombytes");
+      assert(frombytes != NULL);
+      float * src = &(ros_message->jointactions.data[0]);
+      PyObject * data = PyBytes_FromStringAndSize((const char *)src, ros_message->jointactions.size * sizeof(float));
+      assert(data != NULL);
+      PyObject * ret = PyObject_CallFunctionObjArgs(frombytes, data, NULL);
+      Py_DECREF(data);
+      Py_DECREF(frombytes);
+      if (!ret) {
+        Py_DECREF(field);
         return NULL;
       }
+      Py_DECREF(ret);
     }
+    Py_DECREF(field);
   }
 
   // ownership of _pymessage is transferred to the caller
@@ -385,8 +347,8 @@ bool action_state__action__jointstate__feedback__convert_from_py(PyObject * _pym
     if (!field) {
       return false;
     }
-    assert(PyBool_Check(field));
-    ros_message->partial_result = (Py_True == field);
+    assert(PyLong_Check(field));
+    ros_message->partial_result = (int32_t)PyLong_AsLong(field);
     Py_DECREF(field);
   }
 
@@ -413,7 +375,7 @@ PyObject * action_state__action__jointstate__feedback__convert_to_py(void * raw_
   action_state__action__Jointstate_Feedback * ros_message = (action_state__action__Jointstate_Feedback *)raw_ros_message;
   {  // partial_result
     PyObject * field = NULL;
-    field = PyBool_FromLong(ros_message->partial_result ? 1 : 0);
+    field = PyLong_FromLong(ros_message->partial_result);
     {
       int rc = PyObject_SetAttrString(_pymessage, "partial_result", field);
       Py_DECREF(field);

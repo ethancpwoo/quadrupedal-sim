@@ -14,11 +14,11 @@ class ModelAction(Node):
     
     def __init__(self):
         super().__init__('model_action')
-        self._action_server = ActionServer(self, Jointstate, 'jointstate', self.run_model)
+        self._action_server = ActionServer(self, Jointstate, 'jointstate', self.execute_callback)
         self.device = device = "cuda:0" if torch.cuda.is_available() else 'cpu'
         self.actor = Actor().to(device)
         model = os.path.join(os.path.dirname(__file__), 'saved_models', 'actor_target.pt')
-        self.actor = torch.load(model, map_location=torch.device('cpu'))
+        self.actor.load_state_dict(torch.load(model, map_location=torch.device('cpu')))
         self.mode = p.POSITION_CONTROL
 
         p.connect(p.DIRECT)
@@ -33,11 +33,20 @@ class ModelAction(Node):
         self.pos_array = [1, 2, 5, 6, 9, 10, 13, 14]        
         p.setJointMotorControlArray(self.robot, self.pos_array, self.mode)
         p.setJointMotorControlArray(self.robot, [0, 4, 8, 12], self.mode, [0, 0, 0, 0])
+
+        self.lower_lims = [p.getJointInfo(self.robot, x)[8] for x in self.pos_array]
+        self.upper_lims = [p.getJointInfo(self.robot, x)[9] for x in self.pos_array]
         
         for i in range(1000):
             p.stepSimulation()
 
         self.start_state = p.saveState()
+
+    def normalize_obs(self, obs, max, min):
+        normal_vals = []
+        for observation in obs:
+            normal_vals.append(2 * ((observation - min)/(max - min)) - 1)
+        return normal_vals
 
     def _get_obs(self):
         obs = np.array([])
@@ -57,6 +66,7 @@ class ModelAction(Node):
 
     def run_model(self):
         obs = self._get_obs()
+        obs = torch.Tensor(obs)
         action = self.actor.forward(obs)
 
         for i in range(4):
@@ -68,15 +78,24 @@ class ModelAction(Node):
         for i in range(24):
             p.stepSimulation()
         
+        action = action.tolist()
+
+        print(type(action))
+        for item in action:
+            print(type(item))
+
         return action
     
     def execute_callback(self, goal_handle):
         self.get_logger().info('Executing goal...')
-        goal_handle.succeed()
-        
+
+        result_msg = Jointstate.Result()
+
         result = self.run_model()
+        result_msg.jointactions = result
         print(result)
-        return result
+        goal_handle.succeed()
+        return result_msg
     
 
 def main(args=None):
