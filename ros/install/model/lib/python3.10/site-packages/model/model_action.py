@@ -93,7 +93,7 @@ class ModelAction(Node):
 
         result = self.run_model()
         result_msg.jointactions = result
-        print(result)
+
         goal_handle.succeed()
         return result_msg
     

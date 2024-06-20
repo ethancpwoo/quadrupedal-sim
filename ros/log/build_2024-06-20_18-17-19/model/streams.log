@@ -1,0 +1,29 @@
+[1.280s] Invoking command in '/home/ethan/quadrupedal-sim/ros/src/model': PYTHONPATH=/home/ethan/quadrupedal-sim/ros/build/model/prefix_override:/home/ethan/quadrupedal-sim/ros/install/model/lib/python3.10/site-packages:${PYTHONPATH} VIRTUAL_ENV_PROMPT=(venv) /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../../build/model build --build-base /home/ethan/quadrupedal-sim/ros/build/model/build install --record /home/ethan/quadrupedal-sim/ros/build/model/install.log --single-version-externally-managed install_data
+[1.743s] running egg_info
+[1.744s] writing ../../build/model/model.egg-info/PKG-INFO
+[1.744s] writing dependency_links to ../../build/model/model.egg-info/dependency_links.txt
+[1.744s] writing entry points to ../../build/model/model.egg-info/entry_points.txt
+[1.744s] writing requirements to ../../build/model/model.egg-info/requires.txt
+[1.744s] writing top-level names to ../../build/model/model.egg-info/top_level.txt
+[1.747s] reading manifest file '../../build/model/model.egg-info/SOURCES.txt'
+[1.748s] adding license file 'LICENSE'
+[1.749s] writing manifest file '../../build/model/model.egg-info/SOURCES.txt'
+[1.749s] running build
+[1.749s] running build_py
+[1.749s] copying model/model_goal.py -> /home/ethan/quadrupedal-sim/ros/build/model/build/lib/model
+[1.749s] copying model/model_action.py -> /home/ethan/quadrupedal-sim/ros/build/model/build/lib/model
+[1.754s] running install
+[1.754s] running install_lib
+[1.756s] copying /home/ethan/quadrupedal-sim/ros/build/model/build/lib/model/model_goal.py -> /home/ethan/quadrupedal-sim/ros/install/model/lib/python3.10/site-packages/model
+[1.757s] copying /home/ethan/quadrupedal-sim/ros/build/model/build/lib/model/model_action.py -> /home/ethan/quadrupedal-sim/ros/install/model/lib/python3.10/site-packages/model
+[1.759s] byte-compiling /home/ethan/quadrupedal-sim/ros/install/model/lib/python3.10/site-packages/model/model_goal.py to model_goal.cpython-310.pyc
+[1.759s] byte-compiling /home/ethan/quadrupedal-sim/ros/install/model/lib/python3.10/site-packages/model/model_action.py to model_action.cpython-310.pyc
+[1.760s] running install_data
+[1.760s] running install_egg_info
+[1.764s] removing '/home/ethan/quadrupedal-sim/ros/install/model/lib/python3.10/site-packages/model-0.0.0-py3.10.egg-info' (and everything under it)
+[1.764s] Copying ../../build/model/model.egg-info to /home/ethan/quadrupedal-sim/ros/install/model/lib/python3.10/site-packages/model-0.0.0-py3.10.egg-info
+[1.765s] running install_scripts
+[1.803s] Installing client script to /home/ethan/quadrupedal-sim/ros/install/model/lib/model
+[1.803s] Installing server script to /home/ethan/quadrupedal-sim/ros/install/model/lib/model
+[1.804s] writing list of installed files to '/home/ethan/quadrupedal-sim/ros/build/model/install.log'
+[1.829s] Invoked command in '/home/ethan/quadrupedal-sim/ros/src/model' returned '0': PYTHONPATH=/home/ethan/quadrupedal-sim/ros/build/model/prefix_override:/home/ethan/quadrupedal-sim/ros/install/model/lib/python3.10/site-packages:${PYTHONPATH} VIRTUAL_ENV_PROMPT=(venv) /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../../build/model build --build-base /home/ethan/quadrupedal-sim/ros/build/model/build install --record /home/ethan/quadrupedal-sim/ros/build/model/install.log --single-version-externally-managed install_data

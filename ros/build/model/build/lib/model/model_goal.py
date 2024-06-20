@@ -8,14 +8,16 @@ from action_state.action import Jointstate
 class ModelGoal(Node):
 
     def __init__(self):
-        super().__init__('fibonacci_action_client')
+        super().__init__('model_action_client')
         self._action_client = ActionClient(self, Jointstate, 'jointstate')
 
-    def send_goal(self, order):
-        goal_msg = True
+    def send_goal(self):
+        goal_msg = Jointstate.Goal()
+        goal_msg.result = True
         self._action_client.wait_for_server()
 
-        return self._action_client.send_goal_async(goal_msg)
+        self._send_goal_future = self._action_client.send_goal_async(goal_msg)
+        self._send_goal_future.add_done_callback(self.goal_response_callback)
     
     def goal_response_callback(self, future):
         goal_handle = future.result()
@@ -30,18 +32,17 @@ class ModelGoal(Node):
 
     def get_result_callback(self, future):
         result = future.result().result
-        self.get_logger().info('Result: {0}'.format(result.sequence))
+        self.get_logger().info('Result: {0}'.format(result.jointactions))
         rclpy.shutdown()
 
 
 def main(args=None):
     rclpy.init(args=args)
-
     action_client = ModelGoal()
 
-    future = action_client.send_goal(True)
+    action_client.send_goal()
 
-    rclpy.spin_until_future_complete(action_client, future)
+    rclpy.spin(action_client)
 
 
 if __name__ == '__main__':
