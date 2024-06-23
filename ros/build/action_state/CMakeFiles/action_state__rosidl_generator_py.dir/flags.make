@@ -4,7 +4,7 @@
 # compile C with /usr/bin/cc
 C_DEFINES = -DRCUTILS_ENABLE_FAULT_INJECTION -DROS_PACKAGE_NAME=\"action_state\" -Daction_state__rosidl_generator_py_EXPORTS
 
-C_INCLUDES = -I/home/ethan/quadrupedal-sim/ros/build/action_state/rosidl_generator_c -I/home/ethan/quadrupedal-sim/ros/build/action_state/rosidl_generator_py -I/usr/include/python3.10 -isystem /home/ethan/ros2_humble/install/action_msgs/include/action_msgs -isystem /home/ethan/ros2_humble/install/builtin_interfaces/include/builtin_interfaces -isystem /home/ethan/ros2_humble/install/rosidl_runtime_c/include/rosidl_runtime_c -isystem /home/ethan/ros2_humble/install/rcutils/include/rcutils -isystem /home/ethan/ros2_humble/install/rosidl_typesupport_interface/include/rosidl_typesupport_interface -isystem /home/ethan/ros2_humble/install/unique_identifier_msgs/include/unique_identifier_msgs
+C_INCLUDES = -I/home/ethan/quadrupedal-sim/ros/build/action_state/rosidl_generator_c -I/home/ethan/quadrupedal-sim/ros/build/action_state/rosidl_generator_py -I/usr/include/python3.10 -isystem /opt/ros/humble/include/action_msgs -isystem /opt/ros/humble/include/builtin_interfaces -isystem /opt/ros/humble/include/rosidl_runtime_c -isystem /opt/ros/humble/include/rcutils -isystem /opt/ros/humble/include/rosidl_typesupport_interface -isystem /opt/ros/humble/include/unique_identifier_msgs
 
 C_FLAGS = -fPIC -Wall -Wextra
 

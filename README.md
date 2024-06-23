@@ -4,7 +4,13 @@
 
 Using PyBullet to simulate quadrupedal robotic movement and PyTorch to implement a RL DDPG Agent in the simulation.
 
-Using ROS2 Humble to port actions to real robot through ROSSerial.
+Using ROS2 Humble to port actions to real robot through UART.
+
+## Motivation
+
+The motivation of this project is robotics exploration and control system development. Robotics are fascinating and this being the first legitimate robot that I have created/implemented by myself brought engineering design challenges that I have yet to encounter in my previous experiences.
+
+This project was a collaboration with my roommate. Majority of the CAD compenents and assembly was done by him. Using RL to walk for this task (walking in a straight line on a flat surface) is excessive, but the purpose of using RL is to potentially improve it in the future. The model can be improved to navigate different terrains and at different degrees of motion, similar to the SOLO12 or other quadrupedal implementations.
 
 ## RL Approach and Method
 
@@ -36,6 +42,7 @@ cd ../sim/src/moving_model
 python moving_model.py
 
 ```
+https://github.com/ros2/ros2/issues/1094
 
 ROS:
 ```shell

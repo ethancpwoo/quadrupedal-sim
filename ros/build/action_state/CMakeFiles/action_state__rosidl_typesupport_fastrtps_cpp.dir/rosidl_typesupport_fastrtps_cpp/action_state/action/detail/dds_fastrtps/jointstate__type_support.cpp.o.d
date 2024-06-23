@@ -2,9 +2,9 @@ CMakeFiles/action_state__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_
  /home/ethan/quadrupedal-sim/ros/build/action_state/rosidl_typesupport_fastrtps_cpp/action_state/action/detail/dds_fastrtps/jointstate__type_support.cpp \
  /usr/include/stdc-predef.h \
  /home/ethan/quadrupedal-sim/ros/build/action_state/rosidl_typesupport_fastrtps_cpp/action_state/action/detail/jointstate__rosidl_typesupport_fastrtps_cpp.hpp \
- /home/ethan/ros2_humble/src/ros2/rosidl/rosidl_runtime_c/include/rosidl_runtime_c/message_type_support_struct.h \
- /home/ethan/ros2_humble/src/ros2/rosidl/rosidl_runtime_c/include/rosidl_runtime_c/visibility_control.h \
- /home/ethan/ros2_humble/src/ros2/rosidl/rosidl_typesupport_interface/include/rosidl_typesupport_interface/macros.h \
+ /opt/ros/humble/include/rosidl_runtime_c/rosidl_runtime_c/message_type_support_struct.h \
+ /opt/ros/humble/include/rosidl_runtime_c/rosidl_runtime_c/visibility_control.h \
+ /opt/ros/humble/include/rosidl_typesupport_interface/rosidl_typesupport_interface/macros.h \
  /home/ethan/quadrupedal-sim/ros/build/action_state/rosidl_typesupport_fastrtps_cpp/action_state/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h \
  /home/ethan/quadrupedal-sim/ros/build/action_state/rosidl_generator_cpp/action_state/action/detail/jointstate__struct.hpp \
  /usr/include/c++/11/algorithm /usr/include/c++/11/utility \
@@ -158,17 +158,17 @@ CMakeFiles/action_state__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_
  /usr/include/c++/11/bits/stl_vector.h \
  /usr/include/c++/11/bits/stl_bvector.h \
  /usr/include/c++/11/bits/vector.tcc \
- /home/ethan/ros2_humble/src/ros2/rosidl/rosidl_runtime_cpp/include/rosidl_runtime_cpp/bounded_vector.hpp \
+ /opt/ros/humble/include/rosidl_runtime_cpp/rosidl_runtime_cpp/bounded_vector.hpp \
  /usr/include/c++/11/stdexcept \
- /home/ethan/ros2_humble/src/ros2/rosidl/rosidl_runtime_cpp/include/rosidl_runtime_cpp/message_initialization.hpp \
- /home/ethan/ros2_humble/src/ros2/rosidl/rosidl_runtime_c/include/rosidl_runtime_c/message_initialization.h \
- /home/ethan/ros2_humble/build/unique_identifier_msgs/rosidl_generator_cpp/unique_identifier_msgs/msg/detail/uuid__struct.hpp \
- /home/ethan/ros2_humble/build/builtin_interfaces/rosidl_generator_cpp/builtin_interfaces/msg/detail/time__struct.hpp \
- /home/ethan/ros2_humble/build/action_msgs/rosidl_generator_cpp/action_msgs/srv/cancel_goal.hpp \
- /home/ethan/ros2_humble/build/action_msgs/rosidl_generator_cpp/action_msgs/srv/detail/cancel_goal__struct.hpp \
- /home/ethan/ros2_humble/build/action_msgs/rosidl_generator_cpp/action_msgs/msg/detail/goal_info__struct.hpp \
- /home/ethan/ros2_humble/build/action_msgs/rosidl_generator_cpp/action_msgs/srv/detail/cancel_goal__builder.hpp \
- /home/ethan/ros2_humble/build/action_msgs/rosidl_generator_cpp/action_msgs/srv/detail/cancel_goal__traits.hpp \
+ /opt/ros/humble/include/rosidl_runtime_cpp/rosidl_runtime_cpp/message_initialization.hpp \
+ /opt/ros/humble/include/rosidl_runtime_c/rosidl_runtime_c/message_initialization.h \
+ /opt/ros/humble/include/unique_identifier_msgs/unique_identifier_msgs/msg/detail/uuid__struct.hpp \
+ /opt/ros/humble/include/builtin_interfaces/builtin_interfaces/msg/detail/time__struct.hpp \
+ /opt/ros/humble/include/action_msgs/action_msgs/srv/cancel_goal.hpp \
+ /opt/ros/humble/include/action_msgs/action_msgs/srv/detail/cancel_goal__struct.hpp \
+ /opt/ros/humble/include/action_msgs/action_msgs/msg/detail/goal_info__struct.hpp \
+ /opt/ros/humble/include/action_msgs/action_msgs/srv/detail/cancel_goal__builder.hpp \
+ /opt/ros/humble/include/action_msgs/action_msgs/srv/detail/cancel_goal__traits.hpp \
  /usr/include/c++/11/sstream /usr/include/c++/11/istream \
  /usr/include/c++/11/ios /usr/include/c++/11/bits/ios_base.h \
  /usr/include/c++/11/bits/locale_classes.h \
@@ -187,7 +187,7 @@ CMakeFiles/action_state__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_
  /usr/include/c++/11/bits/ostream.tcc \
  /usr/include/c++/11/bits/istream.tcc \
  /usr/include/c++/11/bits/sstream.tcc \
- /home/ethan/ros2_humble/src/ros2/rosidl/rosidl_runtime_cpp/include/rosidl_runtime_cpp/traits.hpp \
+ /opt/ros/humble/include/rosidl_runtime_cpp/rosidl_runtime_cpp/traits.hpp \
  /usr/include/c++/11/codecvt /usr/include/c++/11/bits/codecvt.h \
  /usr/include/c++/11/iomanip /usr/include/c++/11/locale \
  /usr/include/c++/11/bits/locale_facets_nonio.h /usr/include/c++/11/ctime \
@@ -196,80 +196,79 @@ CMakeFiles/action_state__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_
  /usr/include/libintl.h /usr/include/c++/11/bits/locale_facets_nonio.tcc \
  /usr/include/c++/11/bits/locale_conv.h \
  /usr/include/c++/11/bits/quoted_string.h \
- /home/ethan/ros2_humble/build/action_msgs/rosidl_generator_cpp/action_msgs/msg/detail/goal_info__traits.hpp \
- /home/ethan/ros2_humble/build/unique_identifier_msgs/rosidl_generator_cpp/unique_identifier_msgs/msg/detail/uuid__traits.hpp \
- /home/ethan/ros2_humble/build/builtin_interfaces/rosidl_generator_cpp/builtin_interfaces/msg/detail/time__traits.hpp \
- /home/ethan/ros2_humble/build/action_msgs/rosidl_generator_cpp/action_msgs/msg/goal_info.hpp \
- /home/ethan/ros2_humble/build/action_msgs/rosidl_generator_cpp/action_msgs/msg/detail/goal_info__builder.hpp \
- /home/ethan/ros2_humble/build/action_msgs/rosidl_generator_cpp/action_msgs/msg/goal_status_array.hpp \
- /home/ethan/ros2_humble/build/action_msgs/rosidl_generator_cpp/action_msgs/msg/detail/goal_status_array__struct.hpp \
- /home/ethan/ros2_humble/build/action_msgs/rosidl_generator_cpp/action_msgs/msg/detail/goal_status__struct.hpp \
- /home/ethan/ros2_humble/build/action_msgs/rosidl_generator_cpp/action_msgs/msg/detail/goal_status_array__builder.hpp \
- /home/ethan/ros2_humble/build/action_msgs/rosidl_generator_cpp/action_msgs/msg/detail/goal_status_array__traits.hpp \
- /home/ethan/ros2_humble/build/action_msgs/rosidl_generator_cpp/action_msgs/msg/detail/goal_status__traits.hpp \
- /home/ethan/ros2_humble/install/fastcdr/include/fastcdr/Cdr.h \
- /home/ethan/ros2_humble/install/fastcdr/include/fastcdr/fastcdr_dll.h \
- /home/ethan/ros2_humble/install/fastcdr/include/fastcdr/config.h \
- /home/ethan/ros2_humble/install/fastcdr/include/fastcdr/eProsima_auto_link.h \
- /home/ethan/ros2_humble/install/fastcdr/include/fastcdr/FastBuffer.h \
+ /opt/ros/humble/include/action_msgs/action_msgs/msg/detail/goal_info__traits.hpp \
+ /opt/ros/humble/include/unique_identifier_msgs/unique_identifier_msgs/msg/detail/uuid__traits.hpp \
+ /opt/ros/humble/include/builtin_interfaces/builtin_interfaces/msg/detail/time__traits.hpp \
+ /opt/ros/humble/include/action_msgs/action_msgs/msg/goal_info.hpp \
+ /opt/ros/humble/include/action_msgs/action_msgs/msg/detail/goal_info__builder.hpp \
+ /opt/ros/humble/include/action_msgs/action_msgs/msg/goal_status_array.hpp \
+ /opt/ros/humble/include/action_msgs/action_msgs/msg/detail/goal_status_array__struct.hpp \
+ /opt/ros/humble/include/action_msgs/action_msgs/msg/detail/goal_status__struct.hpp \
+ /opt/ros/humble/include/action_msgs/action_msgs/msg/detail/goal_status_array__builder.hpp \
+ /opt/ros/humble/include/action_msgs/action_msgs/msg/detail/goal_status_array__traits.hpp \
+ /opt/ros/humble/include/action_msgs/action_msgs/msg/detail/goal_status__traits.hpp \
+ /opt/ros/humble/include/fastcdr/fastcdr/Cdr.h \
+ /opt/ros/humble/include/fastcdr/fastcdr/fastcdr_dll.h \
+ /opt/ros/humble/include/fastcdr/fastcdr/config.h \
+ /opt/ros/humble/include/fastcdr/fastcdr/eProsima_auto_link.h \
+ /opt/ros/humble/include/fastcdr/fastcdr/FastBuffer.h \
  /usr/include/string.h /usr/include/strings.h /usr/include/c++/11/cstddef \
- /home/ethan/ros2_humble/install/fastcdr/include/fastcdr/exceptions/NotEnoughMemoryException.h \
- /home/ethan/ros2_humble/install/fastcdr/include/fastcdr/exceptions/Exception.h \
- /home/ethan/ros2_humble/install/fastcdr/include/fastcdr/fastcdr_dll.h \
+ /opt/ros/humble/include/fastcdr/fastcdr/exceptions/NotEnoughMemoryException.h \
+ /opt/ros/humble/include/fastcdr/fastcdr/exceptions/Exception.h \
+ /opt/ros/humble/include/fastcdr/fastcdr/fastcdr_dll.h \
  /usr/include/c++/11/map /usr/include/c++/11/bits/stl_tree.h \
  /usr/include/c++/11/bits/stl_map.h \
  /usr/include/c++/11/bits/stl_multimap.h \
  /usr/include/c++/11/bits/erase_if.h /usr/include/c++/11/iostream \
- /usr/include/malloc.h \
- /home/ethan/ros2_humble/install/rmw/include/rmw/rmw/types.h \
+ /usr/include/malloc.h /opt/ros/humble/include/rmw/rmw/types.h \
  /usr/lib/gcc/x86_64-linux-gnu/11/include/stdbool.h \
- /home/ethan/ros2_humble/src/ros2/rcutils/include/rcutils/logging.h \
- /home/ethan/ros2_humble/src/ros2/rcutils/include/rcutils/allocator.h \
- /home/ethan/ros2_humble/src/ros2/rcutils/include/rcutils/macros.h \
- /home/ethan/ros2_humble/src/ros2/rcutils/include/rcutils/testing/fault_injection.h \
- /home/ethan/ros2_humble/src/ros2/rcutils/include/rcutils/visibility_control.h \
- /home/ethan/ros2_humble/src/ros2/rcutils/include/rcutils/visibility_control_macros.h \
- /home/ethan/ros2_humble/src/ros2/rcutils/include/rcutils/types/rcutils_ret.h \
- /home/ethan/ros2_humble/src/ros2/rcutils/include/rcutils/error_handling.h \
+ /opt/ros/humble/include/rcutils/rcutils/logging.h \
+ /opt/ros/humble/include/rcutils/rcutils/allocator.h \
+ /opt/ros/humble/include/rcutils/rcutils/macros.h \
+ /opt/ros/humble/include/rcutils/rcutils/testing/fault_injection.h \
+ /opt/ros/humble/include/rcutils/rcutils/visibility_control.h \
+ /opt/ros/humble/include/rcutils/rcutils/visibility_control_macros.h \
+ /opt/ros/humble/include/rcutils/rcutils/types/rcutils_ret.h \
+ /opt/ros/humble/include/rcutils/rcutils/error_handling.h \
  /usr/include/assert.h /usr/include/c++/11/stdlib.h \
- /home/ethan/ros2_humble/src/ros2/rcutils/include/rcutils/snprintf.h \
- /home/ethan/ros2_humble/src/ros2/rcutils/include/rcutils/time.h \
- /home/ethan/ros2_humble/src/ros2/rcutils/include/rcutils/types.h \
- /home/ethan/ros2_humble/src/ros2/rcutils/include/rcutils/types/array_list.h \
- /home/ethan/ros2_humble/src/ros2/rcutils/include/rcutils/types/char_array.h \
- /home/ethan/ros2_humble/src/ros2/rcutils/include/rcutils/types/hash_map.h \
- /home/ethan/ros2_humble/src/ros2/rcutils/include/rcutils/types/string_array.h \
- /home/ethan/ros2_humble/src/ros2/rcutils/include/rcutils/qsort.h \
- /home/ethan/ros2_humble/src/ros2/rcutils/include/rcutils/types/string_map.h \
- /home/ethan/ros2_humble/src/ros2/rcutils/include/rcutils/types/uint8_array.h \
- /home/ethan/ros2_humble/install/rmw/include/rmw/rmw/events_statuses/events_statuses.h \
- /home/ethan/ros2_humble/install/rmw/include/rmw/rmw/events_statuses/incompatible_qos.h \
- /home/ethan/ros2_humble/install/rmw/include/rmw/rmw/qos_policy_kind.h \
- /home/ethan/ros2_humble/install/rmw/include/rmw/rmw/visibility_control.h \
- /home/ethan/ros2_humble/install/rmw/include/rmw/rmw/events_statuses/liveliness_changed.h \
- /home/ethan/ros2_humble/install/rmw/include/rmw/rmw/events_statuses/liveliness_lost.h \
- /home/ethan/ros2_humble/install/rmw/include/rmw/rmw/events_statuses/message_lost.h \
- /home/ethan/ros2_humble/install/rmw/include/rmw/rmw/events_statuses/offered_deadline_missed.h \
- /home/ethan/ros2_humble/install/rmw/include/rmw/rmw/events_statuses/requested_deadline_missed.h \
- /home/ethan/ros2_humble/install/rmw/include/rmw/rmw/init.h \
- /home/ethan/ros2_humble/install/rmw/include/rmw/rmw/init_options.h \
- /home/ethan/ros2_humble/install/rmw/include/rmw/rmw/domain_id.h \
- /home/ethan/ros2_humble/install/rmw/include/rmw/rmw/localhost.h \
- /home/ethan/ros2_humble/install/rmw/include/rmw/rmw/macros.h \
- /home/ethan/ros2_humble/install/rmw/include/rmw/rmw/ret_types.h \
- /home/ethan/ros2_humble/install/rmw/include/rmw/rmw/security_options.h \
- /home/ethan/ros2_humble/install/rmw/include/rmw/rmw/serialized_message.h \
- /home/ethan/ros2_humble/install/rmw/include/rmw/rmw/subscription_content_filter_options.h \
- /home/ethan/ros2_humble/install/rmw/include/rmw/rmw/time.h \
- /home/ethan/ros2_humble/src/ros2/rosidl/rosidl_runtime_cpp/include/rosidl_typesupport_cpp/service_type_support.hpp \
- /home/ethan/ros2_humble/src/ros2/rosidl/rosidl_runtime_c/include/rosidl_runtime_c/service_type_support_struct.h \
+ /opt/ros/humble/include/rcutils/rcutils/snprintf.h \
+ /opt/ros/humble/include/rcutils/rcutils/time.h \
+ /opt/ros/humble/include/rcutils/rcutils/types.h \
+ /opt/ros/humble/include/rcutils/rcutils/types/array_list.h \
+ /opt/ros/humble/include/rcutils/rcutils/types/char_array.h \
+ /opt/ros/humble/include/rcutils/rcutils/types/hash_map.h \
+ /opt/ros/humble/include/rcutils/rcutils/types/string_array.h \
+ /opt/ros/humble/include/rcutils/rcutils/qsort.h \
+ /opt/ros/humble/include/rcutils/rcutils/types/string_map.h \
+ /opt/ros/humble/include/rcutils/rcutils/types/uint8_array.h \
+ /opt/ros/humble/include/rmw/rmw/events_statuses/events_statuses.h \
+ /opt/ros/humble/include/rmw/rmw/events_statuses/incompatible_qos.h \
+ /opt/ros/humble/include/rmw/rmw/qos_policy_kind.h \
+ /opt/ros/humble/include/rmw/rmw/visibility_control.h \
+ /opt/ros/humble/include/rmw/rmw/events_statuses/liveliness_changed.h \
+ /opt/ros/humble/include/rmw/rmw/events_statuses/liveliness_lost.h \
+ /opt/ros/humble/include/rmw/rmw/events_statuses/message_lost.h \
+ /opt/ros/humble/include/rmw/rmw/events_statuses/offered_deadline_missed.h \
+ /opt/ros/humble/include/rmw/rmw/events_statuses/requested_deadline_missed.h \
+ /opt/ros/humble/include/rmw/rmw/init.h \
+ /opt/ros/humble/include/rmw/rmw/init_options.h \
+ /opt/ros/humble/include/rmw/rmw/domain_id.h \
+ /opt/ros/humble/include/rmw/rmw/localhost.h \
+ /opt/ros/humble/include/rmw/rmw/macros.h \
+ /opt/ros/humble/include/rmw/rmw/ret_types.h \
+ /opt/ros/humble/include/rmw/rmw/security_options.h \
+ /opt/ros/humble/include/rmw/rmw/serialized_message.h \
+ /opt/ros/humble/include/rmw/rmw/subscription_content_filter_options.h \
+ /opt/ros/humble/include/rmw/rmw/time.h \
+ /opt/ros/humble/include/rosidl_runtime_cpp/rosidl_typesupport_cpp/service_type_support.hpp \
+ /opt/ros/humble/include/rosidl_runtime_c/rosidl_runtime_c/service_type_support_struct.h \
  /usr/include/c++/11/limits \
- /home/ethan/ros2_humble/src/ros2/rosidl/rosidl_runtime_cpp/include/rosidl_typesupport_cpp/message_type_support.hpp \
- /home/ethan/ros2_humble/src/ros2/rosidl_typesupport_fastrtps/rosidl_typesupport_fastrtps_cpp/include/rosidl_typesupport_fastrtps_cpp/identifier.hpp \
- /home/ethan/ros2_humble/src/ros2/rosidl_typesupport_fastrtps/rosidl_typesupport_fastrtps_cpp/include/rosidl_typesupport_fastrtps_cpp/visibility_control.h \
- /home/ethan/ros2_humble/src/ros2/rosidl_typesupport_fastrtps/rosidl_typesupport_fastrtps_cpp/include/rosidl_typesupport_fastrtps_cpp/message_type_support.h \
- /home/ethan/ros2_humble/src/ros2/rosidl_typesupport_fastrtps/rosidl_typesupport_fastrtps_cpp/include/rosidl_typesupport_fastrtps_cpp/message_type_support_decl.hpp \
- /home/ethan/ros2_humble/src/ros2/rosidl_typesupport_fastrtps/rosidl_typesupport_fastrtps_cpp/include/rosidl_typesupport_fastrtps_cpp/wstring_conversion.hpp \
- /home/ethan/ros2_humble/install/rmw/include/rmw/rmw/error_handling.h \
- /home/ethan/ros2_humble/src/ros2/rosidl_typesupport_fastrtps/rosidl_typesupport_fastrtps_cpp/include/rosidl_typesupport_fastrtps_cpp/service_type_support.h \
- /home/ethan/ros2_humble/src/ros2/rosidl_typesupport_fastrtps/rosidl_typesupport_fastrtps_cpp/include/rosidl_typesupport_fastrtps_cpp/service_type_support_decl.hpp
+ /opt/ros/humble/include/rosidl_runtime_cpp/rosidl_typesupport_cpp/message_type_support.hpp \
+ /opt/ros/humble/include/rosidl_typesupport_fastrtps_cpp/rosidl_typesupport_fastrtps_cpp/identifier.hpp \
+ /opt/ros/humble/include/rosidl_typesupport_fastrtps_cpp/rosidl_typesupport_fastrtps_cpp/visibility_control.h \
+ /opt/ros/humble/include/rosidl_typesupport_fastrtps_cpp/rosidl_typesupport_fastrtps_cpp/message_type_support.h \
+ /opt/ros/humble/include/rosidl_typesupport_fastrtps_cpp/rosidl_typesupport_fastrtps_cpp/message_type_support_decl.hpp \
+ /opt/ros/humble/include/rosidl_typesupport_fastrtps_cpp/rosidl_typesupport_fastrtps_cpp/wstring_conversion.hpp \
+ /opt/ros/humble/include/rmw/rmw/error_handling.h \
+ /opt/ros/humble/include/rosidl_typesupport_fastrtps_cpp/rosidl_typesupport_fastrtps_cpp/service_type_support.h \
+ /opt/ros/humble/include/rosidl_typesupport_fastrtps_cpp/rosidl_typesupport_fastrtps_cpp/service_type_support_decl.hpp

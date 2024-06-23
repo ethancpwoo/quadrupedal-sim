@@ -354,19 +354,6 @@ action_state__rosidl_generator_py/fast:
 .PHONY : action_state__rosidl_generator_py/fast
 
 #=============================================================================
-# Target rules for targets named action_state__rosidl_typesupport_introspection_c__pyext
-
-# Build rule for target.
-action_state__rosidl_typesupport_introspection_c__pyext: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 action_state__rosidl_typesupport_introspection_c__pyext
-.PHONY : action_state__rosidl_typesupport_introspection_c__pyext
-
-# fast build rule for target.
-action_state__rosidl_typesupport_introspection_c__pyext/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/action_state__rosidl_typesupport_introspection_c__pyext.dir/build.make CMakeFiles/action_state__rosidl_typesupport_introspection_c__pyext.dir/build
-.PHONY : action_state__rosidl_typesupport_introspection_c__pyext/fast
-
-#=============================================================================
 # Target rules for targets named action_state__rosidl_typesupport_fastrtps_c__pyext
 
 # Build rule for target.
@@ -378,6 +365,19 @@ action_state__rosidl_typesupport_fastrtps_c__pyext: cmake_check_build_system
 action_state__rosidl_typesupport_fastrtps_c__pyext/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/action_state__rosidl_typesupport_fastrtps_c__pyext.dir/build.make CMakeFiles/action_state__rosidl_typesupport_fastrtps_c__pyext.dir/build
 .PHONY : action_state__rosidl_typesupport_fastrtps_c__pyext/fast
+
+#=============================================================================
+# Target rules for targets named action_state__rosidl_typesupport_introspection_c__pyext
+
+# Build rule for target.
+action_state__rosidl_typesupport_introspection_c__pyext: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 action_state__rosidl_typesupport_introspection_c__pyext
+.PHONY : action_state__rosidl_typesupport_introspection_c__pyext
+
+# fast build rule for target.
+action_state__rosidl_typesupport_introspection_c__pyext/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/action_state__rosidl_typesupport_introspection_c__pyext.dir/build.make CMakeFiles/action_state__rosidl_typesupport_introspection_c__pyext.dir/build
+.PHONY : action_state__rosidl_typesupport_introspection_c__pyext/fast
 
 #=============================================================================
 # Target rules for targets named action_state__rosidl_typesupport_c__pyext

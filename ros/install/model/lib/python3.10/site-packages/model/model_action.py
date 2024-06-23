@@ -37,6 +37,9 @@ class ModelAction(Node):
         self.lower_lims = [p.getJointInfo(self.robot, x)[8] for x in self.pos_array]
         self.upper_lims = [p.getJointInfo(self.robot, x)[9] for x in self.pos_array]
         
+        self.servo_lower = [315, 282, 88, 320, 282, 315, 510, 305]
+        self.servo_upper = [488, 100, 280, 120, 92, 501, 320, 491]
+
         for i in range(1000):
             p.stepSimulation()
 
@@ -47,6 +50,10 @@ class ModelAction(Node):
         for observation in obs:
             normal_vals.append(2 * ((observation - min)/(max - min)) - 1)
         return normal_vals
+    
+    def interpolate_val(self, x_min, x_max, y_min, y_max, val):
+        x = ((val - x_min)) * ((y_max - y_min)/(x_max - x_min)) + y_min
+        return x
 
     def _get_obs(self):
         obs = np.array([])
@@ -79,10 +86,9 @@ class ModelAction(Node):
             p.stepSimulation()
         
         action = action.tolist()
-
-        print(type(action))
-        for item in action:
-            print(type(item))
+        for i in range(4):
+            action[i] = self.interpolate_val(-1.0472, 1.0472, self.servo_lower[i], self.servo_upper[i], action[i])
+            action[i + 4] = self.interpolate_val(1.0472, -1.0472, self.servo_lower[i], self.servo_upper[i], action[i + 4])
 
         return action
     
