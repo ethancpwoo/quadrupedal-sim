@@ -86,10 +86,11 @@ class ModelAction(Node):
             p.stepSimulation()
         
         action = action.tolist()
-        for i in range(4):
-            action[i] = self.interpolate_val(-1.0472, 1.0472, self.servo_lower[i], self.servo_upper[i], action[i])
-            action[i + 4] = self.interpolate_val(1.0472, -1.0472, self.servo_lower[i], self.servo_upper[i], action[i + 4])
 
+        for i in range(4):
+            action[i] = self.interpolate_val(0, 1.0472, self.servo_lower[i], self.servo_upper[i], action[i])
+            action[i + 4] = self.interpolate_val(0, -1.0472, self.servo_lower[i+4], self.servo_upper[i+4], action[i + 4])
+        
         return action
     
     def execute_callback(self, goal_handle):

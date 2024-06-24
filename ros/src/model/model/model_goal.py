@@ -14,7 +14,7 @@ class ModelGoal(Node):
         super().__init__('model_action_client')
         self._action_client = ActionClient(self, Jointstate, 'jointstate')
         self.iters = 0
-        self.s = serial.Serial(port='/dev/ttyACM0', baudrate=9600)
+        self.s = serial.Serial(port='/dev/ttyACM1', baudrate=9600)
         while(1):
             self.s.flush()
             self.s.write(b'10010000000')
@@ -48,7 +48,7 @@ class ModelGoal(Node):
         for i in result.jointactions:
             print(i)
             self.s.write(str(i).encode() + b'\n')
-        time.sleep(0.5)
+        time.sleep(0.1)
         self.send_goal()
         self.iters += 1
         if self.iters == 250:
