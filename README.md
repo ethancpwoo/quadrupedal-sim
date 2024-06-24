@@ -18,15 +18,17 @@ The reward function will be based on the position of the chassis. Unlike the Sol
 
 DDPG (Deterministic Deep Policy Gradients) will be the approach for this problem. It is an actor-critic algorithm, the actor being a policy gradient and the critic being a DQN or Q-Network. The actor trains off the DQNs results and the rewards of its actions. DDPGs support multiple continuous actions which is perfect for a robotics application such as making a quadruped walk.
 
-Initial robot:
+### Initial robot:
 
 <p align="center">
   <img src="./sim/src/media/first_run/Screenshot%202024-05-11%20124036.png" />
 </p>
 
-Final robot:
+### Final robot:
 
-![Final robot](./sim/src/media/robotfinal.png)
+<p align="center">
+  <img src="./sim/src/media/robotfinal.png" />
+</p>
 
 ## Training Process
 
@@ -34,9 +36,15 @@ Agent will be provided chassis RPY and joint positions. Agent will generate acti
 
 First step:
 
-![First step](./sim/src/media/first_run/firstrun.gif)
+<p align="center">
+  <img src="./sim/src/media/first_run/firstrun.gif" />
+</p>
 
 Current model:
+
+<p align="center">
+  <img src="./sim/src/media/final.gif" />
+</p>
 
 ## Reward Values
 
@@ -58,7 +66,7 @@ cd ../sim/src/moving_model
 python moving_model.py
 
 ```
-https://github.com/ros2/ros2/issues/1094
+If you are having issues with setting venv and ROS2, it is a [known issue](https://github.com/ros2/ros2/issues/1094) with no fix yet.
 
 ROS:
 ```shell
