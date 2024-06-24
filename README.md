@@ -30,10 +30,6 @@ DDPG (Deterministic Deep Policy Gradients) will be the approach for this problem
   <img src="./sim/src/media/first_run/sim_1.png" />
 </p>
 
-<p align="center">
-  <img src="./sim/src/media/moving_robot.png" />
-</p>
-
 ### Final robot:
 
 <p align="center">
@@ -59,6 +55,8 @@ Current model:
 <p align="center">
   <img src="./sim/src/media/walkingirl.gif" />
 </p>
+
+** The centre of balance is since the battery is not installed, but no force is applied forward.
 
 ## Reward Values
 
