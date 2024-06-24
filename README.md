@@ -6,6 +6,8 @@ Using PyBullet to simulate quadrupedal robotic movement and PyTorch to implement
 
 Using ROS2 Humble to port actions to real robot through UART.
 
+STATUS: I have been working on this project for 3 months now, I will take a break and revisit with other improvements hopefully in the near future!
+
 ## Motivation
 
 The motivation of this project is robotics exploration and control system development. Robotics are fascinating and this being the first legitimate robot that I have created/implemented by myself brought engineering design challenges that I have yet to encounter in my previous experiences.
