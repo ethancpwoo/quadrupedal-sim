@@ -18,19 +18,23 @@ The reward function will be based on the position of the chassis. Unlike the Sol
 
 DDPG (Deterministic Deep Policy Gradients) will be the approach for this problem. It is an actor-critic algorithm, the actor being a policy gradient and the critic being a DQN or Q-Network. The actor trains off the DQNs results and the rewards of its actions. DDPGs support multiple continuous actions which is perfect for a robotics application such as making a quadruped walk.
 
+### Reward Values
+
+$`reward = 120 * (\Delta d) - sqrt((0.0522 - h)^2) - 0.1(|r| + |y|)`$
+
 ### Physical robot:
 
 <p align="center">
-  <img src="./sim/src/media/robot_irl.jpg>
+  <img src="./sim/src/media/robot_irl.jpg" />
 </p>
 
-### Initial robot:
+### Initial robot URDF:
 
 <p align="center">
   <img src="./sim/src/media/first_run/sim_1.png" />
 </p>
 
-### Final robot:
+### Final robot URDF:
 
 <p align="center">
   <img src="./sim/src/media/robotfinal.png" />
@@ -56,11 +60,13 @@ Current model:
   <img src="./sim/src/media/walkingirl.gif" />
 </p>
 
-** The centre of balance is since the battery is not installed, but no force is applied forward.
+** The centre of balance is off since the battery is not installed, my fingers lifts it up but no force is applied forward.
 
-## Reward Values
+## Future Improvements:
 
-$`reward = 120 * (\Delta d) - sqrt((0.0522 - h)^2) - 0.1(|r| + |y|)`$
+1) The current physical robot would need to be rebuilt and redesigned. The robot would have to be redesigned with PyBullet and the training model in mind, especially with respect to friction and the ability to "drag" the feet.
+
+2) The DDPG model works best for "ideal" quadrupeds IMO. Models that I have seen online use DDPG, but their simulations are not realistic (feet are "sticky" and centre of mass is directly in the middle of the robot). This allows random exploration to be much more successful. Instead of a random exploration policy (Ornstien-Uhlenbeck), an Epsilon Greedy Policy could be implemented instead. Instead of DDPG maybe a A2C or A3C (still Q-Learning w/ Policy Gradient), or try with a Multidimensional PPO. There are plenty of RL algorithms which could be effective, but more research would be required.
 
 ## Running
 
