@@ -18,7 +18,13 @@ The reward function will be based on the position of the chassis. Unlike the Sol
 
 DDPG (Deterministic Deep Policy Gradients) will be the approach for this problem. It is an actor-critic algorithm, the actor being a policy gradient and the critic being a DQN or Q-Network. The actor trains off the DQNs results and the rewards of its actions. DDPGs support multiple continuous actions which is perfect for a robotics application such as making a quadruped walk.
 
-![Initial robot](./sim/src/media/first_run/Screenshot%202024-05-11%20124036.png)
+Initial robot:
+
+<p align="center">
+  <img src="./sim/src/media/first_run/Screenshot%202024-05-11%20124036.png" />
+</p>
+
+Final robot:
 
 ![Final robot](./sim/src/media/robotfinal.png)
 
@@ -26,7 +32,11 @@ DDPG (Deterministic Deep Policy Gradients) will be the approach for this problem
 
 Agent will be provided chassis RPY and joint positions. Agent will generate action consisting of position control values for each DOF every 60 timesteps or every .25 seconds. Simulation will reset every 10 seconds (each episode is 10 seconds).
 
+First step:
+
 ![First step](./sim/src/media/first_run/firstrun.gif)
+
+Current model:
 
 ## Reward Values
 
