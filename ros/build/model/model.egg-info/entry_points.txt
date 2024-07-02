@@ -1,4 +1,0 @@
-[console_scripts]
-client = model.model_goal:main
-server = model.model_action:main
-

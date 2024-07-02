@@ -9,12 +9,16 @@ from action_state.action import Jointstate
 
 
 class ModelGoal(Node):
-
+    """
+    Define action client. Sends callback and communicates with arduino.
+    """
     def __init__(self):
         super().__init__('model_action_client')
         self._action_client = ActionClient(self, Jointstate, 'jointstate')
         self.iters = 0
         self.s = serial.Serial(port='/dev/ttyACM1', baudrate=9600)
+        
+        # config serial and flush all previous messages
         while(1):
             self.s.flush()
             self.s.write(b'10010000000')
@@ -43,6 +47,7 @@ class ModelGoal(Node):
         self._get_result_future.add_done_callback(self.get_result_callback)
 
     def get_result_callback(self, future):
+        # run 250 actions, same as simulations
         result = future.result().result
         self.get_logger().info('Result: {0}'.format(result.jointactions))
         for i in result.jointactions:

@@ -11,8 +11,11 @@ from rclpy.action import ActionServer
 from rclpy.node import Node
 
 class ModelAction(Node):
-    
+    """
+    Define action server. Sends the action while running simulation.
+    """
     def __init__(self):
+        # init simulation and server 
         super().__init__('model_action')
         self._action_server = ActionServer(self, Jointstate, 'jointstate', self.execute_callback)
         self.device = device = "cuda:0" if torch.cuda.is_available() else 'cpu'
@@ -37,6 +40,7 @@ class ModelAction(Node):
         self.lower_lims = [p.getJointInfo(self.robot, x)[8] for x in self.pos_array]
         self.upper_lims = [p.getJointInfo(self.robot, x)[9] for x in self.pos_array]
         
+        # limits from Arduino
         self.servo_lower = [315, 282, 88, 320, 282, 315, 510, 305]
         self.servo_upper = [488, 100, 280, 120, 92, 501, 320, 491]
 
@@ -68,7 +72,7 @@ class ModelAction(Node):
         obs = np.append(obs, self.normalize_obs(np.array(velocity_state[0]).flatten(), 0.06, -0.06)) # base velocity
         obs = np.append(obs, self.normalize_obs(np.array(velocity_state[1]).flatten(), 1.5, -1.5)) # base ang velocity
         obs = obs.flatten()
-        # print(obs)
+
         return obs
 
     def run_model(self):
@@ -89,7 +93,7 @@ class ModelAction(Node):
 
         for i in range(4):
             action[i] = self.interpolate_val(0, 1.0472, self.servo_lower[i], self.servo_upper[i], action[i])
-            action[i + 4] = self.interpolate_val(0, -1.0472, self.servo_lower[i+4], self.servo_upper[i+4], action[i + 4])
+            action[i + 4] = self.interpolate_val(0, -1.0472, self.servo_lower[i + 4], self.servo_upper[i + 4], action[i + 4])
         
         return action
     

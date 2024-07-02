@@ -1,5 +1,0 @@
-int32 result
----
-float32[] jointactions
----
-int32 partial_result

@@ -27,8 +27,8 @@ class QuadrupedEnv():
         self.last_pos = 0
         self.step_count = 0
         self.total_steps = 150
+        
         # Initialize for stepping the training
-
         self.render_mode = render_mode
         self.done = False
         self.init_pybullet()
@@ -39,6 +39,7 @@ class QuadrupedEnv():
         else:
             p.connect(p.DIRECT)
 
+        #set up simulation dynamics
         p.resetSimulation()
         p.setAdditionalSearchPath(pybullet_data.getDataPath())
         p.setGravity(0, 0, -9.81)
@@ -87,7 +88,7 @@ class QuadrupedEnv():
         obs = np.append(obs, self.normalize_obs(np.array(velocity_state[0]).flatten(), 0.06, -0.06)) # base velocity
         obs = np.append(obs, self.normalize_obs(np.array(velocity_state[1]).flatten(), 1.5, -1.5)) # base ang velocity
         obs = obs.flatten()
-        # print(obs)
+
         return obs
 
     def reset(self):
@@ -97,7 +98,7 @@ class QuadrupedEnv():
         return self._get_obs()
     
     def step(self, action, epsilon):
-        # print(action)
+        #initialize actions
         action[0:2] = np.clip(action[0:2] + np.array([max(epsilon, 0) * self.orn_uhlen.OU(action[x], 0.5, 0.1, 0.8) for x in range(2)]).flatten(), 0, 1)
         action[2:4] = np.clip(action[2:4] + np.array([max(epsilon, 0) * self.orn_uhlen.OU(action[x], 0.5, 0.1, 0.8) for x in range(2)]).flatten(), 0, 1)
         action[4:6] = np.clip(action[4:6] + np.array([max(epsilon, 0) * self.orn_uhlen.OU(action[x], 0.5, 0.1, 0.8) for x in range(2)]).flatten(), 0, 1)

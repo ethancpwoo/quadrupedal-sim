@@ -135,6 +135,7 @@ p.disconnect()
 
 grapher.graph_params(reward_acc, env.final_positions, actor_losses, critic_losses, env.reward_vel, env.reward_time, env.reward_height, env.reward_rotations)
 
+# save models
 torch.save(actor.state_dict(), './saved_models/actor.pt')
 torch.save(critic.state_dict(), './saved_models/critic.pt')
 torch.save(actor_target.state_dict(), './saved_models/actor_target.pt')
